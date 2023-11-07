@@ -19,52 +19,54 @@
             <div class="flex justify-between items-center">
                 <form action="{{ route('users') }}" method="GET">
                     <div class="flex gap-4">
-                        <input type="text" name="name" placeholder="Search by name" value="{{ $name }}">
-                        <select name="role" id="role">
+                        <input class="rounded-md" type="text" name="name" placeholder="Search by name" value="{{ $name }}">
+                        <select class="rounded-md"name="role" id="role">
                             <option value="">All</option>
                             <option {{ $role === 'admin' ? 'selected' : '' }} value="admin">Admin</option>
                             <option {{ $role === 'guard' ? 'selected' : '' }} value="guard">Guard</option>
                             <option {{ $role === 'resident' ? 'selected' : '' }} value="resident">Resident</option>
                             <option {{ $role === 'driver' ? 'selected' : '' }} value="driver">Tricycle Driver</option>
                         </select>
-                        <button>Search</button>
+                        <button class="bg-orange-100 px-4 py-2 rounded-md">Search</button>
                     </div>
                 </form>
                 <a href="{{ route('users.create') }}" class="bg-white px-4 py-2 rounded-md">Add</a>
             </div>
-            <table class="w-full bg-gray-100">
-                <thead>
-                    <tr>
-                        <td>ID Picture</td>
-                        <td>Name</td>
-                        <td>Contact no.</td>
-                        <td>Role</td>
-                        <td>Actions</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
+            <div class="pt-5 ">  
+                <table class="w-full bg-gray-100 rounded-md ">
+                    <thead class="bg-orange-200">
                         <tr>
-                            <td>Picture</td>
-                            <td>{{ $user->name }}</td>
-                            <td>Contact</td>
-                            <td>{{ $user->role }}</td>
-                            <td>
-                                <div class=flex gap-2">
-                                    <a href={{ route('users.show', $user->id) }}
-                                        class="bg-blue-500 px-4 py-2 rounded-md">View</a>
-                                    <a href={{ route('users.edit', $user->id) }}
-                                        class="bg-blue-500 px-4 py-2 rounded-md">Edit</a>
-                                    <form action={{ route('users.destroy', $user->id) }} method="POST">
-                                        @csrf
-                                        <button class="bg-red-500 px-4 py-2 rounded-md">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
+                            <td>ID Picture</td>
+                            <td>Name</td>
+                            <td>Contact no.</td>
+                            <td>Role</td>
+                            <td class="text-center">Actions</td>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>Picture</td>
+                                <td>{{ $user->name }}</td>
+                                <td>Contact</td>
+                                <td>{{ $user->role }}</td>
+                                <td>
+                                    <div class="flex justify-center gap-2">
+                                        <a href={{ route('users.show', $user->id) }}
+                                            class="bg-orange-300 px-2 py-2 rounded-md flex gap-2">View</a>
+                                        <a href={{ route('users.edit', $user->id) }}
+                                            class="bg-orange-300 px-4 py-2 rounded-md flex gap-2">Edit</a>
+                                        <form action={{ route('users.destroy', $user->id) }} method="POST">
+                                            @csrf
+                                            <button class="bg-red-500 px-2 py-2 rounded-md">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </x-app-layout>
