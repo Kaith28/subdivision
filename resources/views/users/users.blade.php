@@ -19,7 +19,8 @@
             <div class="flex justify-between items-center">
                 <form action="{{ route('users') }}" method="GET">
                     <div class="flex gap-4">
-                        <input class="rounded-md" type="text" name="name" placeholder="Search by name" value="{{ $name }}">
+                        <input class="rounded-md" type="text" name="name" placeholder="Search by name"
+                            value="{{ $name }}">
                         <select class="rounded-md"name="role" id="role">
                             <option value="">All</option>
                             <option {{ $role === 'admin' ? 'selected' : '' }} value="admin">Admin</option>
@@ -27,14 +28,14 @@
                             <option {{ $role === 'resident' ? 'selected' : '' }} value="resident">Resident</option>
                             <option {{ $role === 'driver' ? 'selected' : '' }} value="driver">Tricycle Driver</option>
                         </select>
-                        <button class="bg-orange-100 px-4 py-2 rounded-md">Search</button>
+                        <button class="bg-gray-300 px-4 py-2 rounded-md">Search</button>
                     </div>
                 </form>
-                <a href="{{ route('users.create') }}" class="bg-white px-4 py-2 rounded-md">Add</a>
+                <a href="{{ route('users.create') }}" class="bg-gray-300 px-4 py-2 rounded-md">Add</a>
             </div>
-            <div class="pt-5 ">  
-                <table class="w-full bg-gray-100 rounded-md ">
-                    <thead class="bg-orange-200">
+            <div class="pt-8 ">
+                <table class="w-full bg-gray-300 ">
+                    <thead class="bg-gray-300">
                         <tr>
                             <td>ID Picture</td>
                             <td>Name</td>
@@ -43,7 +44,7 @@
                             <td class="text-center">Actions</td>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-gray-200">
                         @foreach ($users as $user)
                             <tr>
                                 <td>Picture</td>
