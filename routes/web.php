@@ -36,5 +36,7 @@ Route::get('/users/{id}', [UserController::class, 'show'])->middleware(['auth', 
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('users.edit');
 Route::post('/users/{id}', [UserController::class, 'update'])->middleware(['auth', 'verified'])->name('users.update');
 Route::post('/users/{id}/destroy', [UserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('users.destroy');
+Route::get('/download/{qr code}', 'DownloadController@download')->name('download');
+
 
 require __DIR__ . '/auth.php';

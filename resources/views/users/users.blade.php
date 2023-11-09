@@ -27,10 +27,10 @@
                             <option {{ $role === 'resident' ? 'selected' : '' }} value="resident">Resident</option>
                             <option {{ $role === 'driver' ? 'selected' : '' }} value="driver">Tricycle Driver</option>
                         </select>
-                        <button class="bg-orange-100 px-4 py-2 rounded-md">Search</button>
+                        <button class="bg-blue-100 px-4 py-2 rounded-md">Search</button>
                     </div>
                 </form>
-                <a href="{{ route('users.create') }}" class="bg-white px-4 py-2 rounded-md">Add</a>
+                <a href="{{ route('users.create') }}" class="bg-blue px-4 py-2 rounded-md">Add</a>
             </div>
             <div class="pt-5 ">  
                 <table class="w-full bg-gray-100 rounded-md ">
@@ -53,9 +53,9 @@
                                 <td>
                                     <div class="flex justify-center gap-2">
                                         <a href={{ route('users.show', $user->id) }}
-                                            class="bg-orange-300 px-2 py-2 rounded-md flex gap-2">View</a>
+                                            class="bg-gray-300 px-2 py-2 rounded-md flex gap-2">View</a>
                                         <a href={{ route('users.edit', $user->id) }}
-                                            class="bg-orange-300 px-4 py-2 rounded-md flex gap-2">Edit</a>
+                                            class="bg-blue-300 px-4 py-2 rounded-md flex gap-2">Edit</a>
                                         <form action={{ route('users.destroy', $user->id) }} method="POST">
                                             @csrf
                                             <button class="bg-red-500 px-2 py-2 rounded-md">Delete</button>
