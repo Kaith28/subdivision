@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\GuestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
@@ -36,5 +37,7 @@ Route::get('/users/{id}', [UserController::class, 'show'])->middleware(['auth', 
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('users.edit');
 Route::post('/users/{id}', [UserController::class, 'update'])->middleware(['auth', 'verified'])->name('users.update');
 Route::post('/users/{id}/destroy', [UserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('users.destroy');
+
+Route::get('/guest', [GuestController::class, 'index'])->middleware(['auth', 'verified'])->name('guest');
 
 require __DIR__ . '/auth.php';
