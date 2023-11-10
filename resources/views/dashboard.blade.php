@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Admin') }}
         </h2>
     </x-slot>
 
@@ -11,6 +11,27 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
+                <div class="flex">
+                    <!-- Sidebar -->
+                    <div class="w-1/5 bg-gray-800 h-screen p-4">
+                      <ul>
+                        <li class="mb-2">
+                          <a href="#" class="text-white hover:text-gray-300">Dashboard</a>
+                        </li>
+                        <li class="mb-2">
+                          <a href="#" class="text-white hover:text-gray-300">Profile</a>
+                        </li>
+                        <li class="mb-2">
+                          <a href="#" class="text-white hover:text-gray-300">Settings</a>
+                        </li>
+                      </ul>
+                    </div>
+                  
+                    <!-- Main Content -->
+                    <div class="w-4/5 p-4">
+                      <!-- Your main content goes here -->
+                    </div>
+                  </div>
             </div>
         </div>
     </div>
