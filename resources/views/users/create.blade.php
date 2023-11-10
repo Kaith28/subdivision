@@ -75,7 +75,7 @@
                 </div> --}}
 
                 <!-- Add -->
-                <div class="mt-4">
+                <div class=" mt-4">
                     <x-primary-button>
                         {{ __('Add') }}
                     </x-primary-button>
