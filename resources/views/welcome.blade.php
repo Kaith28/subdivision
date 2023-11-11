@@ -67,7 +67,7 @@
     <section>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 ">
             <div class="text-center pb-10">
-                <h2 class="text-4xl">Our Features</h2>
+                <h2 class="text-4xl"><b>Our Features</b></h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4">
@@ -101,8 +101,17 @@
     </section>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 ">
         <div class="text-center pb-10">
-            <h2 class="text-4xl">How To Reach Us?</h2>
+            <h2 class="text-4xl"><b>How To Reach Us?</b></h2>
         </div>
+
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="flex flex-col items-center shadow-lg rounded-md p-4">
+                <img class="w-20 h-20" src="/emaillogo.png" alt="">
+                <p class="text-1xl ">
+                   smartsubdivision_security@gmail.com
+                </p>
+            </div>
     </div>
 <section>
 
