@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,5 +44,6 @@ Route::get('/download/{qr code}', 'DownloadController@download')->name('download
 /* Admin routes */
 Route::get('/admin', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin');
 Route::get('/guard', [GuardController::class, 'index'])->middleware(['auth', 'verified'])->name('guard');
+Route::get('/resident', [ResidentController::class, 'index'])->middleware(['auth', 'verified'])->name('resident');
 
 require __DIR__ . '/auth.php';
