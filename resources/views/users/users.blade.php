@@ -65,7 +65,7 @@
                                 <td class="px-2 ">Picture</td>
                                 <td class="px-2">{{ $user->name }}</td>
                                 <td class="px-2">Contact</td>
-                                <td class="px-2">{{ $user->role }}</td>
+                                <td class="px-2">{{ ucfirst($user->role) }}</td>
                                 <td class="px-2">
                                     <div class="flex justify-center gap-2">
                                         <a href={{ route('users.show', $user->id) }}
