@@ -52,6 +52,8 @@ Route::post('/admin/create', [AdminController::class, 'store'])->middleware(['au
 
 /* Guard routes */
 Route::get('/guard', [GuardController::class, 'index'])->middleware(['auth', 'verified'])->name('guard');
+Route::get('/guard/create', [GuardController::class, 'create'])->middleware(['auth', 'verified'])->name('guard.create');
+Route::post('/guard/create', [GuardController::class, 'store'])->middleware(['auth', 'verified'])->name('guard.store');
 
 /* Resident routes */
 Route::get('/resident', [ResidentController::class, 'index'])->middleware(['auth', 'verified'])->name('resident');
