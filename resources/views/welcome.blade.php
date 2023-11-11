@@ -99,6 +99,14 @@
             </div>
         </div>
     </section>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 ">
+        <div class="text-center pb-10">
+            <h2 class="text-4xl">How To Reach Us?</h2>
+        </div>
+    </div>
+<section>
+
+</section>
 </body>
 
 </html>
