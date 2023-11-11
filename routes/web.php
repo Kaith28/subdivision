@@ -62,5 +62,7 @@ Route::post('/resident/create', [ResidentController::class, 'store'])->middlewar
 
 /* Tricycle Driver routes */
 Route::get('/tricycledriver', [TricycleDriverController::class, 'index'])->middleware(['auth', 'verified'])->name('tricycledriver');
+Route::get('/tricycledriver/create', [TricycleDriverController::class, 'create'])->middleware(['auth', 'verified'])->name('tricycledriver.create');
+Route::post('/tricycledriver/create', [TricycleDriverController::class, 'store'])->middleware(['auth', 'verified'])->name('tricycledriver.store');
 
 require __DIR__ . '/auth.php';
