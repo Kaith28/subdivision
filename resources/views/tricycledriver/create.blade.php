@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center shadow-lg rounded-md p-4">
             <form method="POST" action="">
                 @csrf
 
@@ -32,6 +32,13 @@
                     <x-text-input id="plate_no" class="block mt-1 w-full" type="text" name="plate_no"
                         :value="old('plate_no')" required autofocus autocomplete="plate_no" />
                     <x-input-error :messages="$errors->get('plate_no')" class="mt-2" />
+                </div>
+
+                 <!-- Upload photo -->
+
+                 <div class="mb-4">
+                    <label for="photo" class="block text-sm font-semibold text-gray-600">Add Photo</label>
+                    <input type="file" id="photo" name="photo" class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
                 </div>
 
                 {{-- <!-- Address -->
