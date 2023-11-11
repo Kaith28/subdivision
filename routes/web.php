@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
@@ -38,5 +39,7 @@ Route::post('/users/{id}', [UserController::class, 'update'])->middleware(['auth
 Route::post('/users/{id}/destroy', [UserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('users.destroy');
 Route::get('/download/{qr code}', 'DownloadController@download')->name('download');
 
+/* Admin routes */
+Route::get('/admin', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin');
 
 require __DIR__ . '/auth.php';
