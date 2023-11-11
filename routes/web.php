@@ -44,8 +44,19 @@ Route::get('/download/{qr code}', 'DownloadController@download')->name('download
 
 /* Admin routes */
 Route::get('/admin', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin');
+Route::get('/admin/create', [AdminController::class, 'create'])->middleware(['auth', 'verified'])->name('admin.create');
+Route::post('/admin/create', [AdminController::class, 'store'])->middleware(['auth', 'verified'])->name('admin.store');
+
+
+
+
+/* Guard routes */
 Route::get('/guard', [GuardController::class, 'index'])->middleware(['auth', 'verified'])->name('guard');
+
+/* Resident routes */
 Route::get('/resident', [ResidentController::class, 'index'])->middleware(['auth', 'verified'])->name('resident');
+
+/* Tricycle Driver routes */
 Route::get('/tricycledriver', [TricycleDriverController::class, 'index'])->middleware(['auth', 'verified'])->name('tricycledriver');
 
 require __DIR__ . '/auth.php';
