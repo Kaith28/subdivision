@@ -71,16 +71,17 @@ class GuardController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            /* 'contact_no' => ['required', 'string', 'max:255'], */
-            'role' => ['required', 'string'],
-            /* 'photo' => ['required', 'string'], */
+            'email' => ['required', 'string', 'max:255'],
+            'contact_no' => ['required', 'string', 'max:255'],
+            'photo' => ['required', 'string'],
         ]);
 
         $user = User::findOrFail($request->id);
 
         $user->name = $request->name;
+        $user->email = $request->email;
         $user->contact_no = $request->contact_no;
-        $user->role = $request->role;
+
         $user->save();
 
         return redirect()->route('guard')->with('success', 'Updated user successfully');
