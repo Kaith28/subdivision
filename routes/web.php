@@ -76,5 +76,8 @@ Route::post('/guest/create', [GuestController::class, 'store'])->middleware(['au
 Route::get('/tricycledriver', [TricycleDriverController::class, 'index'])->middleware(['auth', 'verified'])->name('tricycledriver');
 Route::get('/tricycledriver/create', [TricycleDriverController::class, 'create'])->middleware(['auth', 'verified'])->name('tricycledriver.create');
 Route::post('/tricycledriver/create', [TricycleDriverController::class, 'store'])->middleware(['auth', 'verified'])->name('tricycledriver.store');
+Route::get('/tricycledriver/{id}', [TricycleDriverController::class, 'show'])->middleware(['auth', 'verified'])->name('tricycledriver.show');
+Route::get('/tricycledriver/{id}/edit', [TricycleDriverController::class, 'edit'])->middleware(['auth', 'verified'])->name('tricycledriver.edit');
+Route::post('/tricycledriver/{id}', [TricycleDriverController::class, 'update'])->middleware(['auth', 'verified'])->name('tricycledriver.update');
 
 require __DIR__ . '/auth.php';

@@ -22,7 +22,7 @@
                 <div class="mt-4">
                     <x-input-label for="email" :value="__('Email')" />
                     <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
-                        :value="$user->name" required autocomplete="username" />
+                        :value="$user->email" required autocomplete="username" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
@@ -30,15 +30,15 @@
                 <div class="mt-4">
                     <x-input-label for="contact_no" :value="__('Contact no.')" />
                     <x-text-input id="contact_no" class="block mt-1 w-full" type="text" name="contact_no"
-                        :value="old('contact_no')" required autofocus autocomplete="contact_no" />
+                        :value="$user->contact_no" required autofocus autocomplete="contact_no" />
                     <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
                 </div>
 
                 <!-- Upload photo -->
                 <div class="mt-4">
                     <x-input-label for="photo" :value="__('Add Photo')" />
-                    <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo"
-                        :value="old('photo')" required autofocus autocomplete="photo" />
+                    <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo" required
+                        autofocus autocomplete="photo" />
                     <x-input-error :messages="$errors->get('photo')" class="mt-2" />
                 </div>
 
