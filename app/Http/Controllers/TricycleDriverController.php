@@ -37,16 +37,48 @@ class TricycleDriverController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'contact_no' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
-            /* 'photo' => ['required', 'string'], */
+            'photo' => ['required', 'string'],
         ]);
 
         User::create([
             'name' => $request->name,
             'contact_no' => $request->contact_no,
             'plate_no' => $request->plate_no,
-            'role' => 'driver',
+
         ]);
 
         return redirect()->route('tricycledriver');
+    }
+    public function show(Request $request)
+    {
+        $user = user::findOrFail($request->id);
+        return view('tricycledriver.show')->with('user', $user);
+    }
+
+    public function edit(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        return view('tricycledriver.edit')
+            ->with('user', $user);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'contact_no' => ['required', 'string', 'max:255'],
+            'plate_no' => ['required', 'string', 'max:255'],
+            'photo' => ['required', 'string'],
+        ]);
+
+        $user = User::findOrFail($request->id);
+
+        $user->name = $request->name;
+        $user->contact_no = $request->contact_no;
+        $user->plate_no = $request->plate_no;
+
+        $user->save();
+
+        return redirect()->route('tricycledriver')->with('success', 'Updated user successfully');
     }
 }
