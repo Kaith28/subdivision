@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Create TricycleDriver') }}
+            {{ __('Create Tricycle Driver') }}
         </h2>
     </x-slot>
 
@@ -34,22 +34,14 @@
                     <x-input-error :messages="$errors->get('plate_no')" class="mt-2" />
                 </div>
 
-                
-
-                {{-- <!-- Address -->
-                <div class="mt-4">
-                    <x-input-label for="address" :value="__('Address')" />
-                    <x-text-input id="address" class="block mt-1 w-full" type="text" name="address"
-                        :value="old('address')" required autofocus autocomplete="address" />
-                    <x-input-error :messages="$errors->get('address')" class="mt-2" />
-                </div> --}}
 
                 <!-- Upload photo -->
                 <div class="mb-4">
                     <label for="photo" class="block text-sm font-semibold text-gray-600">Add Photo</label>
-                    <input type="file" id="photo" name="photo" class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
-                    
-                </div> 
+                    <input type="file" id="photo" name="photo"
+                        class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+
+                </div>
 
                 <!-- Add -->
                 <div class=" mt-4">
