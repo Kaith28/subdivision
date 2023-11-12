@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Edit User') }}
+            {{ __('Edit Users') }}
         </h2>
     </x-slot>
 
@@ -19,12 +19,12 @@
                 </div>
 
                 <!--- contact -->
-                 <div class="mt-4">
+                <div class="mt-4">
                     <x-input-label for="contact_no" :value="__('Contact no.')" />
                     <x-text-input id="contact_no" class="block mt-1 w-full" type="text" name="contact_no"
                         :value="old('contact_no')" required autofocus autocomplete="contact_no" />
                     <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
-                </div> 
+                </div>
 
                 <!-- Role -->
                 <div class="mt-4">
@@ -40,12 +40,12 @@
                 </div>
 
                 <!-- Upload photo -->
-               <div class="mt-4">
+                <div class="mt-4">
                     <x-input-label for="photo" :value="__('Add Photo')" />
                     <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo"
                         :value="old('photo')" required autofocus autocomplete="photo" />
                     <x-input-error :messages="$errors->get('photo')" class="mt-2" />
-                </div> 
+                </div>
 
                 <!-- Add -->
                 <div class="mt-4">
