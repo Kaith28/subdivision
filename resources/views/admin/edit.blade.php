@@ -1,21 +1,29 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Edit Users') }}
+            {{ __('Edit Admin') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-            <form method="POST" action={{ route('users.update', $user->id) }}>
+            <form method="POST" action={{ route('admin.update', $user->id) }}>
                 @csrf
 
                 <!-- Name -->
-                <div>
+                <div class="mt-4">
                     <x-input-label for="name" :value="__('Name')" />
                     <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="$user->name"
                         required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                </div>
+
+                <!-- Email Address -->
+                <div class="mt-4">
+                    <x-input-label for="email" :value="__('Email')" />
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
+                        :value="$user->name" required autocomplete="username" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <!--- contact -->
@@ -49,7 +57,7 @@
 
                 <!-- Add -->
                 <div class="mt-4">
-                    <button type="submit" class="bg-blue-500 px-4 py-2 rounded-md">Update</button>
+                    <button type="submit" class="bg-orange-200 px-4 py-2 rounded-md">Update</button>
                 </div>
 
             </form>

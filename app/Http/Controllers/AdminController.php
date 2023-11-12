@@ -41,7 +41,7 @@ class AdminController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'contact_no' => ['required', 'string', 'max:255'],
-            /* 'photo' => ['required', 'string'], */
+            'photo' => ['required', 'string'],
         ]);
 
         User::create([
@@ -53,5 +53,37 @@ class AdminController extends Controller
         ]);
 
         return redirect()->route('admin');
+    }
+
+    public function show(Request $request)
+    {
+        $user = user::findOrFail($request->id);
+        return view('admin.show')->with('admin', $user);
+    }
+
+    public function edit(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        return view('admin.edit')
+            ->with('user', $user);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            /* 'contact_no' => ['required', 'string', 'max:255'], */
+            'role' => ['required', 'string'],
+            /* 'photo' => ['required', 'string'], */
+        ]);
+
+        $user = User::findOrFail($request->id);
+
+        $user->name = $request->name;
+        $user->contact_no = $request->contact_no;
+        $user->role = $request->role;
+        $user->save();
+
+        return redirect()->route('admin')->with('success', 'Updated user successfully');
     }
 }
