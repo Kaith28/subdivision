@@ -75,5 +75,12 @@
 
     </section>
 </body>
+<table width="100%" cellspacing="0" cellpadding="0" style="position: fixed; bottom: 0;">
+    <tr>
+        <td style="background-color: #333; color: #fff; text-align: center; padding: 10px;">
+            &copy; 2023 Subdivision. All rights reserved.
+        </td>
+    </tr>
+</table>
 
 </html>
