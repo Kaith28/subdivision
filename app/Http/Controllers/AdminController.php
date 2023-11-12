@@ -72,16 +72,17 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            /* 'contact_no' => ['required', 'string', 'max:255'], */
-            'role' => ['required', 'string'],
-            /* 'photo' => ['required', 'string'], */
+            'email' => ['required', 'string', 'max:255'],
+            'contact_no' => ['required', 'string', 'max:255'],
+
         ]);
 
         $user = User::findOrFail($request->id);
 
         $user->name = $request->name;
+        $user->email = $request->email;
         $user->contact_no = $request->contact_no;
-        $user->role = $request->role;
+
         $user->save();
 
         return redirect()->route('admin')->with('success', 'Updated user successfully');

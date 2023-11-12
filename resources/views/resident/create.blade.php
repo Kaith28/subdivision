@@ -42,20 +42,13 @@ div<x-app-layout>
                     <x-input-error :messages="$errors->get('address')" class="mt-2" />
                 </div>
 
-                 <!-- Upload photo -->
-
-                 <div class="mb-4">
-                    <label for="photo" class="block text-sm font-semibold text-gray-600">Add Photo</label>
-                    <input type="file" id="photo" name="photo" class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
-                </div>
-
                 <!-- Upload photo -->
-                {{-- <div class="mt-4">
-                    <x-input-label for="photo" :value="__('Photo')" />
-                    <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo"
-                        :value="old('photo')" required autofocus autocomplete="photo" />
-                    <x-input-error :messages="$errors->get('photo')" class="mt-2" />
-                </div> --}}
+
+                <div class="mt-4">
+                    <x-input-label for="address" :value="__('Add Photo')" />
+                    <input type="file" id="photo" name="photo"
+                        class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-orange-300">
+                </div>
 
                 <!-- Add -->
                 <div class=" mt-4">
