@@ -52,9 +52,9 @@
                 <table class="w-full  rounded-lg shadow-lg">
                     <thead>
                         <tr class="bg-gray-300 rounded-lg">
-                            <td class="px-2 rounded-tl-lg">ID Picture</td>
+                            <td class="px-2 rounded-tl-lg">Picture</td>
                             <td class="px-2">Name</td>
-                            <td class="px-2">Contact no.</td>
+                            <td class="px-2">Contact #</td>
                             <td class="px-2">Role</td>
                             <td class="px-2 rounded-tr-lg text-center">Actions</td>
                         </tr>

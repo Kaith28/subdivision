@@ -45,7 +45,7 @@
                 <table class="w-full  rounded-lg shadow-lg">
                     <thead>
                         <tr class="bg-gray-300 rounded-lg">
-                            <td class="px-2 rounded-tl-lg">ID Picture</td>
+                            <td class="px-2 rounded-tl-lg">Picture</td>
                             <td class="px-2">Name</td>
                             <td class="px-2">Contact no.</td>
                             <td class="px-2">Plate no.</td>
@@ -57,7 +57,7 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
-                                <td class="px-2 ">Picture</td>
+                                <td class="px-2 ">{{Picture}}</td>
                                 <td class="px-2">{{ $user->name }}</td>
                                 <td class="px-2">{{ $user->contact_no }}</td>
                                 <td class="px-2">{{ $user->plate_no }}</td>
