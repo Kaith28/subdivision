@@ -47,14 +47,17 @@ Route::get('/download/{qr code}', 'DownloadController@download')->name('download
 Route::get('/admin', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin');
 Route::get('/admin/create', [AdminController::class, 'create'])->middleware(['auth', 'verified'])->name('admin.create');
 Route::post('/admin/create', [AdminController::class, 'store'])->middleware(['auth', 'verified'])->name('admin.store');
-
-
-
+Route::get('/admin/{id}', [AdminController::class, 'show'])->middleware(['auth', 'verified'])->name('admin.show');
+Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->middleware(['auth', 'verified'])->name('admin.edit');
+Route::post('/admin/{id}', [AdminController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
 
 /* Guard routes */
 Route::get('/guard', [GuardController::class, 'index'])->middleware(['auth', 'verified'])->name('guard');
 Route::get('/guard/create', [GuardController::class, 'create'])->middleware(['auth', 'verified'])->name('guard.create');
 Route::post('/guard/create', [GuardController::class, 'store'])->middleware(['auth', 'verified'])->name('guard.store');
+Route::get('/guard/{id}', [GuardController::class, 'show'])->middleware(['auth', 'verified'])->name('guard.show');
+Route::get('/guard/{id}/edit', [GuardController::class, 'edit'])->middleware(['auth', 'verified'])->name('guard.edit');
+Route::post('/guard/{id}', [GuardController::class, 'update'])->middleware(['auth', 'verified'])->name('guard.update');
 
 /* Resident routes */
 Route::get('/resident', [ResidentController::class, 'index'])->middleware(['auth', 'verified'])->name('resident');
