@@ -10,35 +10,28 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Users') }}
+            {{ __('Admin') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
-                <form action="{{ route('users') }}" method="GET">
+                <form action="{{ route('admin') }}" method="GET">
                     <div class="flex gap-4">
                         <input class="rounded-md" type="text" name="name" placeholder="Search by name"
                             value="{{ $name }}">
-                        <select class="rounded-md"name="role" id="role">
-                            <option value="">All</option>
-                            <option {{ $role === 'admin' ? 'selected' : '' }} value="admin">Admin</option>
-                            <option {{ $role === 'guard' ? 'selected' : '' }} value="guard">Guard</option>
-                            <option {{ $role === 'resident' ? 'selected' : '' }} value="resident">Resident</option>
-                            <option {{ $role === 'driver' ? 'selected' : '' }} value="driver">Tricycle Driver</option>
-                        </select>
                         <button class="bg-orange-200 hover:bg-orange-300 px-4 py-2 rounded-md "><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
                                 <path
                                     d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                             </svg></button>
-                        <a href="{{ route('users') }}"
+                        <a href="{{ route('admin') }}"
                             class="border border-black hover:bg-orange-200 px-2 py-2 rounded-md ">Clear</a>
                     </div>
                 </form>
-                <a href="{{ route('users.create') }}"
+                <a href="{{ route('admin.create') }}"
                     class=" px-4 py-2 flex items-center gap-2 bg-orange-200 hover:bg-orange-300 rounded-md "><svg
                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-person-add" viewBox="0 0 16 16">
@@ -54,6 +47,7 @@
                         <tr class="bg-gray-300 rounded-lg">
                             <td class="px-2 rounded-tl-lg">ID Picture</td>
                             <td class="px-2">Name</td>
+                            <td class="px-2">Email</td>
                             <td class="px-2">Contact no.</td>
                             <td class="px-2">Role</td>
                             <td class="px-2 rounded-tr-lg text-center">Actions</td>
@@ -64,10 +58,11 @@
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
                                 <td class="px-2 ">Picture</td>
                                 <td class="px-2">{{ $user->name }}</td>
-                                <td class="px-2">Contact</td>
+                                <td class="px-2">{{ $user->email }}</td>
+                                <td class="px-2">{{ $user->contact_no }}</td>
                                 <td class="px-2">{{ ucfirst($user->role) }}</td>
                                 <td class="px-2">
-                                    <div class="flex justify-center gap-2">
+                                      <div class="flex justify-center gap-2">
                                         <a href={{ route('users.show', $user->id) }}
                                             class=" px-2 py-2 hover:bg-gray-200 rounded-md"><svg
                                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -97,7 +92,7 @@
                                                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
                                                 </svg></button>
                                         </form>
-                                    </div>
+                                    </div> 
                                 </td>
                             </tr>
                         @endforeach

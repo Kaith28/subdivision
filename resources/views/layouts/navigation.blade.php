@@ -16,7 +16,19 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
-                        {{ __('Users') }}
+                        {{ __('All Users') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                        {{ __('Admin') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('guard')" :active="request()->routeIs('guard')">
+                        {{ __('Guard') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('resident')" :active="request()->routeIs('resident')">
+                        {{ __('Resident') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('tricycledriver')" :active="request()->routeIs('tricycledriver')">
+                        {{ __('Tricycle Driver') }}
                     </x-nav-link>
                 </div>
             </div>

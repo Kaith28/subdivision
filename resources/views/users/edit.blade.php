@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center shadow-lg rounded-md p-4">
             <form method="POST" action={{ route('users.update', $user->id) }}>
                 @csrf
 
@@ -18,13 +18,13 @@
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
 
-                <!-- TODO: Contact no. -->
-                {{-- <div class="mt-4">
+                <!--- contact -->
+                 <div class="mt-4">
                     <x-input-label for="contact_no" :value="__('Contact no.')" />
                     <x-text-input id="contact_no" class="block mt-1 w-full" type="text" name="contact_no"
                         :value="old('contact_no')" required autofocus autocomplete="contact_no" />
                     <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
-                </div> --}}
+                </div> 
 
                 <!-- Role -->
                 <div class="mt-4">
@@ -40,12 +40,12 @@
                 </div>
 
                 <!-- Upload photo -->
-                {{-- <div class="mt-4">
-                    <x-input-label for="photo" :value="__('Photo')" />
+               <div class="mt-4">
+                    <x-input-label for="photo" :value="__('Add Photo')" />
                     <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo"
                         :value="old('photo')" required autofocus autocomplete="photo" />
                     <x-input-error :messages="$errors->get('photo')" class="mt-2" />
-                </div> --}}
+                </div> 
 
                 <!-- Add -->
                 <div class="mt-4">

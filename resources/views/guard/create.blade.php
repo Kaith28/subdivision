@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Create User') }}
+            {{ __('Create Guard') }}
         </h2>
     </x-slot>
 
@@ -54,30 +54,13 @@
                     <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
                 </div>
 
-                <div class="mb-4">
-                    <label for="photo" class="block text-sm font-semibold text-gray-600">Add Photo</label>
-                    <input type="file" id="photo" name="photo" class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
-                </div>
-
-                <!-- Role -->
-                <div class="mt-4">
-                    <x-input-label for="role" :value="__('Role')" />
-                    <select name="role" id="role">
-                        <option value="admin">Admin</option>
-                        <option value="guard">Guard</option>
-                        <option value="resident">Resident</option>
-                        <option value="driver">Tricycle Driver</option>
-                    </select>
-                    <x-input-error :messages="$errors->get('role')" class="mt-2" />
-                </div>
-
-                <!-- Upload photo -->
-                {{-- <div class="mt-4">
-                    <x-input-label for="photo" :value="__('Photo')" />
+                 <!-- Upload photo -->
+                 <div class="mt-4">
+                    <x-input-label for="photo" :value="__('Add Photo')" />
                     <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo"
                         :value="old('photo')" required autofocus autocomplete="photo" />
                     <x-input-error :messages="$errors->get('photo')" class="mt-2" />
-                </div> --}}
+                </div> 
 
                 <!-- Add -->
                 <div class=" mt-4">

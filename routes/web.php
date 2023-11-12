@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GuardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResidentController;
+use App\Http\Controllers\TricycleDriverController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,5 +42,27 @@ Route::post('/users/{id}', [UserController::class, 'update'])->middleware(['auth
 Route::post('/users/{id}/destroy', [UserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('users.destroy');
 Route::get('/download/{qr code}', 'DownloadController@download')->name('download');
 
+/* Admin routes */
+Route::get('/admin', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin');
+Route::get('/admin/create', [AdminController::class, 'create'])->middleware(['auth', 'verified'])->name('admin.create');
+Route::post('/admin/create', [AdminController::class, 'store'])->middleware(['auth', 'verified'])->name('admin.store');
+
+
+
+
+/* Guard routes */
+Route::get('/guard', [GuardController::class, 'index'])->middleware(['auth', 'verified'])->name('guard');
+Route::get('/guard/create', [GuardController::class, 'create'])->middleware(['auth', 'verified'])->name('guard.create');
+Route::post('/guard/create', [GuardController::class, 'store'])->middleware(['auth', 'verified'])->name('guard.store');
+
+/* Resident routes */
+Route::get('/resident', [ResidentController::class, 'index'])->middleware(['auth', 'verified'])->name('resident');
+Route::get('/resident/create', [ResidentController::class, 'create'])->middleware(['auth', 'verified'])->name('resident.create');
+Route::post('/resident/create', [ResidentController::class, 'store'])->middleware(['auth', 'verified'])->name('resident.store');
+
+/* Tricycle Driver routes */
+Route::get('/tricycledriver', [TricycleDriverController::class, 'index'])->middleware(['auth', 'verified'])->name('tricycledriver');
+Route::get('/tricycledriver/create', [TricycleDriverController::class, 'create'])->middleware(['auth', 'verified'])->name('tricycledriver.create');
+Route::post('/tricycledriver/create', [TricycleDriverController::class, 'store'])->middleware(['auth', 'verified'])->name('tricycledriver.store');
 
 require __DIR__ . '/auth.php';

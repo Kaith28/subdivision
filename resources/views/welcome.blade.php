@@ -39,41 +39,83 @@
         @endif
     </div>
 
+    {{-- Hero Section --}}
+    <section>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 ">
+            <div class="flex items-center">
+                <div class="flex flex-col gap-4">
+                    <h1 class="text-3xl font-bold">
+                        Smart Subdivision
+                        <br>
+                        <span class="text-green-700">Security</span>
+                    </h1>
+                    <p class="text-lg font-medium">
+                        Where Security Meets Innovation: Your Community's Shield.
+                    </p>
+                    <a href="/register" class="bg-orange-200 shadow-md rounded-md px-4 py-2 hover:bg-orange-300 w-fit">
+                        Get Started
+                    </a>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <img class="h-[400px]" src="/Hero.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- Features Section --}}
     <section>
-        <div class="text-center pb-5">
-            <h2 class="text-4xl">Our Features</h2>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 ">
+            <div class="text-center pb-10">
+                <h2 class="text-4xl"><b>Our Features</b></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center shadow-lg rounded-md p-4">
+                    <img class="w-52 h-52" src="/Personalized.svg" alt="">
+                    <p class="text-3xl ">
+                        Personalized
+                    </p>
+                </div>
+                <div class="flex flex-col items-center shadow-lg rounded-md p-4">
+                    <img class="w-52 h-52" src="/QrCodes.png" alt="">
+                    <p class="text-3xl ">
+                        Qr Codes
+                    </p>
+                </div>
+                <div class="flex flex-col items-center shadow-lg rounded-md p-4">
+                    <img class="w-52 h-52" src="/UserFriendly.svg" alt="">
+                    <p class="text-3xl">
+                        User Friendly
+                    </p>
+                </div>
+                <div class="flex flex-col items-center shadow-lg rounded-md p-4">
+                    <img class="w-52 h-52" src="/DataPrivacy.svg" alt="">
+                    <p class="text-3xl ">
+                        Data Privacy
+                    </p>
+                </div>
+
+
+            </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            <div class="flex flex-col items-center">
-                <img class="w-52 h-52" src="/Personalized.svg" alt="">
-                <p class="text-3xl ">
-                    Personalized
-                </p>
-            </div>
-            <div class="flex flex-col items-center">
-                <img class="w-52 h-52" src="/QrCodes.png" alt="">
-                <p class="text-3xl ">
-                    Qr Codes
-                </p>
-            </div>
-            <div class="flex flex-col items-center">
-                <img class="w-52 h-52" src="/UserFriendly.svg" alt="">
-                <p class="text-3xl">
-                    User Friendly
-                </p>
-            </div>
-            <div class="flex flex-col items-center">
-                <img class="w-52 h-52" src="/DataPrivacy.svg" alt="">
-                <p class="text-3xl ">
-                    Data Privacy
-                </p>
-            </div>
-
-
-        </div>
-
     </section>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 ">
+        <div class="text-center pb-10">
+            <h2 class="text-4xl"><b>How To Reach Us?</b></h2>
+        </div>
+
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="flex flex-col items-center shadow-lg rounded-md p-4">
+                <img class="w-20 h-20" src="/emaillogo.png" alt="">
+                <p class="text-1xl ">
+                   smartsubdivision_security@gmail.com
+                </p>
+            </div>
+    </div>
+<section>
+
+</section>
 </body>
 <table width="100%" cellspacing="0" cellpadding="0" style="position: fixed; bottom: 0;">
     <tr>

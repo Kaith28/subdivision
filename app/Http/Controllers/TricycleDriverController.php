@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class TricycleDriverController extends Controller
+{
+    public function index(Request $request)
+    {
+        $name = $request->input('name');
+
+        $users = User::query();
+
+        if ($name !== null) {
+            $users->where('name', 'LIKE', '%' . $name . '%');
+        }
+
+        $users->where('role', 'driver');
+
+        $users = $users->get();
+
+        return view('tricycledriver.tricycledriver', [
+            'users' => $users,
+            'name'  => $name
+        ]);
+    }
+    public function create()
+    {
+        return view('tricycledriver.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'contact_no' => ['required', 'string', 'max:255'],
+            'plate_no' => ['required', 'string', 'max:255'],
+            /* 'photo' => ['required', 'string'], */
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'contact_no' => $request->contact_no,
+            'plate_no' => $request->plate_no,
+            'role' => 'driver',
+        ]);
+
+        return redirect()->route('tricycledriver');
+    }
+}

@@ -8,6 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto text-center sm:px-6 lg:px-8 dark:text-gray ">
             <h4 style="font-weight: bold;">{{ $user->name }} </h4>
+            <p style="font-weight: bold;">{{ $user->address }} </p>
             <p style="font-style: italic;">{{ $user->role }}</p>
             <div>
                 
