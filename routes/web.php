@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuardController;
+use App\Http\Controllers\Guest\GuestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\TricycleDriverController;
@@ -59,6 +60,11 @@ Route::post('/guard/create', [GuardController::class, 'store'])->middleware(['au
 Route::get('/resident', [ResidentController::class, 'index'])->middleware(['auth', 'verified'])->name('resident');
 Route::get('/resident/create', [ResidentController::class, 'create'])->middleware(['auth', 'verified'])->name('resident.create');
 Route::post('/resident/create', [ResidentController::class, 'store'])->middleware(['auth', 'verified'])->name('resident.store');
+
+/* Guest routes */
+Route::get('/guest', [GuestController::class, 'index'])->middleware(['auth', 'verified'])->name('guest');
+Route::get('/guest/create', [GuestController::class, 'create'])->middleware(['auth', 'verified'])->name('guest.create');
+Route::post('/guest/create', [GuestController::class, 'store'])->middleware(['auth', 'verified'])->name('guest.store');
 
 /* Tricycle Driver routes */
 Route::get('/tricycledriver', [TricycleDriverController::class, 'index'])->middleware(['auth', 'verified'])->name('tricycledriver');
