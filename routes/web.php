@@ -63,6 +63,9 @@ Route::post('/guard/{id}', [GuardController::class, 'update'])->middleware(['aut
 Route::get('/resident', [ResidentController::class, 'index'])->middleware(['auth', 'verified'])->name('resident');
 Route::get('/resident/create', [ResidentController::class, 'create'])->middleware(['auth', 'verified'])->name('resident.create');
 Route::post('/resident/create', [ResidentController::class, 'store'])->middleware(['auth', 'verified'])->name('resident.store');
+Route::get('/resident/{id}', [ResidentController::class, 'show'])->middleware(['auth', 'verified'])->name('resident.show');
+Route::get('/resident/{id}/edit', [ResidentController::class, 'edit'])->middleware(['auth', 'verified'])->name('resident.edit');
+Route::post('/resident/{id}', [ResidentController::class, 'update'])->middleware(['auth', 'verified'])->name('resident.update');
 
 /* Guest routes */
 Route::get('/guest', [GuestController::class, 'index'])->middleware(['auth', 'verified'])->name('guest');
