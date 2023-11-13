@@ -17,7 +17,7 @@
     <!-- Main Content -->
     <div>
         <section>
-            <div class="flex  justify-center gap-20 ">
+            <div class="flex  justify-center gap-20 pt-10 ">
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4">
                     <img class="w-52 h-52" src="/Personalized.svg" alt="">
                     <p class="text-xl ">
