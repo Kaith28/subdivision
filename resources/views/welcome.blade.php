@@ -145,7 +145,10 @@
 
 
 
+
+
 {{--footer--}}
+
 <footer class="bg-gray-900 text-white p-4">
     <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
