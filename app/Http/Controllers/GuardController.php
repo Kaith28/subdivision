@@ -57,7 +57,7 @@ class GuardController extends Controller
     public function show(Request $request)
     {
         $user = user::findOrFail($request->id);
-        return view('guard.show')->with('guard', $user);
+        return view('guard.show')->with('user', $user);
     }
 
     public function edit(Request $request)
@@ -85,5 +85,11 @@ class GuardController extends Controller
         $user->save();
 
         return redirect()->route('guard')->with('success', 'Updated user successfully');
+    }
+    public function destroy(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->delete();
+        return redirect()->route('guard', $user->id)->with('success', 'User deleted successfully');
     }
 }

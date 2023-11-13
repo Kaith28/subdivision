@@ -81,4 +81,10 @@ class TricycleDriverController extends Controller
 
         return redirect()->route('tricycledriver')->with('success', 'Updated user successfully');
     }
+    public function destroy(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->delete();
+        return redirect()->route('tricycledriver', $user->id)->with('success', 'User deleted successfully');
+    }
 }

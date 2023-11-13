@@ -57,7 +57,7 @@ class ResidentController extends Controller
     public function show(Request $request)
     {
         $user = user::findOrFail($request->id);
-        return view('resident.show')->with('resident', $user);
+        return view('resident.show')->with('user', $user);
     }
 
     public function edit(Request $request)
@@ -87,5 +87,11 @@ class ResidentController extends Controller
         $user->save();
 
         return redirect()->route('resident')->with('success', 'Updated user successfully');
+    }
+    public function destroy(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->delete();
+        return redirect()->route('resident', $user->id)->with('success', 'User deleted successfully');
     }
 }

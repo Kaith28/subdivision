@@ -58,7 +58,7 @@ class AdminController extends Controller
     public function show(Request $request)
     {
         $user = user::findOrFail($request->id);
-        return view('admin.show')->with('admin', $user);
+        return view('admin.show')->with('user', $user);
     }
 
     public function edit(Request $request)
@@ -86,5 +86,11 @@ class AdminController extends Controller
         $user->save();
 
         return redirect()->route('admin')->with('success', 'Updated user successfully');
+    }
+    public function destroy(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->delete();
+        return redirect()->route('admin', $user->id)->with('success', 'User deleted successfully');
     }
 }
