@@ -66,7 +66,6 @@
 
     </section>
 
-    {{-- How to reach us section --}}
 
 
     {{-- Features Section --}}
@@ -107,44 +106,43 @@
 
 </body>
 
+{{-- How to reach us section --}}
+
 {{-- Footer --}}
 <footer>
-    <div class="p.10 bg-gray-800 text-gray-200">
-        <div class="max-w-7x1 mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+    <div class="py-2 bg-gray-500 text-gray-200">
+        <div class="max-w-7x1 mx-auto ">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 justify-between">
                 <div class="mb-4">
-                    <h4 class="text-2xl pb-4">Subdivision</h4>
-                    <p class="text-gray-500">
+                    <h4 class="text-2xl pb-4">Smart Subdivision Security</h4>
+                    <p class="text-gray-200">
                         VRG4+8V5, Malolos, Bulacan<br><br>
-                        <strong>Phone:</strong>09198683529<br>
-                        <strong>Email:</strong>Bertty@gmail.com<br>
+                        <strong>Phone:</strong>09123456789<br>
+                        <strong>Email:</strong>subdivison@gmail.com<br>
                 </div>
-                <div class="mb-4">
-                    <h4>Link</h4>
-                    <ul class="text-gray-500">
-                        <li class="pb-4"><a href="#" class="hover:text-green-500">Home</a> </li>
-                        <li class="pb-4"><a href="#" class="hover:text-green-500">About Us</a></li>
-                        <li class="pb-4"><a href="#" class="hover:text-green-500">Privacy Policy</a></li>
+                <div class="mb-4 ">
+                    <ul class="text-gray-200">
+                        <li class="pb-4"><a href="#" class="hover:text-orange-200">Home</a> </li>
+                        <li class="pb-4"><a href="#" class="hover:text-orange-200">About Us</a></li>
+                        <li class="pb-4"><a href="#" class="hover:text-orange-200">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="mb-4">
-                    <h4>Join Our Subdivision</h4>
-                    <p class="text-gray-500 pb-2"> 10,000+ resident in Our Subdivision</p>
+                    <h4>Join Our Subdivision</h4> <br>
+                    <p class="text-gray-200 pb-2"> 10,000+ resident in Our Subdivision</p>
                 </div>
-                <div class="w-full bg-gray-900 text-gray-500 px-10">
+                <div class="w-full bg-gray-500 text-gray-200 px-10">
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-full bg-gray-900 text-gray-500 px-10">
+    <div class="w-full bg-gray-800 text-gray-200 px-10 py-2">
         <div>
             <div>
-                <div>
-                    Copyright <strong><span> Subdivision </span></strong> . All rights Reserved
+                <div class="flex justify-center">
+                    Copyright @2023 Subdivision . All rights Reserved
                 </div>
-                <div>
-                    Designed By <a href="#" class="text-yellow-600">Berty</a>
-                </div>
+
             </div>
         </div>
     </div>
