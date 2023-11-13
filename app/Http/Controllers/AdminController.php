@@ -58,7 +58,7 @@ class AdminController extends Controller
     public function show(Request $request)
     {
         $user = user::findOrFail($request->id);
-        return view('admin.show')->with('admin', $user);
+        return view('admin.show')->with('user', $user);
     }
 
     public function edit(Request $request)
