@@ -70,7 +70,7 @@
     {{-- Features Section --}}
     <section>
         <div class="text-center pb-20 mb-5">
-            <h2 class="text-4xl"><b>Our Features</b></h2>
+            <h2 class="text-4xl"><b>Features</b></h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-10">
             <div class="flex flex-col items-center">
@@ -173,9 +173,9 @@
             <div>
                 <h3 class="text-xl font-semibold mb-2 mt-6 pl-20">Follow Us</h3>
                 <div class="flex space-x-2 mt-2">
-                    <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-white hover:text-gray-300">fb<i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white hover:text-gray-300">ig<i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white hover:text-gray-300">email<i class="fab fa-linkedin"></i></a>
                     <!-- Add more social media icons as needed -->
                 </div>
 
