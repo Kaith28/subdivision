@@ -24,11 +24,11 @@
             <div class="flex justify-end">
                 @auth
                     @if (Auth::user()->role == 'admin')
-                        <a href="{{ route('admin.dashboard') }}"
+                        <a href="{{ route('dashboard') }}"
                             class="font-semibold text-black hover:text-gray-900  focus:outline focus:outline-2 focus:rounded-sm focus:outline-gray-500">Dashboard</a>
                     @endif
                     @if (Auth::user()->role == 'guard')
-                        <a href="{{ route('guard.dashboard') }}"
+                        <a href="{{ route('dashboard') }}"
                             class="font-semibold text-black hover:text-gray-900  focus:outline focus:outline-2 focus:rounded-sm focus:outline-gray-500">Dashboard</a>
                     @endif
                 @else
@@ -123,8 +123,13 @@
             <h2 class="text-4xl"><b>How to reach us?</b></h2>
         </div>
         <div class="text-center pb-20 pt-1 pl-64 pr-64 ">
-            <p class="text-2xl text-white shadow-xl rounded-xl bg-gray-500 pr-4 pl-4 pt-10 pb-10"> Explore various convenient ways to connect with Smart Subdivision Security.
-                Our team is dedicated to ensuring the safety and security of your community, and we welcome the opportunity to address any questions or concerns you may have. Additionally, feel free to visit our physical location during business hours to speak with our experts in person. We value open communication and look forward to assisting you in any way we can. Your safety is our priority, and we're just a message or call away.</p>
+            <p class="text-2xl text-white shadow-xl rounded-xl bg-gray-500 pr-4 pl-4 pt-10 pb-10"> Explore various
+                convenient ways to connect with Smart Subdivision Security.
+                Our team is dedicated to ensuring the safety and security of your community, and we welcome the
+                opportunity to address any questions or concerns you may have. Additionally, feel free to visit our
+                physical location during business hours to speak with our experts in person. We value open communication
+                and look forward to assisting you in any way we can. Your safety is our priority, and we're just a
+                message or call away.</p>
         </div>
 
 
@@ -160,27 +165,38 @@
     </section>
 
 
-    {{--Privacy Policy--}}
+    {{-- Privacy Policy --}}
     <div class="text-center pb-20 pt-5">
         <h2 class="text-4xl"><b>Privacy Policy</b></h2>
     </div>
     <div class="text-center pb-20 pt-1 pl-64 pr-64 ">
-        <p class="text-1xl text-justify shadow-xl text-white rounded-xl bg-gray-500 pr-4 pl-4 pt-10 pb-10">  We prioritize the protection and confidentiality of your personal information. This document outlines our commitment to safeguarding your privacy while utilizing our services.
+        <p class="text-1xl text-justify shadow-xl text-white rounded-xl bg-gray-500 pr-4 pl-4 pt-10 pb-10"> We
+            prioritize the protection and confidentiality of your personal information. This document outlines our
+            commitment to safeguarding your privacy while utilizing our services.
 
-            Our Privacy Policy details the types of information we collect, how we use it, and the measures we take to ensure its security. We respect your right to privacy and adhere to the highest standards when handling your data.
-            
-            Information gathered may include personal details, contact information, and usage patterns. Rest assured, this information is utilized solely for improving our services, enhancing user experience, and ensuring the security of your community.
-            
-            Smart Subdivision Security is committed to transparency. Our Privacy Policy explains your rights regarding the information you share with us, and we encourage you to review it thoroughly. We continually update our practices to align with the latest industry standards and legal requirements.
-            
-            Should you have any questions or concerns about our Privacy Policy or the way we handle your data, please feel free to reach out to us. Your trust is of utmost importance to us, and we are dedicated to maintaining a secure and trustworthy environment for all users.
-            
-            Thank you for entrusting Smart Subdivision Security with your privacy. We appreciate your cooperation in fostering a safe and secure community.
-            
-            
-            
-            
-            </p>
+            Our Privacy Policy details the types of information we collect, how we use it, and the measures we take to
+            ensure its security. We respect your right to privacy and adhere to the highest standards when handling your
+            data.
+
+            Information gathered may include personal details, contact information, and usage patterns. Rest assured,
+            this information is utilized solely for improving our services, enhancing user experience, and ensuring the
+            security of your community.
+
+            Smart Subdivision Security is committed to transparency. Our Privacy Policy explains your rights regarding
+            the information you share with us, and we encourage you to review it thoroughly. We continually update our
+            practices to align with the latest industry standards and legal requirements.
+
+            Should you have any questions or concerns about our Privacy Policy or the way we handle your data, please
+            feel free to reach out to us. Your trust is of utmost importance to us, and we are dedicated to maintaining
+            a secure and trustworthy environment for all users.
+
+            Thank you for entrusting Smart Subdivision Security with your privacy. We appreciate your cooperation in
+            fostering a safe and secure community.
+
+
+
+
+        </p>
     </div>
 
 </body>
@@ -216,16 +232,16 @@
                 <h3 class="text-xl font-semibold mb-1 mt-4 pl-32">Follow Us</h3>
                 <div class="flex space-x-2 mt-2 pl-16">
                     <a href="#" class="cursor-pointer">
-                        <img src="/fblogo4.png" alt=""  class="h-8 mt-2 mr-10">
-                      </a>
-                      <a href="#" class="cursor-pointer">
+                        <img src="/fblogo4.png" alt="" class="h-8 mt-2 mr-10">
+                    </a>
+                    <a href="#" class="cursor-pointer">
                         <img src="/iglogo2.png" alt="" class="h-8 mt-2 mr-10">
-                      </a>
-                      <a href="#" class="cursor-pointer">
-                        <img src="/twitterlogo.png" alt=""  class="h-10 mt-1 mr-12">
-                      </a>
+                    </a>
+                    <a href="#" class="cursor-pointer">
+                        <img src="/twitterlogo.png" alt="" class="h-10 mt-1 mr-12">
+                    </a>
                     <!-- Add more social media icons as needed -->
-                    </div>
+                </div>
             </div>
         </div>
         <!-- Copyright Notice -->

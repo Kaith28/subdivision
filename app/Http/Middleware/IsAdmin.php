@@ -24,7 +24,7 @@ class IsAdmin
         }
 
         // Check if not admin
-        if (Auth::user()->role != "admin") {
+        if (Auth::user()->role != "owner" && Auth::user()->role != "admin") {
             abort(404);
         }
 

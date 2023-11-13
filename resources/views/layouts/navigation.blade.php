@@ -5,59 +5,38 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    @if (Auth::user()->role == 'admin')
-                        <a href="{{ route('admin.dashboard') }}">
-                            <img class="w-14" src="/logo1.png" alt="">
-                        </a>
-                    @endif
-                    @if (Auth::user()->role == 'guard')
-                        <a href="{{ route('guard.dashboard') }}">
-                            <img class="w-14" src="/logo1.png" alt="">
-                        </a>
-                    @endif
+                    <a href="{{ route('dashboard') }}">
+                        <img class="w-14" src="/logo1.png" alt="">
+                    </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
 
                     @if (Auth::user()->role == 'admin')
-                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link>
                         <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
                             {{ __('All Users') }}
                         </x-nav-link>
-                        {{-- <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                        <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
                             {{ __('Admin') }}
-                        </x-nav-link> --}}
-                        {{-- <x-nav-link :href="route('guard')" :active="request()->routeIs('guard')">
-                        {{ __('Guard') }}
-                    </x-nav-link> --}}
-                        <x-nav-link :href="route('resident')" :active="request()->routeIs('resident')">
-                            {{ __('Resident') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('guest')" :active="request()->routeIs('guest')">
-                            {{ __('Guest') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('tricycledriver')" :active="request()->routeIs('tricycledriver')">
-                            {{ __('Tricycle Driver') }}
+                        <x-nav-link :href="route('guard')" :active="request()->routeIs('guard')">
+                            {{ __('Guard') }}
                         </x-nav-link>
                     @endif
 
-                    @if (Auth::user()->role == 'guard')
-                        <x-nav-link :href="route('guard.dashboard')" :active="request()->routeIs('guard.dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('resident')" :active="request()->routeIs('resident')">
-                            {{ __('Resident') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('guest')" :active="request()->routeIs('guest')">
-                            {{ __('Guest') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('tricycledriver')" :active="request()->routeIs('tricycledriver')">
-                            {{ __('Tricycle Driver') }}
-                        </x-nav-link>
-                    @endif
+                    <x-nav-link :href="route('resident')" :active="request()->routeIs('resident')">
+                        {{ __('Resident') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('guest')" :active="request()->routeIs('guest')">
+                        {{ __('Guest') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('tricycledriver')" :active="request()->routeIs('tricycledriver')">
+                        {{ __('Tricycle Driver') }}
+                    </x-nav-link>
 
                 </div>
             </div>
@@ -119,17 +98,9 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            @if (Auth::user()->role == 'admin')
-                <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-                    {{ __('Dashboard') }}
-                </x-responsive-nav-link>
-            @endif
-
-            @if (Auth::user()->role == 'guard')
-                <x-responsive-nav-link :href="route('guard.dashboard')" :active="request()->routeIs('guard.dashboard')">
-                    {{ __('Dashboard') }}
-                </x-responsive-nav-link>
-            @endif
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Dashboard') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

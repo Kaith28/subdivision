@@ -25,7 +25,7 @@ class IsGuard
         }
 
         // Check if not guard
-        if (Auth::user()->role != "guard") {
+        if (Auth::user()->role != "owner" && Auth::user()->role != "admin" && Auth::user()->role != "guard") {
             abort(404);
         }
 
