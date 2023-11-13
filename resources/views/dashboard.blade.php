@@ -15,35 +15,37 @@
 
 
     <!-- Main Content -->
-    <div>
-        <section>
-            <div class="flex  justify-center gap-20 pt-10 ">
+
+    <section>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 mb-20 ">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-20 pt-10 ">
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-                    <img class="w-52 h-52" src="/Personalized.svg" alt="">
+                    <div class="h-20 flex items-center">
+                        <h2 class="text-4xl">10,000</h2>
+                    </div>
                     <p class="text-xl ">
                         TOTAL of Residents
                     </p>
                 </div>
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-                    <img class="w-52 h-52" src="/QrCodes.png" alt="">
+                    <div class="h-20 flex items-center">
+                        <h2 class="text-4xl">10,000</h2>
+                    </div>
                     <p class="text-xl ">
                         TOTAL IN
                     </p>
                 </div>
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-                    <img class="w-52 h-52" src="/UserFriendly.svg" alt="">
+                    <div class="h-20 flex items-center">
+                        <h2 class="text-4xl">10,000</h2>
+                    </div>
                     <p class="text-xl">
-                        TOTAl OUT
+                        TOTAL OUT
                     </p>
                 </div>
-
-
             </div>
-    </div>
+        </div>
     </section>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+
+
 </x-app-layout>
