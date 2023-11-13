@@ -63,7 +63,7 @@
                                 <td class="px-2">{{ ucfirst($user->role) }}</td>
                                 <td class="px-2">
                                     <div class="flex justify-center gap-2">
-                                        <a href={{ route('users.show', $user->id) }}
+                                        <a href={{ route('guard.show', $user->id) }}
                                             class=" px-2 py-2 hover:bg-gray-200 rounded-md"><svg
                                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">

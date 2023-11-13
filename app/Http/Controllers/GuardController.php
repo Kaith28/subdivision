@@ -57,7 +57,7 @@ class GuardController extends Controller
     public function show(Request $request)
     {
         $user = user::findOrFail($request->id);
-        return view('guard.show')->with('guard', $user);
+        return view('guard.show')->with('user', $user);
     }
 
     public function edit(Request $request)
