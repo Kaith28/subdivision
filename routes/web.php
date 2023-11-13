@@ -84,5 +84,7 @@ Route::post('/tricycledriver/create', [TricycleDriverController::class, 'store']
 Route::get('/tricycledriver/{id}', [TricycleDriverController::class, 'show'])->middleware(['auth', 'verified'])->name('tricycledriver.show');
 Route::get('/tricycledriver/{id}/edit', [TricycleDriverController::class, 'edit'])->middleware(['auth', 'verified'])->name('tricycledriver.edit');
 Route::post('/tricycledriver/{id}', [TricycleDriverController::class, 'update'])->middleware(['auth', 'verified'])->name('tricycledriver.update');
+Route::post('/tricycledriver/{id}/destroy', [TricycleDriverController::class, 'destroy'])->middleware(['auth', 'verified'])->name('tricycledriver.destroy');
+Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
 
 require __DIR__ . '/auth.php';
