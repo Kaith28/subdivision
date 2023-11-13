@@ -39,6 +39,12 @@
         @endif
     </div>
 
+    {{--Hero Section--}}
+
+
+    {{-- How to reach us section--}}
+
+
     {{-- Features Section --}}
     <section>
         <div class="text-center pb-5">
@@ -76,6 +82,8 @@
     </section>
          
 </body>
+
+{{--Footer --}}
 <footer>
     <div class="p.10 bg-gray-800 text-gray-200">
         <div class="max-w-7x1 mx-auto">
