@@ -41,7 +41,7 @@
 
     {{-- Hero Section --}}
     <section>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 ">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 mb-20 ">
             <div class="flex items-center">
                 <div class="flex flex-col gap-4">
                     <h1 class="text-3xl font-bold">
@@ -69,7 +69,7 @@
 
     {{-- Features Section --}}
     <section>
-        <div class="text-center pb-20">
+        <div class="text-center pb-20 mb-5">
             <h2 class="text-4xl"><b>Our Features</b></h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-10">
@@ -171,7 +171,7 @@
 
             <!-- Social Media Links -->
             <div>
-                <h3 class="text-xl font-semibold mb-2 mt-6">Follow Us</h3>
+                <h3 class="text-xl font-semibold mb-2 mt-6 pl-20">Follow Us</h3>
                 <div class="flex space-x-2 mt-2">
                     <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook"></i></a>
                     <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
