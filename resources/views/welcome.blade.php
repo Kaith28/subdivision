@@ -42,13 +42,10 @@
     {{--Hero Section--}}
 
 
-    {{-- How to reach us section--}}
-
-
     {{-- Features Section --}}
     <section>
         <div class="text-center pb-5">
-            <h2 class="text-4xl">Our Features</h2>
+            <h2 class="text-4xl"><b>Our Features</b></h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             <div class="flex flex-col items-center">
@@ -79,50 +76,87 @@
 
         </div>
 
-    </section>
-         
-</body>
 
-{{--Footer --}}
-<footer>
-    <div class="p.10 bg-gray-800 text-gray-200">
-        <div class="max-w-7x1 mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-                <div class="mb-4">
-                    <h4 class="text-2xl pb-4">Subdivision</h4>
-                    <p class="text-gray-500">
-                        VRG4+8V5, Malolos, Bulacan<br><br>
-                    <strong>Phone:</strong>09198683529<br>
-                    <strong>Email:</strong>Bertty@gmail.com<br>
-                </div>
-                <div class="mb-4">
-                    <h4>Link</h4>
-                    <ul class="text-gray-500">
-                        <li class="pb-4"><a href="#" class="hover:text-green-500">Home</a> </li>
-                        <li class="pb-4"><a href="#" class="hover:text-green-500">About Us</a></li>
-                        <li class="pb-4"><a href="#" class="hover:text-green-500">Privacy Policy</a></li>
-                    </ul> 
-                </div>
-                <div class="mb-4">
-                    <h4>Join Our Subdivision</h4>
-                    <p class="text-gray-500 pb-2"> 10,000+ resident in Our Subdivision</p>
-                </div>
-                <div class="w-full bg-gray-900 text-gray-500 px-10">
-                    </div>
+    </section>
+         {{-- How to reach us section--}}
+
+         <section>
+            <div class="text-center pb-5 pt-5">
+                <h2 class="text-4xl"><b>How to reach us?</b></h2>
             </div>
-        </div>
-    </div>
-    <div class="w-full bg-gray-900 text-gray-500 px-10">
-        <div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <div class="flex flex-col items-center">
+                    <img class="w-20 h-20" src="" alt="">
+                    <p class="text-xl ">
+                        smart_subdivisionsecurity@gmail.com
+                    </p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img class="w-20 h-20" src="" alt="">
+                    <p class="text-xl ">
+                        Smart Subdivision Security 
+                    </p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img class="w-20 h-20" src="" alt="">
+                    <p class="text-xl">
+                        @smartsubdivision_security
+                    </p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img class="w-20 h-20" src="" alt="">
+                    <p class="text-xl ">
+                        +63 912 3456 789
+                    </p>
+                </div>
+    
+    
+            </div>
+    
+        </section>
+
+        </body>
+
+
+
+{{--footer--}}
+<footer class="bg-gray-900 text-white p-4">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- System Information with Logo -->
+            <div class="mb-4 flex items-center">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-8 mr-2">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Smart Subdivision Security</h3>
+                    <p style="font-style: italic;">Ensuring safety and security in your community.</p>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold mb-2">Contact Us</h3>
+                <p class="text-sm">Email: info@smartsubdivisionsecurity.com</p>
+                <p class="text-sm">Phone: +123 456 7890</p>
+            </div>
+
+            <!-- Social Media Links -->
             <div>
-                <div>
-                    Copyright <strong><span> Subdivision </span></strong> . All rights Reserved
-                </div>
-                <div>
-                    Designed By <a href="#" class="text-yellow-600">Berty</a>
+                <h3 class="text-xl font-semibold mb-2">Follow Us</h3>
+                <div class="flex space-x-2 mt-2">
+                    <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
+                    <!-- Add more social media icons as needed -->
                 </div>
             </div>
         </div>
     </div>
-            </footer> 
+        <!-- Copyright Notice -->
+        <div class="mt-8 bg-gray-800 text-gray-500 py-4">
+            <div class="container mx-auto text-center text-sm ">
+            &copy; {{ now()->year }} Smart Subdivision Security. All rights reserved.
+        </div>
+  </footer>
+
+
 </html>
