@@ -57,7 +57,7 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
-                                <td class="px-2 ">{{Picture}}</td>
+                                <td class="px-2 ">Picture</td>
                                 <td class="px-2">{{ $user->name }}</td>
                                 <td class="px-2">{{ $user->contact_no }}</td>
                                 <td class="px-2">{{ $user->plate_no }}</td>
