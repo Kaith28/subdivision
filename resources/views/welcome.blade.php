@@ -135,25 +135,25 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-20">
             <div class="flex flex-col items-center">
-                <img class="w-20 h-20" src="/emaillogo.png" alt="">
+                <img class="w-20 h-20 shadow-md" src="/emaillogo.png" alt="">
                 <p class="text-xl ">
                     smart_subdivisionsecurity@gmail.com
                 </p>
             </div>
             <div class="flex flex-col items-center">
-                <img class="w-20 h-20" src="/fblogo.png" alt="">
+                <img class="w-20 h-20 shadow-md" src="/fblogo.png" alt="">
                 <p class="text-xl ">
                     Smart Subdivision Security
                 </p>
             </div>
             <div class="flex flex-col items-center">
-                <img class="w-20 h-20" src="/iglogo.png" alt="">
+                <img class="w-20 h-20 shadow-md" src="/iglogo.png" alt="">
                 <p class="text-xl">
                     @smartsubdivision_security
                 </p>
             </div>
             <div class="flex flex-col items-center">
-                <img class="w-20 h-20" src="/calllogo.png" alt="">
+                <img class="w-20 h-20 shadow-md" src="/calllogo.png" alt="">
                 <p class="text-xl ">
                     +63 912 3456 789
                 </p>
@@ -199,6 +199,8 @@
         </p>
     </div>
 
+    
+
 </body>
 
 
@@ -207,13 +209,13 @@
 
 {{-- footer --}}
 
-<footer class="bg-gray-900 text-white p-4">
+<footer class="bg-black text-white p-1">
     <div class="container mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- System Information with Logo -->
             <div class="mb-6 flex items-center mt-6">
-                <img src="/logo.png" alt="" class="h-20 mr-10">
+                <img src="/logo1.png" alt="" class="h-16 mr-10">
                 <div>
                     <h3 class="text-xl font-semibold mb-2 ">Smart Subdivision Security</h3>
                     <p class="italic"> Where Security Meets Innovation:Your Community's Shield.</p>
@@ -222,8 +224,8 @@
 
             <!-- Contact Information -->
             <div class="mb-4 mt-4 pl-20">
-                <h3 class="text-xl font-semibold mb-2">Contact Us</h3>
-                <p class="italic"> smart_subdivisionsecurity@gmail.com</p>
+                <h3 class="text-xl font-semibold mb-2 pl-20">Contact Us</h3>
+                <a href="" class="italic"> smart_subdivisionsecurity@gmail.com</a>
                 <p class="italic">+63 912 3456 789</p>
             </div>
 
@@ -245,8 +247,8 @@
             </div>
         </div>
         <!-- Copyright Notice -->
-        <div class="mt-8 bg-gray- text-gray-500 py-4">
-            <div class="container mx-auto text-center text-sm ">
+        <div class="mt-1 py-4">
+            <div class="container text-gray-300 mx-auto text-center text-sm ">
                 &copy; {{ now()->year }} Smart Subdivision Security. All rights reserved.
             </div>
 </footer>
