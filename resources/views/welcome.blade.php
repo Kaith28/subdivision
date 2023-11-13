@@ -39,51 +39,69 @@
         @endif
     </div>
 
-    {{--Hero Section--}}
-
-
-    {{-- How to reach us section--}}
-
-
-    {{-- Features Section --}}
+    {{-- Hero Section --}}
     <section>
-        <div class="text-center pb-5">
-            <h2 class="text-4xl">Our Features</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            <div class="flex flex-col items-center">
-                <img class="w-52 h-52" src="/Personalized.svg" alt="">
-                <p class="text-3xl ">
-                    Personalized
-                </p>
-            </div>
-            <div class="flex flex-col items-center">
-                <img class="w-52 h-52" src="/QrCodes.png" alt="">
-                <p class="text-3xl ">
-                    Qr Codes
-                </p>
-            </div>
-            <div class="flex flex-col items-center">
-                <img class="w-52 h-52" src="/UserFriendly.svg" alt="">
-                <p class="text-3xl">
-                    User Friendly
-                </p>
-            </div>
-            <div class="flex flex-col items-center">
-                <img class="w-52 h-52" src="/DataPrivacy.svg" alt="">
-                <p class="text-3xl ">
-                    Data Privacy
-                </p>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 ">
+            <div class="flex items-center">
+                <div class="flex flex-col gap-4">
+                    <h1 class="text-3xl font-bold">
+                        Smart Subdivision
+                        <br>
+                        <span class="text-green-700">Security</span>
+                    </h1>
+                    <p class="text-lg font-medium">
+                        Where Security Meets Innovation: Your Community's Shield.
+                    </p>
+                    <a href="/register" class="bg-orange-200 shadow-md rounded-md px-4 py-2 hover:bg-orange-300 w-fit">
+                        Get Started
+                    </a>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <img class="h-[400px]" src="/Hero.svg" alt="">
+                </div>
+
+                {{-- How to reach us section --}}
 
 
-        </div>
+                {{-- Features Section --}}
+                <section>
+                    <div class="text-center pb-5">
+                        <h2 class="text-4xl">Our Features</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                        <div class="flex flex-col items-center">
+                            <img class="w-52 h-52" src="/Personalized.svg" alt="">
+                            <p class="text-3xl ">
+                                Personalized
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img class="w-52 h-52" src="/QrCodes.png" alt="">
+                            <p class="text-3xl ">
+                                Qr Codes
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img class="w-52 h-52" src="/UserFriendly.svg" alt="">
+                            <p class="text-3xl">
+                                User Friendly
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img class="w-52 h-52" src="/DataPrivacy.svg" alt="">
+                            <p class="text-3xl ">
+                                Data Privacy
+                            </p>
+                        </div>
 
-    </section>
-         
+
+                    </div>
+
+                </section>
+
 </body>
 
-{{--Footer --}}
+{{-- Footer --}}
 <footer>
     <div class="p.10 bg-gray-800 text-gray-200">
         <div class="max-w-7x1 mx-auto">
@@ -92,8 +110,8 @@
                     <h4 class="text-2xl pb-4">Subdivision</h4>
                     <p class="text-gray-500">
                         VRG4+8V5, Malolos, Bulacan<br><br>
-                    <strong>Phone:</strong>09198683529<br>
-                    <strong>Email:</strong>Bertty@gmail.com<br>
+                        <strong>Phone:</strong>09198683529<br>
+                        <strong>Email:</strong>Bertty@gmail.com<br>
                 </div>
                 <div class="mb-4">
                     <h4>Link</h4>
@@ -101,14 +119,14 @@
                         <li class="pb-4"><a href="#" class="hover:text-green-500">Home</a> </li>
                         <li class="pb-4"><a href="#" class="hover:text-green-500">About Us</a></li>
                         <li class="pb-4"><a href="#" class="hover:text-green-500">Privacy Policy</a></li>
-                    </ul> 
+                    </ul>
                 </div>
                 <div class="mb-4">
                     <h4>Join Our Subdivision</h4>
                     <p class="text-gray-500 pb-2"> 10,000+ resident in Our Subdivision</p>
                 </div>
                 <div class="w-full bg-gray-900 text-gray-500 px-10">
-                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -124,5 +142,6 @@
             </div>
         </div>
     </div>
-            </footer> 
+</footer>
+
 </html>
