@@ -86,4 +86,10 @@ class GuardController extends Controller
 
         return redirect()->route('guard')->with('success', 'Updated user successfully');
     }
+    public function destroy(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->delete();
+        return redirect()->route('guard', $user->id)->with('success', 'User deleted successfully');
+    }
 }
