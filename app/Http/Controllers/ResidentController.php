@@ -57,7 +57,7 @@ class ResidentController extends Controller
     public function show(Request $request)
     {
         $user = user::findOrFail($request->id);
-        return view('resident.show')->with('resident', $user);
+        return view('resident.show')->with('user', $user);
     }
 
     public function edit(Request $request)
