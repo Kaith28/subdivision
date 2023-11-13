@@ -50,7 +50,8 @@ Route::post('/admin/create', [AdminController::class, 'store'])->middleware(['au
 Route::get('/admin/{id}', [AdminController::class, 'show'])->middleware(['auth', 'verified'])->name('admin.show');
 Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->middleware(['auth', 'verified'])->name('admin.edit');
 Route::post('/admin/{id}', [AdminController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
-;
+Route::post('/admin/{id}/destroy', [AdminController::class, 'destroy'])->middleware(['auth', 'verified'])->name('admin.destroy');
+Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
 /* Guard routes */
 Route::get('/guard', [GuardController::class, 'index'])->middleware(['auth', 'verified'])->name('guard');
 Route::get('/guard/create', [GuardController::class, 'create'])->middleware(['auth', 'verified'])->name('guard.create');
