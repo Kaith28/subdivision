@@ -105,41 +105,41 @@
 
 
 
- {{-- How to reach us section --}}
- <section>
-    <div class="text-center pb-20 pt-5">
-        <h2 class="text-4xl"><b>How to reach us?</b></h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-20">
-        <div class="flex flex-col items-center">
-            <img class="w-20 h-20" src="" alt="">
-            <p class="text-xl ">
-                smart_subdivisionsecurity@gmail.com
-            </p>
+    {{-- How to reach us section --}}
+    <section>
+        <div class="text-center pb-20 pt-5">
+            <h2 class="text-4xl"><b>How to reach us?</b></h2>
         </div>
-        <div class="flex flex-col items-center">
-            <img class="w-20 h-20" src="" alt="">
-            <p class="text-xl ">
-                Smart Subdivision Security 
-            </p>
-        </div>
-        <div class="flex flex-col items-center">
-            <img class="w-20 h-20" src="" alt="">
-            <p class="text-xl">
-                @smartsubdivision_security
-            </p>
-        </div>
-        <div class="flex flex-col items-center">
-            <img class="w-20 h-20" src="" alt="">
-            <p class="text-xl ">
-                +63 912 3456 789
-            </p>
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-20">
+            <div class="flex flex-col items-center">
+                <img class="w-20 h-20" src="/emaillogo.png" alt="">
+                <p class="text-xl ">
+                    smart_subdivisionsecurity@gmail.com
+                </p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img class="w-20 h-20" src="" alt="">
+                <p class="text-xl ">
+                    Smart Subdivision Security
+                </p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img class="w-20 h-20" src="" alt="">
+                <p class="text-xl">
+                    @smartsubdivision_security
+                </p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img class="w-20 h-20" src="/calllogo.png" alt="">
+                <p class="text-xl ">
+                    +63 912 3456 789
+                </p>
+            </div>
 
 
-    </div>
+        </div>
 
-</section>
+    </section>
 
 </body>
 
@@ -147,7 +147,7 @@
 
 
 
-{{--footer--}}
+{{-- footer --}}
 
 <footer class="bg-gray-900 text-white p-4">
     <div class="container mx-auto">
@@ -155,7 +155,7 @@
 
             <!-- System Information with Logo -->
             <div class="mb-4 flex items-center mt-6">
-                <img src="{{ asset('/logo.png') }}" alt="" class="h-10 mr-5">
+                <img src="/logo.png" alt="" class="h-10 mr-5">
                 <div>
                     <h3 class="text-xl font-semibold mb-2">Smart Subdivision Security</h3>
                     <p style="font-style: italic;"> Where Security Meets Innovation: Your Community's Shield.</p>
@@ -180,25 +180,25 @@
                 </div>
 
                 <!-- Menu -->
-            
-            <div>
-                <h3 class="text-xl font-semibold mb-2">Menu</h3>
-                <div class="flex space-x-2 mt-2">
-                    <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
-                    <!-- Add more social media icons as needed -->
-                </div>
-            </div>
 
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Menu</h3>
+                    <div class="flex space-x-2 mt-2">
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
+                        <!-- Add more social media icons as needed -->
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
         <!-- Copyright Notice -->
         <div class="mt-8 bg-gray- text-gray-500 py-4">
             <div class="container mx-auto text-center text-sm ">
-            &copy; {{ now()->year }} Smart Subdivision Security. All rights reserved.
-        </div>
-  </footer>
+                &copy; {{ now()->year }} Smart Subdivision Security. All rights reserved.
+            </div>
+</footer>
 
 
 
