@@ -69,6 +69,8 @@ Route::post('/resident/create', [ResidentController::class, 'store'])->middlewar
 Route::get('/resident/{id}', [ResidentController::class, 'show'])->middleware(['auth', 'verified'])->name('resident.show');
 Route::get('/resident/{id}/edit', [ResidentController::class, 'edit'])->middleware(['auth', 'verified'])->name('resident.edit');
 Route::post('/resident/{id}', [ResidentController::class, 'update'])->middleware(['auth', 'verified'])->name('resident.update');
+Route::post('/resident/{id}/destroy', [ResidentController::class, 'destroy'])->middleware(['auth', 'verified'])->name('resident.destroy');
+Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
 
 /* Guest routes */
 Route::get('/guest', [GuestController::class, 'index'])->middleware(['auth', 'verified'])->name('guest');

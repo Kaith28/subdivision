@@ -88,4 +88,10 @@ class ResidentController extends Controller
 
         return redirect()->route('resident')->with('success', 'Updated user successfully');
     }
+    public function destroy(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->delete();
+        return redirect()->route('resident', $user->id)->with('success', 'User deleted successfully');
+    }
 }
