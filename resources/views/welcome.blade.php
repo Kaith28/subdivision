@@ -56,48 +56,54 @@
                         Get Started
                     </a>
                 </div>
+
                 <div class="flex-1 flex justify-center">
                     <img class="h-[400px]" src="/Hero.svg" alt="">
                 </div>
-
-                {{-- How to reach us section --}}
-
-
-                {{-- Features Section --}}
-                <section>
-                    <div class="text-center pb-5">
-                        <h2 class="text-4xl">Our Features</h2>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-                        <div class="flex flex-col items-center">
-                            <img class="w-52 h-52" src="/Personalized.svg" alt="">
-                            <p class="text-3xl ">
-                                Personalized
-                            </p>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <img class="w-52 h-52" src="/QrCodes.png" alt="">
-                            <p class="text-3xl ">
-                                Qr Codes
-                            </p>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <img class="w-52 h-52" src="/UserFriendly.svg" alt="">
-                            <p class="text-3xl">
-                                User Friendly
-                            </p>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <img class="w-52 h-52" src="/DataPrivacy.svg" alt="">
-                            <p class="text-3xl ">
-                                Data Privacy
-                            </p>
-                        </div>
+            </div>
+        </div>
 
 
-                    </div>
+    </section>
 
-                </section>
+    {{-- How to reach us section --}}
+
+
+    {{-- Features Section --}}
+    <section>
+        <div class="text-center pb-5">
+            <h2 class="text-4xl">Our Features</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div class="flex flex-col items-center">
+                <img class="w-52 h-52" src="/Personalized.svg" alt="">
+                <p class="text-3xl ">
+                    Personalized
+                </p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img class="w-52 h-52" src="/QrCodes.png" alt="">
+                <p class="text-3xl ">
+                    Qr Codes
+                </p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img class="w-52 h-52" src="/UserFriendly.svg" alt="">
+                <p class="text-3xl">
+                    User Friendly
+                </p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img class="w-52 h-52" src="/DataPrivacy.svg" alt="">
+                <p class="text-3xl ">
+                    Data Privacy
+                </p>
+            </div>
+
+
+        </div>
+
+    </section>
 
 </body>
 
