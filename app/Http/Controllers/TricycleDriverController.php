@@ -44,7 +44,7 @@ class TricycleDriverController extends Controller
             'name' => $request->name,
             'contact_no' => $request->contact_no,
             'plate_no' => $request->plate_no,
-
+            'role' => 'driver',
         ]);
 
         return redirect()->route('tricycledriver');
