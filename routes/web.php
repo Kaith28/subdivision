@@ -80,9 +80,9 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::post('/guard/{id}/destroy', [GuardController::class, 'destroy'])->middleware(['auth', 'verified'])->name('guard.destroy');
     Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
 
-    Route::get('/guard/add-guest', [GuardController::class, 'showAddGuestForm'])->name('guard.show_add_guest_form');
+    /* Route::get('/guard/add-guest', [GuardController::class, 'showAddGuestForm'])->name('guard.show_add_guest_form');
     Route::post('/guard/store-guest', [GuardController::class, 'storeGuest'])->name('guard.store_guest');
-    Route::get('/guard/guest-list', [GuardController::class, 'guestList'])->name('guard.guest_list');
+    Route::get('/guard/guest-list', [GuardController::class, 'guestList'])->name('guard.guest_list'); */
 });
 
 /**
@@ -107,7 +107,7 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/guest', [GuestController::class, 'index'])->middleware(['auth', 'verified'])->name('guest');
     Route::get('/guest/create', [GuestController::class, 'create'])->middleware(['admin'])->name('guest.create');
     Route::post('/guest/create', [GuestController::class, 'store'])->middleware(['admin'])->name('guest.store');
-    Route::get('/guest/{id}', [GuestController::class, 'show'])->middleware(['admin'])->name('guest.show');
+    Route::get('/guest/{id}', [GuestController::class, 'show'])->name('guest.show');
 });
 
 /**

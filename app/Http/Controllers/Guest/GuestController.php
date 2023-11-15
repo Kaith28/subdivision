@@ -25,4 +25,9 @@ class GuestController extends Controller
             'name'  => $name
         ]);
     }
+    public function show(Request $request)
+    {
+        $user = Guest::findOrFail($request->id);
+        return view('guest.show')->with('user', $user);
+    }
 }
