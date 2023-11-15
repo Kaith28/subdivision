@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\TricycleDriverController;
 use App\Http\Controllers\Users\UserController;
+use App\Http\Controllers\RelativesController;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -60,6 +61,10 @@ Route::middleware(['auth', 'verified', 'owner'])->group(function () {
     Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
     Route::post('/admin/{id}', [AdminController::class, 'update'])->name('admin.update');
     Route::post('/admin/{id}/destroy', [AdminController::class, 'destroy'])->name('admin.destroy');
+
+    Route::get('/admin/add-relatives', [AdminController::class, 'showAddRelativesForm'])->name('admin.show_add_relatives_form');
+    Route::post('/admin/store-relatives',[AdminController::class, 'storerelatives'])->name('admin.store_relativest');
+    Route::get('/admin/relatives-list', [AdminController::class, 'relativesList'])->name('admin.relatives_list');
 });
 
 /**
@@ -117,6 +122,16 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::post('/tricycledriver/{id}', [TricycleDriverController::class, 'update'])->middleware(['admin'])->name('tricycledriver.update');
     Route::post('/tricycledriver/{id}/destroy', [TricycleDriverController::class, 'destroy'])->middleware(['admin'])->name('tricycledriver.destroy');
     Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
+});
+
+/**
+ * Relatives routes
+ */
+Route::middleware(['auth', 'verified', 'relatives'])->group(function () {
+    Route::get('/relatives', [RelativesController::class, 'index'])->middleware(['auth', 'verified'])->name('relatives');
+    Route::get('/relatives/create', [RelativesController::class, 'create'])->middleware(['admin'])->name('relatives.create');
+    Route::post('/relatives/create', [RelativesController::class, 'store'])->middleware(['admin'])->name('relatives.store');
+    Route::get('/relatives/{id}', [RelativesController::class, 'show'])->middleware(['admin'])->name('relatives.show');
 });
 
 
