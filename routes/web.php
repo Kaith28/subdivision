@@ -84,6 +84,8 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
  * Resident routes
  */
 Route::middleware(['auth', 'verified', 'guard'])->group(function () {
+    Route::get('/resident/{id}/guest/create', [ResidentController::class, 'createGuest'])->name('resident.guest.create');
+    Route::post('/resident/{id}/guest/create', [ResidentController::class, 'storeGuest'])->name('resident.guest.create');
     Route::get('/resident', [ResidentController::class, 'index'])->name('resident');
     Route::get('/resident/create', [ResidentController::class, 'create'])->middleware(['admin'])->name('resident.create');
     Route::post('/resident/create', [ResidentController::class, 'store'])->middleware(['admin'])->name('resident.store');
@@ -91,7 +93,6 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/resident/{id}/edit', [ResidentController::class, 'edit'])->middleware(['admin'])->name('resident.edit');
     Route::post('/resident/{id}', [ResidentController::class, 'update'])->middleware(['admin'])->name('resident.update');
     Route::post('/resident/{id}/destroy', [ResidentController::class, 'destroy'])->middleware(['admin'])->name('resident.destroy');
-    Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
 });
 
 /**

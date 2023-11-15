@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -93,5 +94,21 @@ class ResidentController extends Controller
         $user = User::findOrFail($request->id);
         $user->delete();
         return redirect()->route('resident', $user->id)->with('success', 'User deleted successfully');
+    }
+    public function createGuest()
+    {
+        return view('guest.create');
+    }
+    public function storeGuest(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+
+        Guest::create([
+            'user_id' => $user->id,
+            'name' => $request->name,
+            'contact_no' => $request->contact_no,
+            'photo' => $request->photo,
+        ]);
+        return redirect()->route('resident');
     }
 }

@@ -3,12 +3,26 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Guest;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('guest.guest');
+        $name = $request->input('name');
+
+        $guests = Guest::query();
+
+        if ($name !== null) {
+            $guests->where('name', 'LIKE', '%' . $name . '%');
+        }
+
+        $guests = $guests->with('user')->get();
+
+        return view('guest.guest', [
+            'guests' => $guests,
+            'name'  => $name
+        ]);
     }
 }
