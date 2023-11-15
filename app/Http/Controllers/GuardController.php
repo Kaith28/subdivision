@@ -92,4 +92,23 @@ class GuardController extends Controller
         $user->delete();
         return redirect()->route('guard', $user->id)->with('success', 'User deleted successfully');
     }
+    public function showAddGuestForm()
+    {
+        return view('guard.add_guest_form');
+    }
+
+    public function storeGuest(Request $request)
+    {
+        // Validate the form data
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:20',
+        ]);
+
+        // Process and store guest information (you can save it to the database, etc.)
+        // For now, let's just print the data
+        dd($validatedData);
+    }
+
 }
