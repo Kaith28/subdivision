@@ -52,14 +52,14 @@ Route::get('/download/{qr code}', 'DownloadController@download')->name('download
  * Admin routes
  */
 
-Route::middleware(['auth', 'verified', 'admin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin');
-    Route::get('/admin/create', [AdminController::class, 'create'])->middleware(['auth', 'verified'])->name('admin.create');
-    Route::post('/admin/create', [AdminController::class, 'store'])->middleware(['auth', 'verified'])->name('admin.store');
-    Route::get('/admin/{id}', [AdminController::class, 'show'])->middleware(['auth', 'verified'])->name('admin.show');
-    Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->middleware(['auth', 'verified'])->name('admin.edit');
-    Route::post('/admin/{id}', [AdminController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
-    Route::post('/admin/{id}/destroy', [AdminController::class, 'destroy'])->middleware(['auth', 'verified'])->name('admin.destroy');
+Route::middleware(['auth', 'verified', 'owner'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
+    Route::post('/admin/create', [AdminController::class, 'store'])->name('admin.store');
+    Route::get('/admin/{id}', [AdminController::class, 'show'])->name('admin.show');
+    Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::post('/admin/{id}', [AdminController::class, 'update'])->name('admin.update');
+    Route::post('/admin/{id}/destroy', [AdminController::class, 'destroy'])->name('admin.destroy');
 });
 
 /**
@@ -74,11 +74,10 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::post('/guard/{id}', [GuardController::class, 'update'])->middleware(['auth', 'verified'])->name('guard.update');
     Route::post('/guard/{id}/destroy', [GuardController::class, 'destroy'])->middleware(['auth', 'verified'])->name('guard.destroy');
     Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
-   
+
     Route::get('/guard/add-guest', [GuardController::class, 'showAddGuestForm'])->name('guard.show_add_guest_form');
     Route::post('/guard/store-guest', [GuardController::class, 'storeGuest'])->name('guard.store_guest');
     Route::get('/guard/guest-list', [GuardController::class, 'guestList'])->name('guard.guest_list');
-    
 });
 
 /**
