@@ -29,6 +29,10 @@
                             </svg></button>
                         <a href="{{ route('resident') }}"
                             class="border border-black hover:bg-orange-200 px-2 py-2 rounded-md ">Clear</a>
+                           
+                            <a href="{{ route('guard.show_add_guest_form') }}" class="bg-orange-200 hover:bg-orange-300 text-black py-2 px-4 rounded mr-auto">
+                                Add Guest
+                            </a>    
                     </div>
                 </form>
                 @if (Auth::user()->role == 'admin')

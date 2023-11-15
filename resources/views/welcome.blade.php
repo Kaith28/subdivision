@@ -137,7 +137,7 @@
             <div class="flex flex-col items-center">
                 <img class="w-20 h-20 shadow-md" src="/emaillogo.png" alt="">
                 <p class="text-xl ">
-                    smart_subdivisionsecurity@gmail.com
+                    smart.subdivision@gmail.com
                 </p>
             </div>
             <div class="flex flex-col items-center">
@@ -149,7 +149,7 @@
             <div class="flex flex-col items-center">
                 <img class="w-20 h-20 shadow-md" src="/iglogo.png" alt="">
                 <p class="text-xl">
-                    @smartsubdivision_security
+                    smartsubdivision_security
                 </p>
             </div>
             <div class="flex flex-col items-center">
@@ -192,10 +192,6 @@
 
             Thank you for entrusting Smart Subdivision Security with your privacy. We appreciate your cooperation in
             fostering a safe and secure community.
-
-
-
-
         </p>
     </div>
 
@@ -225,7 +221,7 @@
             <!-- Contact Information -->
             <div class="mb-4 mt-4 pl-20">
                 <h3 class="text-xl font-semibold mb-2 pl-20">Contact Us</h3>
-                <a href="" class="italic"> smart_subdivisionsecurity@gmail.com</a>
+                <p class class="italic"> smart.subdivision@gmail.com</p>
                 <p class="italic">+63 912 3456 789</p>
             </div>
 
@@ -233,13 +229,13 @@
             <div>
                 <h3 class="text-xl font-semibold mb-1 mt-4 pl-32">Follow Us</h3>
                 <div class="flex space-x-2 mt-2 pl-16">
-                    <a href="#" class="cursor-pointer">
+                    <a href="https://www.facebook.com/profile.php?id=61553215094393" class="cursor-pointer">
                         <img src="/fblogo4.png" alt="" class="h-8 mt-2 mr-10">
                     </a>
-                    <a href="#" class="cursor-pointer">
+                    <a href="https://www.instagram.com/smartsubdivision_security/" class="cursor-pointer">
                         <img src="/iglogo2.png" alt="" class="h-8 mt-2 mr-10">
                     </a>
-                    <a href="#" class="cursor-pointer">
+                    <a href="https://twitter.com/SmartSubd" class="cursor-pointer">
                         <img src="/twitterlogo.png" alt="" class="h-10 mt-1 mr-12">
                     </a>
                     <!-- Add more social media icons as needed -->
