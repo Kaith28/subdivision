@@ -82,11 +82,11 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/resident', [ResidentController::class, 'index'])->name('resident');
     Route::get('/resident/create', [ResidentController::class, 'create'])->middleware(['admin'])->name('resident.create');
-    Route::post('/resident/create', [ResidentController::class, 'store'])->middleware(['auth', 'verified'])->name('resident.store');
+    Route::post('/resident/create', [ResidentController::class, 'store'])->middleware(['admin'])->name('resident.store');
     Route::get('/resident/{id}', [ResidentController::class, 'show'])->middleware(['auth', 'verified'])->name('resident.show');
     Route::get('/resident/{id}/edit', [ResidentController::class, 'edit'])->middleware(['admin'])->name('resident.edit');
-    Route::post('/resident/{id}', [ResidentController::class, 'update'])->middleware(['auth', 'verified'])->name('resident.update');
-    Route::post('/resident/{id}/destroy', [ResidentController::class, 'destroy'])->middleware(['auth', 'verified'])->name('resident.destroy');
+    Route::post('/resident/{id}', [ResidentController::class, 'update'])->middleware(['admin'])->name('resident.update');
+    Route::post('/resident/{id}/destroy', [ResidentController::class, 'destroy'])->middleware(['admin'])->name('resident.destroy');
     Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
 });
 
@@ -95,21 +95,21 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
  */
 Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/guest', [GuestController::class, 'index'])->middleware(['auth', 'verified'])->name('guest');
-    Route::get('/guest/create', [GuestController::class, 'create'])->middleware(['auth', 'verified'])->name('guest.create');
-    Route::post('/guest/create', [GuestController::class, 'store'])->middleware(['auth', 'verified'])->name('guest.store');
+    Route::get('/guest/create', [GuestController::class, 'create'])->middleware(['admin'])->name('guest.create');
+    Route::post('/guest/create', [GuestController::class, 'store'])->middleware(['admin'])->name('guest.store');
 });
 
 /**
  * Tricycle Driver routes
  */
 Route::middleware(['auth', 'verified', 'guard'])->group(function () {
-    Route::get('/tricycledriver', [TricycleDriverController::class, 'index'])->middleware(['auth', 'verified'])->name('tricycledriver');
-    Route::get('/tricycledriver/create', [TricycleDriverController::class, 'create'])->middleware(['auth', 'verified'])->name('tricycledriver.create');
-    Route::post('/tricycledriver/create', [TricycleDriverController::class, 'store'])->middleware(['auth', 'verified'])->name('tricycledriver.store');
+    Route::get('/tricycledriver', [TricycleDriverController::class, 'index'])->name('tricycledriver');
+    Route::get('/tricycledriver/create', [TricycleDriverController::class, 'create'])->middleware(['admin'])->name('tricycledriver.create');
+    Route::post('/tricycledriver/create', [TricycleDriverController::class, 'store'])->middleware(['admin'])->name('tricycledriver.store');
     Route::get('/tricycledriver/{id}', [TricycleDriverController::class, 'show'])->middleware(['auth', 'verified'])->name('tricycledriver.show');
-    Route::get('/tricycledriver/{id}/edit', [TricycleDriverController::class, 'edit'])->middleware(['auth', 'verified'])->name('tricycledriver.edit');
-    Route::post('/tricycledriver/{id}', [TricycleDriverController::class, 'update'])->middleware(['auth', 'verified'])->name('tricycledriver.update');
-    Route::post('/tricycledriver/{id}/destroy', [TricycleDriverController::class, 'destroy'])->middleware(['auth', 'verified'])->name('tricycledriver.destroy');
+    Route::get('/tricycledriver/{id}/edit', [TricycleDriverController::class, 'edit'])->middleware(['admin'])->name('tricycledriver.edit');
+    Route::post('/tricycledriver/{id}', [TricycleDriverController::class, 'update'])->middleware(['admin'])->name('tricycledriver.update');
+    Route::post('/tricycledriver/{id}/destroy', [TricycleDriverController::class, 'destroy'])->middleware(['admin'])->name('tricycledriver.destroy');
     Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
 });
 
