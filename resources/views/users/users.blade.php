@@ -52,21 +52,21 @@
                 <table class="w-full  rounded-lg shadow-lg">
                     <thead>
                         <tr class="bg-gray-300 rounded-lg">
-                            <td class="px-2 rounded-tl-lg">Picture</td>
-                            <td class="px-2">Name</td>
-                            <td class="px-2">Contact #</td>
-                            <td class="px-2">Role</td>
-                            <td class="px-2 rounded-tr-lg text-center">Actions</td>
+                            <td class="px-2 text-center font-semibold rounded-tl-lg">Picture</td>
+                            <td class="px-2 text-center font-semibold">Name</td>
+                            <td class="px-2 text-center font-semibold">Contact #</td>
+                            <td class="px-2 text-center font-semibold">Role</td>
+                            <td class="px-2 text-center font-semibold rounded-tr-lg">Actions</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
-                                <td class="px-2 ">Picture</td>
-                                <td class="px-2">{{ $user->name }}</td>
-                                <td class="px-2">Contact</td>
-                                <td class="px-2">{{ ucfirst($user->role) }}</td>
-                                <td class="px-2">
+                                <td class="px-2 text-center ">Picture</td>
+                                <td class="px-2 text-center">{{ $user->name }}</td>
+                                <td class="px-2 text-center">Contact</td>
+                                <td class="px-2 text-center">{{ ucfirst($user->role) }}</td>
+                                <td class="px-2 text-center">
                                     <div class="flex justify-center gap-2">
                                         <a href={{ route('users.show', $user->id) }}
                                             class=" px-2 py-2 hover:bg-gray-200 rounded-md"><svg
