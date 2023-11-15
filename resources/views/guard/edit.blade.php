@@ -34,13 +34,13 @@
                     <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
                 </div>
 
-                <!-- Upload photo -->
+                {{-- <!-- Upload photo -->
                 <div class="mt-4">
                     <x-input-label for="photo" :value="__('Add Photo')" />
                     <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo" required
                         autofocus autocomplete="photo" />
                     <x-input-error :messages="$errors->get('photo')" class="mt-2" />
-                </div>
+                </div> --}}
 
                 <!-- Add -->
                 <div class="mt-4">

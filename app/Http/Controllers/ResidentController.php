@@ -74,7 +74,7 @@ class ResidentController extends Controller
             'contact_no' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            /* 'photo' => ['required', 'string'], */
+            'photo' => ['required', 'string'],
         ]);
 
         $user = User::findOrFail($request->id);

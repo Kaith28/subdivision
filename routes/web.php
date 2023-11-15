@@ -81,10 +81,10 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
  */
 Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/resident', [ResidentController::class, 'index'])->name('resident');
-    Route::get('/resident/create', [ResidentController::class, 'create'])->middleware(['auth', 'verified'])->name('resident.create');
+    Route::get('/resident/create', [ResidentController::class, 'create'])->middleware(['admin'])->name('resident.create');
     Route::post('/resident/create', [ResidentController::class, 'store'])->middleware(['auth', 'verified'])->name('resident.store');
     Route::get('/resident/{id}', [ResidentController::class, 'show'])->middleware(['auth', 'verified'])->name('resident.show');
-    Route::get('/resident/{id}/edit', [ResidentController::class, 'edit'])->middleware(['auth', 'verified'])->name('resident.edit');
+    Route::get('/resident/{id}/edit', [ResidentController::class, 'edit'])->middleware(['admin'])->name('resident.edit');
     Route::post('/resident/{id}', [ResidentController::class, 'update'])->middleware(['auth', 'verified'])->name('resident.update');
     Route::post('/resident/{id}/destroy', [ResidentController::class, 'destroy'])->middleware(['auth', 'verified'])->name('resident.destroy');
     Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
