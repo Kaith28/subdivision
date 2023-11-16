@@ -36,7 +36,8 @@
                 <table class="w-full  rounded-lg shadow-lg">
                     <thead>
                         <tr class="bg-gray-300 rounded-lg">
-                            <td class="px-2 text-center font-semibold rounded-tl-lg">Picture</td>
+                            <td class="px-2 text-center font-semibold rounded-tl-lg">Date and Time</td>
+                            <td class="px-2 text-center font-semibold ">Picture</td>
                             <td class="px-2 text-center font-semibold">Resident in Charge</td>
                             <td class="px-2 text-center font-semibold">Guest</td>
                             <td class="px-2 text-center font-semibold">Contact no.</td>
@@ -46,6 +47,8 @@
                     <tbody>
                         @foreach ($guests as $guest)
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
+                                <td class="px-2 text-center text-sm">
+                                    {{ date('F jS, Y,  g:i a', strtotime($guest->created_at)) }}</td>
                                 <td class="px-2 text-center">Picture</td>
                                 <td class="px-2 text-center">{{ $guest->user->name }}</td>
                                 <td class="px-2 text-center">{{ $guest->name }}</td>
