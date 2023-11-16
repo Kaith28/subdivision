@@ -15,10 +15,16 @@ class UserSeeder extends Seeder
     {
         // Create admin account
         User::create([
+            'name' => 'TEST owner',
+            'email' => 'testowner@gmail.com',
+            'password' => bcrypt('12345678'),
+            'company_name' => 'Subdi',
+            'role' => 'owner',
+        ]);
+        User::create([
             'name' => 'TEST ADMIN',
             'email' => 'testadmin@gmail.com',
             'password' => bcrypt('12345678'),
-            'company_name' => 'Subdi',
             'role' => 'admin',
         ]);
         User::create([

@@ -110,6 +110,7 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/guest/create', [GuestController::class, 'create'])->middleware(['admin'])->name('guest.create');
     Route::post('/guest/create', [GuestController::class, 'store'])->middleware(['admin'])->name('guest.store');
     Route::get('/guest/{id}', [GuestController::class, 'show'])->name('guest.show');
+    Route::post('/guest/{id}/out', [GuestController::class, 'out'])->name('guest.out');
 });
 
 /**

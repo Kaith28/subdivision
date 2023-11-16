@@ -10,17 +10,25 @@
             <h2 class="font-bold">{{ $user->name }}</h2>
             <p class="font-bold">{{ $user->contact_no }} </p>
             <p class="italic">{{ $user->role }}</p>
+            <p class="px-2 text-center text-sm font-bold">
+                IN:{{ date('F jS, Y,  g:i a', strtotime($user->created_at)) }}
+
+            </p>
             <div>
-                
-                 <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('guest.show', $user->id) }}"
-                  alt="QR Code" style="display: block; margin: 0 auto;" width="300">
-                
+                @if ($user->out == null)
+                    <form action="{{ route('guest.out', $user->id) }}" method="POST">
+                        @csrf
+                        <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
+                            OUT
+                        </button>
+                    </form>
+                @endif
+
+                <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('guest.show', $user->id) }}"
+                    alt="QR Code" style="display: block; margin: 0 auto;" width="300">
+
             </div>
-            <div class="container bg-secondary p-4">
-                <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
-                    Download
-                  </button>
-            </div>
+
         </div>
     </div>
 </x-app-layout>
