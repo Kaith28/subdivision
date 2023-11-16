@@ -99,6 +99,7 @@ class ResidentController extends Controller
     {
         return view('guest.create');
     }
+
     public function storeGuest(Request $request)
     {
         $user = User::findOrFail($request->id);
@@ -110,5 +111,21 @@ class ResidentController extends Controller
             'photo' => $request->photo,
         ]);
         return redirect()->route('resident');
+    }
+
+    public function enter(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->status = 'in';
+        $user->save();
+        return redirect()->route('resident', $user->id)->with('success', 'User enter successfully');
+    }
+
+    public function exit(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->status = 'out';
+        $user->save();
+        return redirect()->route('resident', $user->id)->with('success', 'User exit successfully');
     }
 }
