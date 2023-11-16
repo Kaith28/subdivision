@@ -40,9 +40,9 @@
                         {{ __('Tricycle Driver') }}
                     </x-nav-link>
 
-                    {{-- <x-nav-link :href="route('records')" :active="request()->routeIs('records')">
+                    <x-nav-link :href="route('record')" :active="request()->routeIs('record')">
                         {{ __('All Records') }}
-                    </x-nav-link> --}}
+                    </x-nav-link>
 
                 </div>
             </div>

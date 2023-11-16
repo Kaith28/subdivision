@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuardController;
 use App\Http\Controllers\Guest\GuestController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RecordController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\TricycleDriverController;
 use App\Http\Controllers\Users\UserController;
@@ -141,5 +142,8 @@ Route::middleware(['auth', 'verified', 'relatives'])->group(function () {
     Route::get('/relatives/{id}', [RelativesController::class, 'show'])->middleware(['admin'])->name('relatives.show');
 });
 
+Route::middleware(['auth', 'verified', 'guard'])->group(function () {
+    Route::get('/records', [RecordController::class, 'index'])->name('record');
+});
 
 require __DIR__ . '/auth.php';
