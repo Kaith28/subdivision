@@ -40,14 +40,14 @@ Route::get('/dashboard', function () {
  * Users - TODO: Remove
  */
 
-Route::get('/users', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('users');
+/* Route::get('/users', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('users');
 Route::get('/users/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('users.create');
 Route::post('/users/create', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('users.store');
 Route::get('/users/{id}', [UserController::class, 'show'])->middleware(['auth', 'verified'])->name('users.show');
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('users.edit');
 Route::post('/users/{id}', [UserController::class, 'update'])->middleware(['auth', 'verified'])->name('users.update');
 Route::post('/users/{id}/destroy', [UserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('users.destroy');
-Route::get('/download/{qr code}', 'DownloadController@download')->name('download');
+Route::get('/download/{qr code}', 'DownloadController@download')->name('download'); */
 
 /**
  * Admin routes
@@ -63,7 +63,7 @@ Route::middleware(['auth', 'verified', 'owner'])->group(function () {
     Route::post('/admin/{id}/destroy', [AdminController::class, 'destroy'])->name('admin.destroy');
 
     Route::get('/admin/add-relatives', [AdminController::class, 'showAddRelativesForm'])->name('admin.show_add_relatives_form');
-    Route::post('/admin/store-relatives',[AdminController::class, 'storerelatives'])->name('admin.store_relativest');
+    Route::post('/admin/store-relatives', [AdminController::class, 'storerelatives'])->name('admin.store_relativest');
     Route::get('/admin/relatives-list', [AdminController::class, 'relativesList'])->name('admin.relatives_list');
 });
 
@@ -91,6 +91,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/resident/{id}/guest/create', [ResidentController::class, 'createGuest'])->name('resident.guest.create');
     Route::post('/resident/{id}/guest/create', [ResidentController::class, 'storeGuest'])->name('resident.guest.create');
+    Route::post('/resident/{id}/realatives/create', [ResidentController::class, 'storeGuest'])->name('resident.relatives.create');
     Route::get('/resident', [ResidentController::class, 'index'])->name('resident');
     Route::get('/resident/create', [ResidentController::class, 'create'])->middleware(['admin'])->name('resident.create');
     Route::post('/resident/create', [ResidentController::class, 'store'])->middleware(['admin'])->name('resident.store');
