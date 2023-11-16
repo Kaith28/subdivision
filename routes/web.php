@@ -144,6 +144,7 @@ Route::middleware(['auth', 'verified', 'relatives'])->group(function () {
 
 Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/records', [RecordController::class, 'index'])->name('record');
+    Route::get('/records/{id}', [RecordController::class, 'index'])->name('record.show');
 });
 
 require __DIR__ . '/auth.php';
