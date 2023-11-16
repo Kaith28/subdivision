@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guest;
+use App\Models\Record;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -118,6 +119,19 @@ class ResidentController extends Controller
         $user = User::findOrFail($request->id);
         $user->status = 'in';
         $user->save();
+
+        $record = $user->records->where('in', null)->last();
+
+        if ($record == null) {
+            Record::create([
+                'user_id' => $user->id,
+                'in' => date("Y-m-d H:i:s")
+            ]);
+        } else {
+            $record->in = date("Y-m-d H:i:s");
+            $record->save();
+        }
+
         return redirect()->route('resident', $user->id)->with('success', 'User enter successfully');
     }
 
@@ -126,6 +140,19 @@ class ResidentController extends Controller
         $user = User::findOrFail($request->id);
         $user->status = 'out';
         $user->save();
+
+        $record = $user->records->where('out', null)->last();
+
+        if ($record == null) {
+            Record::create([
+                'user_id' => $user->id,
+                'out' => date("Y-m-d H:i:s")
+            ]);
+        } else {
+            $record->out = date("Y-m-d H:i:s");
+            $record->save();
+        }
+
         return redirect()->route('resident', $user->id)->with('success', 'User exit successfully');
     }
 }
