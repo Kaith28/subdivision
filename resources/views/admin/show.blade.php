@@ -11,6 +11,7 @@
             <p class="font-bold">{{ $user->email }} </p>
             <p class="font-bold">{{ $user->contact_no }} </p>
             <p class="italic">{{ $user->role }}</p>
+            <img src="{{ asset($photo) }}" alt="Photo" class="w-full h-auto">
             <div>
 
                 <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('admin.show', $user->id) }}"
