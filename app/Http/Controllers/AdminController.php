@@ -41,16 +41,26 @@ class AdminController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'contact_no' => ['required', 'string', 'max:255'],
-            'photo' => ['required', 'string'],
+            /* 'photo' => ['required', 'string'], */
         ]);
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'contact_no' => $request->contact_no,
-            'role' => 'admin',
-        ]);
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+
+            $imagePath = '/images/' . $imageName;
+
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'contact_no' => $request->contact_no,
+                'photo' => $imagePath,
+                'role' => 'admin',
+            ]);
+        }
+
 
         return redirect()->route('admin');
     }
@@ -82,6 +92,7 @@ class AdminController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->contact_no = $request->contact_no;
+        $user->photo = $request->photo;
 
         $user->save();
 

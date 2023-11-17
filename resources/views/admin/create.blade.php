@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-            <form method="POST" action="">
+            <form method="POST" action=""enctype="multipart/form-data">
                 @csrf
 
                 <!-- Name -->
@@ -58,7 +58,8 @@
 
                 <div class="mb-4">
                     <label for="photo" class="block text-sm font-semibold text-gray-600">Add Photo</label>
-                    <input type="file" id="photo" name="photo" class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+                    <input type="file" id="photo" name="photo"
+                        class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
                 </div>
 
 

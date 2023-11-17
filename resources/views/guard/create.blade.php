@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-            <form method="POST" action="">
+            <form method="POST" action=""enctype="multipart/form-data">
                 @csrf
 
                 <!-- Name -->
@@ -54,13 +54,13 @@
                     <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
                 </div>
 
-                 <!-- Upload photo -->
-                 <div class="mt-4">
+                <!-- Upload photo -->
+                <div class="mt-4">
                     <x-input-label for="photo" :value="__('Add Photo')" />
                     <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo"
                         :value="old('photo')" required autofocus autocomplete="photo" />
                     <x-input-error :messages="$errors->get('photo')" class="mt-2" />
-                </div> 
+                </div>
 
                 <!-- Add -->
                 <div class=" mt-4">

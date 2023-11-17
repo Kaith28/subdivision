@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('contact_no')->nullable();
             $table->string('plate_no')->nullable();
             $table->string('address')->nullable();
-            $table->string('upload_photo')->nullable();
+            $table->string('photo')->nullable();
             $table->enum('role', ['owner', 'admin', 'guard', 'resident', 'driver']);
             $table->enum('status', ['in', 'out'])->default('in');
             $table->rememberToken();

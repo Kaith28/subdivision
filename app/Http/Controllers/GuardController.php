@@ -42,14 +42,21 @@ class GuardController extends Controller
             'contact_no' => ['required', 'string', 'max:255'],
             /* 'photo' => ['required', 'string'], */
         ]);
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'contact_no' => $request->contact_no,
-            'role' => 'guard',
-        ]);
+            $imagePath = '/images/' . $imageName;
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'contact_no' => $request->contact_no,
+                'photo' => $imagePath,
+                'role' => 'guard',
+            ]);
+        }
 
         return redirect()->route('guard');
     }
