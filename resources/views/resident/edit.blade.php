@@ -42,7 +42,7 @@
                     <x-input-error :messages="$errors->get('address')" class="mt-2" />
                 </div>
 
-                <!-- Address -->
+                {{-- <!-- Relatives form -->
                 @if (Auth::user()->role == 'admin')
                     <div class="mt-4">
                         <a href="{{ route('relatives.create', $user->id) }}"></a>
@@ -51,7 +51,7 @@
                             :value="$user->relatives" required autofocus autocomplete="relatives" />
                         <x-input-error :messages="$errors->get('relatives')" class="mt-2" />
                     </div>
-                @endif
+                @endif --}}
 
                 {{--  <!-- Upload photo -->
                 <div class="mt-4">
