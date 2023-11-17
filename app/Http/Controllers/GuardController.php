@@ -73,7 +73,7 @@ class GuardController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'max:255'],
             'contact_no' => ['required', 'string', 'max:255'],
-            'photo' => ['required', 'string'],
+            /* 'photo' => ['required', 'string'], */
         ]);
 
         $user = User::findOrFail($request->id);
@@ -110,5 +110,4 @@ class GuardController extends Controller
         // For now, let's just print the data
         dd($validatedData);
     }
-
 }

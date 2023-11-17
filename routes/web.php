@@ -93,7 +93,7 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/resident/{id}/guest/create', [ResidentController::class, 'createGuest'])->name('resident.guest.create');
     Route::post('/resident/{id}/guest/create', [ResidentController::class, 'storeGuest'])->name('resident.guest.create');
     Route::post('/resident/{id}/guest/destroy', [ResidentController::class, 'destroy'])->middleware(['admin'])->name('guest.destroy');
-    Route::post('/resident/{id}/realatives/create', [ResidentController::class, 'storeGuest'])->name('resident.relatives.create');
+    /* Route::post('/resident/{id}/realatives/create', [ResidentController::class, 'storeGuest'])->name('resident.relatives.create'); */
     Route::get('/resident', [ResidentController::class, 'index'])->name('resident');
     Route::get('/resident/create', [ResidentController::class, 'create'])->middleware(['admin'])->name('resident.create');
     Route::post('/resident/create', [ResidentController::class, 'store'])->middleware(['admin'])->name('resident.store');
