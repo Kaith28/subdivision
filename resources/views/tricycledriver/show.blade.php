@@ -17,31 +17,33 @@
                     alt="QR Code" style="display: block; margin: 0 auto;" width="300">
 
             </div>
-            <div class="container bg-secondary p-4 flex flex-col gap-5">
+            {{-- <div class="container bg-secondary p-4 flex flex-col gap-5">
                 <div>
                     <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
                         Download
                     </button>
                 </div>
-                <div>
-                    @if ($user->status == 'in')
-                        <form action="{{ route('tricycledriver.out', $user->id) }}" method="POST">
-                            @csrf
-                            <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
-                                OUT
-                            </button>
-                        </form>
-                    @endif
-                    @if ($user->status == 'out')
-                        <form action="{{ route('tricycledriver.in', $user->id) }}" method="POST">
-                            @csrf
-                            <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
-                                IN
-                            </button>
-                        </form>
-                    @endif
-                </div>
-            </div>
+                <div> --}}
+            @if (Auth::user()->role == 'guard')
+                @if ($user->status == 'in')
+                    <form action="{{ route('tricycledriver.out', $user->id) }}" method="POST">
+                        @csrf
+                        <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
+                            OUT
+                        </button>
+                    </form>
+                @endif
+                @if ($user->status == 'out')
+                    <form action="{{ route('tricycledriver.in', $user->id) }}" method="POST">
+                        @csrf
+                        <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
+                            IN
+                        </button>
+                    </form>
+                @endif
+            @endif
         </div>
+    </div>
+    </div>
     </div>
 </x-app-layout>

@@ -25,21 +25,23 @@
             </div>
 
             <div>
-                @if ($user->status == 'in')
-                    <form action="{{ route('resident.out', $user->id) }}" method="POST">
-                        @csrf
-                        <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
-                            OUT
-                        </button>
-                    </form>
-                @endif
-                @if ($user->status == 'out')
-                    <form action="{{ route('resident.in', $user->id) }}" method="POST">
-                        @csrf
-                        <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
-                            IN
-                        </button>
-                    </form>
+                @if (Auth::user()->role == 'guard')
+                    @if ($user->status == 'in')
+                        <form action="{{ route('resident.out', $user->id) }}" method="POST">
+                            @csrf
+                            <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
+                                OUT
+                            </button>
+                        </form>
+                    @endif
+                    @if ($user->status == 'out')
+                        <form action="{{ route('resident.in', $user->id) }}" method="POST">
+                            @csrf
+                            <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
+                                IN
+                            </button>
+                        </form>
+                    @endif
                 @endif
             </div>
         </div>
