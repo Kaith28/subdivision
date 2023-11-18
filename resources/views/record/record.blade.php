@@ -49,7 +49,7 @@
                                 <td class="px-2 text-center">{{ $record['user']->name }}</td>
                                 <td class="px-2 text-center">
                                     <div class="flex justify-center gap-2">
-                                        <a href={{ route('record.show', $record->id) }}
+                                        <a href={{ route('record.show', $record['id']) }}
                                             class=" px-2 py-2 hover:bg-gray-200 rounded-md"><svg
                                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">

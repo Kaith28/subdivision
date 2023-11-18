@@ -25,7 +25,7 @@ class RecordController extends Controller
         }
 
         return view('record.record', [
-            'records' => $records,
+            'records' => $list,
         ]);
     }
 }
