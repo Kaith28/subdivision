@@ -40,7 +40,7 @@ class GuestController extends Controller
     }
     public function show(Request $request)
     {
-        $user = Guest::findOrFail($request->id);
+        $user = Guest::with('user')->findOrFail($request->id);
 
         $user->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at)->tz('Asia/Manila');
 

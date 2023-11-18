@@ -11,16 +11,31 @@
         <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('guest.show', $user->id) }}"
             alt="QR Code" class="w-60 h-60">
     </div>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto text-center sm:px-6 lg:px-8 dark:text-gray ">
-            <h2 class="font-bold">{{ $user->name }}</h2>
-            <p class="font-bold">{{ $user->contact_no }} </p>
-            <p class="italic">{{ $user->role }}</p>
-            <p class="px-2 text-center text-sm font-bold">
-                IN:{{ date('F jS, Y,  g:i a', strtotime($user->created_at)) }}
 
-            </p>
-            <div>
+    <div class="py-12">
+        <div class=" w-full flex justify-center">
+
+            <div class="w-96 grid grid-cols-2">
+
+                <p class="font-bold">Resident in Charge:</p>
+                <p>{{ $user->user->name }}</p>
+                <p class="font-bold">Name:</p>
+                <p>{{ $user->name }}</p>
+                <p class="font-bold">Contact:</p>
+                <p>{{ $user->contact_no }}</p>
+                <p class="font-bold">IN:</p>
+                <p>{{ date('F jS, Y,  g:i a', strtotime($user->created_at)) }}</p>
+                {{-- @if ($user->in == null)
+                    <p class="font-bold">OUT:</p>
+                    <p>{{ date('F jS, Y,  g:i a', strtotime($user->out)) }}</p>
+                @endif --}}
+
+                {{-- </div>
+
+                <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
+                    Download
+                </button>s
+            </div>  --}}
                 @if (Auth::user()->role == 'admin')
                     @if ($user->out == null)
                         <form action="{{ route('guest.out', $user->id) }}" method="POST">

@@ -14,16 +14,23 @@
     </div>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto text-center sm:px-6 lg:px-8 dark:text-gray ">
-            <h2 class="font-bold">{{ $user->name }}</h2>
-            <p class="font-bold">{{ $user->email }} </p>
-            <p class="font-bold">{{ $user->contact_no }} </p>
-            <p class="italic">{{ $user->role }}</p>
-            <div class="container bg-secondary p-4">
-                {{-- <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
+        <div class=" w-full flex justify-center">
+
+            <div class="w-96 grid grid-cols-2">
+                <p class="font-bold">Name:</p>
+                <p>{{ $user->name }}</p>
+                <p class="font-bold">Email:</p>
+                <p>{{ $user->email }}</p>
+                <p class="font-bold">Contact:</p>
+                <p>{{ $user->contact_no }}</p>
+                <p class="font-bold">Role:</p>
+                <p>{{ $user->role }}</p>
+                {{-- </div>
+
+                <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
                     Download
-                </button> --}}
+                </button>s
+            </div>  --}}
             </div>
         </div>
-    </div>
 </x-app-layout>
