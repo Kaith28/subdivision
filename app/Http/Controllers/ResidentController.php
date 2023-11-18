@@ -45,17 +45,24 @@ class ResidentController extends Controller
             /* 'photo' => ['required', 'string'], */
         ]);
 
-        User::create([
-            'name' => $request->name,
-            'contact_no' => $request->contact_no,
-            'plate_no' => $request->plate_no,
-            'address' => $request->address,
-            'role' => 'resident',
-        ]);
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
 
+            $imagePath = '/images/' . $imageName;
+
+            User::create([
+                'name' => $request->name,
+                'contact_no' => $request->contact_no,
+                'plate_no' => $request->plate_no,
+                'address' => $request->address,
+                'photo' => $imagePath,
+                'role' => 'resident',
+            ]);
+        }
         return redirect()->route('resident');
     }
-
     public function show(Request $request)
     {
         $user = user::findOrFail($request->id);

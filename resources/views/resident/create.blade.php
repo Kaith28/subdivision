@@ -7,7 +7,7 @@ div<x-app-layout>
 
     <div class="py-12">
         <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-            <form method="POST" action="">
+            <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Name -->
