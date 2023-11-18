@@ -53,14 +53,6 @@
                     </div>
                 @endif --}}
 
-                {{--  <!-- Upload photo -->
-                <div class="mt-4">
-                    <x-input-label for="photo" :value="__('Add Photo')" />
-                    <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo" required
-                        autofocus autocomplete="photo" />
-                    <x-input-error :messages="$errors->get('photo')" class="mt-2" />
-                </div> --}}
-
                 <!-- Add -->
                 <div class="mt-4">
                     <button type="submit" class="bg-orange-200 px-4 py-2 rounded-md">Update</button>
