@@ -38,15 +38,23 @@ class TricycleDriverController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'contact_no' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
-            'photo' => ['required', 'string'],
+            /* 'photo' => ['required', 'string'], */
         ]);
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
 
-        User::create([
-            'name' => $request->name,
-            'contact_no' => $request->contact_no,
-            'plate_no' => $request->plate_no,
-            'role' => 'driver',
-        ]);
+            $imagePath = '/images/' . $imageName;
+
+            User::create([
+                'name' => $request->name,
+                'contact_no' => $request->contact_no,
+                'plate_no' => $request->plate_no,
+                'photo' => $imagePath,
+                'role' => 'driver',
+            ]);
+        }
 
         return redirect()->route('tricycledriver');
     }

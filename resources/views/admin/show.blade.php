@@ -20,9 +20,9 @@
             <p class="font-bold">{{ $user->contact_no }} </p>
             <p class="italic">{{ $user->role }}</p>
             <div class="container bg-secondary p-4">
-                <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
+                {{-- <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
                     Download
-                </button>
+                </button> --}}
             </div>
         </div>
     </div>
