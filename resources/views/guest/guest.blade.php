@@ -38,7 +38,6 @@
                         <tr class="bg-gray-300 rounded-lg">
                             <td class="px-2 text-center font-semibold rounded-tl-lg">IN</td>
                             <td class="px-2 text-center font-semibold ">OUT</td>
-                            <td class="px-2 text-center font-semibold ">Picture</td>
                             <td class="px-2 text-center font-semibold">Resident in Charge</td>
                             <td class="px-2 text-center font-semibold">Guest</td>
                             <td class="px-2 text-center font-semibold">Contact no.</td>
@@ -55,7 +54,6 @@
                                     {{ $guest['out'] }}
                                 </td>
 
-                                <td class="px-2 text-center">Picture</td>
                                 <td class="px-2 text-center">{{ $guest['user']->name }}</td>
                                 <td class="px-2 text-center">{{ $guest['name'] }}</td>
                                 <td class="px-2 text-center">{{ $guest['contact_no'] }}</td>
