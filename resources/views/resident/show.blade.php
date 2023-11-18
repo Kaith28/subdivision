@@ -9,7 +9,7 @@
         <div class="w-fit shadow-md rounded-md">
             <img src="{{ $user->photo }}" alt="Photo" class="w-60 h-60">
         </div>
-        <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('guard.show', $user->id) }}"
+        <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('resident.show', $user->id) }}"
             alt="QR Code" class="w-60 h-60">
     </div>
     <div class="py-12">
