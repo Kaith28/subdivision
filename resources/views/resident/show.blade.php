@@ -1,13 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('View Admin') }}
+            {{ __('View Resident') }}
         </h2>
     </x-slot>
 
     <div class="flex justify-center gap-4 pt-5">
-        <div class="w-fit shadow-md rounded-md">
-            <img src="{{ $user->photo }}" alt="Photo" class="w-60 h-60">
+        <div class="w-fit shadow-md rounded-lg">
+            <img src="{{ $user->photo }}" alt="Photo" class="w-60 h-60 rounded-tl-lg rounded-tr-lg">
+            <button class="w-full bottom-0 rounded-bl-lg rounded-br-lg bg-indigo-700 text-white py-2">Change
+                photo</button>
         </div>
         <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('resident.show', $user->id) }}"
             alt="QR Code" class="w-60 h-60">
@@ -38,7 +40,8 @@
                     @if ($user->status == 'in')
                         <form action="{{ route('resident.out', $user->id) }}" method="POST">
                             @csrf
-                            <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
+                            <button
+                                class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded shadow-md">
                                 OUT
                             </button>
                         </form>
@@ -46,7 +49,8 @@
                     @if ($user->status == 'out')
                         <form action="{{ route('resident.in', $user->id) }}" method="POST">
                             @csrf
-                            <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">
+                            <button
+                                class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded shadow-md">
                                 IN
                             </button>
                         </form>
