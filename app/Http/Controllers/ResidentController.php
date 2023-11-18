@@ -112,13 +112,23 @@ class ResidentController extends Controller
     {
         $user = User::findOrFail($request->id);
 
-        Guest::create([
-            'user_id' => $user->id,
-            'name' => $request->name,
-            'contact_no' => $request->contact_no,
-            'photo' => $request->photo,
-        ]);
-        return redirect()->route('resident');
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+
+            $imagePath = '/images/' . $imageName;
+
+
+            Guest::create([
+                'user_id' => $user->id,
+                'name' => $request->name,
+                'contact_no' => $request->contact_no,
+                'photo' => $imagePath,
+
+            ]);
+        }
+        return redirect()->route('guest');
     }
 
     public function enter(Request $request)
