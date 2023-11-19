@@ -26,7 +26,7 @@
 
                     </div>
                 </form>
-                @if (Auth::user()->role == 'admin')
+                @if (Auth::user()->role == 'admin' || Auth::user()->role == 'owner')
                     <a href="{{ route('resident.create') }}"
                         class=" px-4 py-2 flex items-center gap-2 bg-orange-200 hover:bg-orange-300 rounded-md "><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
