@@ -33,12 +33,12 @@
                     @endif
                 @else
                     <a href="{{ route('login') }}"
-                        class="font-semibold text-black hover:text-gray-900  focus:outline-2 focus:outline-2 focus:rounded-sm focus:outline-gray-500 pt-10">Log
+                        class="font-semibold text-black hover:text-gray-900  focus:outline-2  focus:rounded-sm focus:outline-gray-500 pt-10">Log
                         in</a>
 
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-black hover:text-gray-900  focus:outline-2  focus:outline-2 focus:rounded-sm focus:outline-gray-500 pt-10 pl-5">Register</a>
+                            class="ml-4 font-semibold text-black hover:text-gray-900 focus:outline-2 focus:rounded-sm focus:outline-gray-500 pt-10 pl-5">Register</a>
                     @endif
                 @endauth
             </div>
