@@ -40,7 +40,7 @@
             <option value="monthly">Monthly</option>
             <option value="yearly">Yearly</option>
         </select>
-    </div..>
+    </div>
 
     {{-- Bar Chart Here! --}}
 
