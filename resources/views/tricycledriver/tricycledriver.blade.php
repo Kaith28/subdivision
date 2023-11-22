@@ -25,7 +25,7 @@
                             class="border border-black hover:bg-orange-200 px-2 py-2 rounded-md ">Clear</a>
                     </div>
                 </form>
-                @if (Auth::user()->role == 'admin' || Auth::user()->role == 'owner')
+                @if (Auth::user()->role == 'admin')
                     <a href="{{ route('tricycledriver.create') }}"
                         class=" px-4 py-2 flex items-center gap-2 bg-orange-200 hover:bg-orange-300 rounded-md "><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
