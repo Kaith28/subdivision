@@ -56,11 +56,11 @@
         </div>
 
         <!-- Upload photo -->
+
         <div class="mt-4">
             <x-input-label for="photo" :value="__('Add Photo')" />
-            <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo" :value="old('photo')"
-                required autofocus autocomplete="photo" />
-            <x-input-error :messages="$errors->get('photo')"class="mt-2" />
+            <input type="file" id="photo" name="photo"
+                class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-orange-300">
         </div>
 
         <div class="flex items-center justify-end mt-4">
