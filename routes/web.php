@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuardController;
 use App\Http\Controllers\Guest\GuestController;
 use App\Http\Controllers\ProfileController;
@@ -33,9 +34,7 @@ Route::middleware('auth')->group(function () {
  * Dashboard
  */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 /**
  * Users - TODO: Remove
