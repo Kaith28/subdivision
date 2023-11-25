@@ -22,8 +22,10 @@ class DashboardController extends Controller
 
         return view('dashboard', [
             'totalResidents' => $totalResidents,
-            'totalIn' => $totalInResidents + $totalInGuests + $totalInTricycleDrivers,
-            'totalOut' => $totalOutResidents + $totalOutGuests + $totalOutTricycleDrivers
+            'totalIn' => $totalInResidents + $totalInTricycleDrivers,
+            'totalOut' => $totalOutResidents + $totalOutTricycleDrivers,
+            'totalInGuests' => $totalInGuests,
+            'totalOutGuests' => $totalOutGuests,
         ]);
     }
 }
