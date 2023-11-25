@@ -79,11 +79,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/guard/{id}/edit', [GuardController::class, 'edit'])->middleware(['auth', 'verified'])->name('guard.edit');
     Route::post('/guard/{id}', [GuardController::class, 'update'])->middleware(['auth', 'verified'])->name('guard.update');
     Route::post('/guard/{id}/destroy', [GuardController::class, 'destroy'])->middleware(['auth', 'verified'])->name('guard.destroy');
-    Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
-
-    /* Route::get('/guard/add-guest', [GuardController::class, 'showAddGuestForm'])->name('guard.show_add_guest_form');
-    Route::post('/guard/store-guest', [GuardController::class, 'storeGuest'])->name('guard.store_guest');
-    Route::get('/guard/guest-list', [GuardController::class, 'guestList'])->name('guard.guest_list'); */
+    Route::post('/guard/{id}/change-photo', [GuardController::class, 'changePhoto'])->name('guard.change.photo');
 });
 
 /**

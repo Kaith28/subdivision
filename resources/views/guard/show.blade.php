@@ -9,9 +9,17 @@
         <div class="w-fit shadow-md rounded-md">
             <img src="{{ $user->photo }}" alt="Photo" class="w-60 h-60">
             @if (Auth::user()->role == 'admin' || Auth::user()->role == 'owner')
-                <button
-                    class="w-full bottom-0 rounded-bl-lg rounded-br-lg bg-orange-300 text-white py-2 hover:bg-orange-200">Change
-                    photo</button>
+                <form action="{{ route('guard.change.photo', $user->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <label for="photo">
+                        <div
+                            class="w-full bottom-0 text-center cursor-pointer rounded-bl-lg rounded-br-lg bg-orange-300 text-white py-2 hover:bg-orange-200">
+                            Change Photo
+                        </div>
+                    </label>
+                    <input class="hidden" id="photo" type="file" name="photo" accept="image/*"
+                        onchange="this.form.submit()">
+                </form>
             @endif
         </div>
         <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('guard.show', $user->id) }}"
