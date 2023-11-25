@@ -7,7 +7,7 @@
                         <h2 class="text-4xl">{{ $totalResidents }}</h2>
                     </div>
                     <p class="text-xl ">
-                        TOTAL of Residents
+                        TOTAL Residents
                     </p>
                 </div>
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4">
@@ -15,7 +15,7 @@
                         <h2 class="text-4xl">{{ $totalInGuests }}</h2>
                     </div>
                     <p class="text-xl ">
-                        TOTAL Guest
+                        TOTAL Guests
                     </p>
                     <p class="text-sm">
                         Total Visitors: {{ $totalOutGuests }}
