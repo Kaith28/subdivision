@@ -126,7 +126,8 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::post('/tricycledriver/{id}/in', [TricycleDriverController::class, 'enter'])->name('tricycledriver.in');
     Route::post('/tricycledriver/{id}/out', [TricycleDriverController::class, 'exit'])->name('tricycledriver.out');
     Route::post('/tricycledriver/{id}/destroy', [TricycleDriverController::class, 'destroy'])->middleware(['admin'])->name('tricycledriver.destroy');
-    Route::get('/download/{qr code}', 'DownloadController@download')->name('download');;
+    Route::post('/tricycledriver/{id}/change-photo', [TricycleDriverController::class, 'changePhoto'])->name('tricycledriver.change.photo');
+    /*  Route::get('/download/{qr code}', 'DownloadController@download')->name('download');; */
 });
 
 /**
