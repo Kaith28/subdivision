@@ -61,6 +61,7 @@ Route::middleware(['auth', 'verified', 'owner'])->group(function () {
     Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
     Route::post('/admin/{id}', [AdminController::class, 'update'])->name('admin.update');
     Route::post('/admin/{id}/destroy', [AdminController::class, 'destroy'])->name('admin.destroy');
+    Route::post('/admin/{id}/change-photo', [AdminController::class, 'changePhoto'])->name('admin.change.photo');
 
     Route::get('/admin/add-relatives', [AdminController::class, 'showAddRelativesForm'])->name('admin.show_add_relatives_form');
     Route::post('/admin/store-relatives', [AdminController::class, 'storerelatives'])->name('admin.store_relativest');
