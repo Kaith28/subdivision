@@ -1,4 +1,11 @@
 <x-app-layout>
+    @if (session('success'))
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="mb-3 alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('View Guard') }}
@@ -9,7 +16,8 @@
         <div class="w-fit shadow-md rounded-md">
             <img src="{{ $user->photo }}" alt="Photo" class="w-60 h-60">
             @if (Auth::user()->role == 'admin' || Auth::user()->role == 'owner')
-                <form action="{{ route('guard.change.photo', $user->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('guard.change.photo', $user->id) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <label for="photo">
                         <div

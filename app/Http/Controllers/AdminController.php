@@ -119,7 +119,7 @@ class AdminController extends Controller
             $user->photo = $imagePath;
             $user->save();
 
-            return redirect()->back()->with('success', 'Updated successfully');
+            return redirect()->back()->with('success', 'Updated photo successfully');
         }
     }
 }

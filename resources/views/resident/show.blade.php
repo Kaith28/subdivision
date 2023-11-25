@@ -1,4 +1,11 @@
 <x-app-layout>
+    @if (session('success'))
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="mb-3 alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('View Resident') }}
@@ -9,9 +16,18 @@
         <div class="w-fit shadow-md rounded-lg">
             <img src="{{ $user->photo }}" alt="Photo" class="w-60 h-60 rounded-tl-lg rounded-tr-lg">
             @if (Auth::user()->role == 'admin')
-                <button
-                    class="w-full bottom-0 rounded-bl-lg rounded-br-lg bg-orange-300 text-white py-2 hover:bg-orange-200">Change
-                    photo</button>
+                <form action="{{ route('resident.change.photo', $user->id) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    <label for="photo">
+                        <div
+                            class="w-full bottom-0 text-center cursor-pointer rounded-bl-lg rounded-br-lg bg-orange-300 text-white py-2 hover:bg-orange-200">
+                            Change Photo
+                        </div>
+                    </label>
+                    <input class="hidden" id="photo" type="file" name="photo" accept="image/*"
+                        onchange="this.form.submit()">
+                </form>
             @endif
         </div>
         <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('resident.show', $user->id) }}"

@@ -99,6 +99,7 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::post('/resident/{id}/in', [ResidentController::class, 'enter'])->name('resident.in');
     Route::post('/resident/{id}/out', [ResidentController::class, 'exit'])->name('resident.out');
     Route::post('/resident/{id}/destroy', [ResidentController::class, 'destroy'])->middleware(['admin'])->name('resident.destroy');
+    Route::post('/resident/{id}/change-photo', [ResidentController::class, 'changePhoto'])->name('resident.change.photo');
 });
 
 /**

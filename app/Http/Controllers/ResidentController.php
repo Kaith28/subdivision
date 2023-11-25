@@ -172,4 +172,22 @@ class ResidentController extends Controller
 
         return redirect()->route('resident', $user->id)->with('success', 'User exit successfully');
     }
+
+    public function changePhoto(Request $request)
+    {
+
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+
+            $imagePath = '/images/' . $imageName;
+
+            $user = User::findOrFail($request->id);
+            $user->photo = $imagePath;
+            $user->save();
+
+            return redirect()->back()->with('success', 'Updated photo successfully');
+        }
+    }
 }
