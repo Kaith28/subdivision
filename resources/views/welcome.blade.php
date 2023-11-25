@@ -33,12 +33,12 @@
                     @endif
                 @else
                     <a href="{{ route('login') }}"
-                        class="font-semibold text-black hover:text-gray-900  focus:outline-2  focus:rounded-sm focus:outline-gray-500 pt-10">Log
+                        class="font-semibold text-black hover:text-orange-300  focus:outline-2  focus:rounded-sm focus:outline-gray-500 pt-10">Log
                         in</a>
 
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-black hover:text-gray-900 focus:outline-2 focus:rounded-sm focus:outline-gray-500 pt-10 pl-5">Register</a>
+                            class="ml-4 font-semibold text-black hover:text-orange-300 focus:outline-2 focus:rounded-sm focus:outline-gray-500 pt-10 pl-5">Register</a>
                     @endif
                 @endauth
             </div>
@@ -123,7 +123,7 @@
             <h2 class="text-4xl"><b>How to reach us?</b></h2>
         </div>
         <div class="text-center pb-20 pt-1 pl-64 pr-64 ">
-            <p class="text-2xl text-gray-400 shadow-xl rounded-xl bg-gray-200 pr-4 pl-4 pt-10 pb-10"> Explore various
+            <p class="text-2xl text-white shadow-xl rounded-xl bg-slate-400 pr-4 pl-4 pt-10 pb-10"> Explore various
                 convenient ways to connect with Smart Subdivision Security.
                 Our team is dedicated to ensuring the safety and security of your community, and we welcome the
                 opportunity to address any questions or concerns you may have. Additionally, feel free to visit our
@@ -170,7 +170,7 @@
         <h2 class="text-4xl"><b>Privacy Policy</b></h2>
     </div>
     <div class="text-center pb-20 pt-1 pl-64 pr-64 ">
-        <p class="text-1xl text-justify shadow-xl text-white rounded-xl bg-gray-200 pr-4 pl-4 pt-10 pb-10"> We
+        <p class="text-1xl text-justify shadow-xl text-white rounded-xl bg-slate-400 pr-4 pl-4 pt-10 pb-10"> We
             prioritize the protection and confidentiality of your personal information. This document outlines our
             commitment to safeguarding your privacy while utilizing our services.
 

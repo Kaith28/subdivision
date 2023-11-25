@@ -8,6 +8,11 @@
     <div class="flex justify-center gap-4 pt-5">
         <div class="w-fit shadow-md rounded-md">
             <img src="{{ $user->photo }}" alt="Photo" class="w-60 h-60">
+            @if (Auth::user()->role == 'owner')
+                <button
+                    class="w-full bottom-0 rounded-bl-lg rounded-br-lg bg-orange-300 text-white py-2 hover:bg-orange-200">Change
+                    photo</button>
+            @endif
         </div>
         <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('admin.show', $user->id) }}"
             alt="QR Code" class="w-60 h-60">

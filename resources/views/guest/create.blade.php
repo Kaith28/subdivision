@@ -28,7 +28,7 @@
 
                 <!-- Upload photo -->
                 <div class="mt-4">
-                    <x-input-label for="address" :value="__('Add Photo')" />
+                    <x-input-label for="photo" :value="__('Add Photo')" />
                     <input type="file" id="photo" name="photo"
                         class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-orange-300">
                 </div>

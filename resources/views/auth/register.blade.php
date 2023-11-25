@@ -56,11 +56,11 @@
         </div>
 
         <!-- Upload photo -->
+
         <div class="mt-4">
             <x-input-label for="photo" :value="__('Add Photo')" />
-            <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo" :value="old('photo')"
-                required autofocus autocomplete="photo" />
-            <x-input-error :messages="$errors->get('photo')" class="mt-2" />
+            <input type="file" id="photo" name="photo"
+                class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-orange-300">
         </div>
 
         <div class="flex items-center justify-end mt-4">
@@ -69,7 +69,7 @@
                 {{ __('Already registered?') }}
             </a>
 
-            <x-primary-button class=" bg-orange-200 hover:bg-orange-300 ml-4">
+            <x-primary-button class=" bg-orange-300 hover:bg-orange-200 ml-4">
                 {{ __('Register') }}
             </x-primary-button>
         </div>
