@@ -1,4 +1,4 @@
-div<x-app-layout>
+<x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Create Resident') }}
@@ -26,6 +26,14 @@ div<x-app-layout>
                     <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
                 </div>
 
+                  <!-- vehicle type -->
+                  <div class="mt-4">
+                    <x-input-label for="vehicle_type" :value="__('Vehicle Type')" />
+                    <x-text-input id="plate_no" class="block mt-1 w-full" type="text" name="vehicle_type"
+                        :value="old('vehicle_type')" required autofocus autocomplete="vehicle_type" />
+                    <x-input-error :messages="$errors->get('vehicle_type')" class="mt-2" />
+                </div>
+
                 <!-- Plate no. -->
                 <div class="mt-4">
                     <x-input-label for="plate_no" :value="__('Plate no.')" />
@@ -34,6 +42,7 @@ div<x-app-layout>
                     <x-input-error :messages="$errors->get('plate_no')" class="mt-2" />
                 </div>
 
+                
                 <!-- Address -->
                 <div class="mt-4">
                     <x-input-label for="address" :value="__('Address')" />
