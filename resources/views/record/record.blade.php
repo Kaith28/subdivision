@@ -10,7 +10,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            {{-- <div class="flex justify-between items-center">
+             <div class="flex justify-between items-center">
                 <form action="{{ route('guest') }}" method="GET">
                     <div class="flex gap-4">
                         <input class="rounded-md" type="text" name="name" placeholder="Search by name"
@@ -25,7 +25,7 @@
                             class="border border-black hover:bg-orange-200 px-2 py-2 rounded-md ">Clear</a>
                     </div>
                 </form>
-            </div> --}}
+            </div>
             <div class="pt-8 ">
                 <table class="w-full  rounded-lg shadow-lg">
                     <thead>
