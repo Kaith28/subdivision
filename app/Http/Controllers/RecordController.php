@@ -10,9 +10,13 @@ class RecordController extends Controller
 {
     public function index(Request $request)
     {
+        $name = $request->input('name');
+
         $records = Record::query();
 
-        $records = $records->with('user')->get();
+        $records = $records->whereHas('user', function ($query) use ($name) {
+            $query->where('name', 'like', '%' . $name . '%');
+        })->with('user')->get();
 
         $list = [];
         foreach ($records as $record) {
@@ -26,6 +30,7 @@ class RecordController extends Controller
 
         return view('record.record', [
             'records' => $list,
+            'name'  => $name
         ]);
     }
 }

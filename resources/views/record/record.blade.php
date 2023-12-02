@@ -11,10 +11,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
-                {{-- <form action="{{ route('record') }}" method="GET">
+                <form action="{{ route('record') }}" method="GET">
                     <div class="flex gap-4">
                         <input class="rounded-md" type="text" name="name" placeholder="Search by name"
-                            value="{{ $record->user }}">
+                            value="{{ $name }}">
                         <button class="bg-orange-200 hover:bg-orange-300 px-4 py-2 rounded-md "><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
@@ -24,7 +24,7 @@
                         <a href="{{ route('record') }}"
                             class="border border-black hover:bg-orange-200 px-2 py-2 rounded-md ">Clear</a>
                     </div>
-                </form> --}}
+                </form>
             </div>
             <div class="pt-8 ">
                 <table class="w-full  rounded-lg shadow-lg">
