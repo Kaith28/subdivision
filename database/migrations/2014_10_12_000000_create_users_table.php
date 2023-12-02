@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('company_name')->nullable();
             $table->string('contact_no')->nullable();
+            $table->string('vehicle_type')->nullable();
             $table->string('plate_no')->nullable();
             $table->string('address')->nullable();
             $table->string('photo')->nullable();

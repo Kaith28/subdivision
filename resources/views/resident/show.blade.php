@@ -41,6 +41,8 @@
                 <p>{{ $user->name }}</p>
                 <p class="font-bold">Contact:</p>
                 <p>{{ $user->contact_no }}</p>
+                <p class="font-bold">Vehicle Type:</p>
+                <p>{{ $user->vehicle_type }}</p>
                 <p class="font-bold">Plate no:</p>
                 <p>{{ $user->plate_no }}</p>
                 <p class="font-bold">Address:</p>
@@ -49,7 +51,7 @@
                 <p>{{ $user->role }}</p>
                 <p class="font-bold">Relatives:</p>
                 <p>{{ $user->relatives }}</p>
-                
+
                 {{-- </div>
 
                 <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">

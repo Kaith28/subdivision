@@ -40,9 +40,10 @@ class ResidentController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'contact_no' => ['required', 'string', 'max:255'],
+            'vehicle_type' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            /* 'photo' => ['required', 'string'], */
+
         ]);
 
         if ($request->hasFile('photo')) {
@@ -55,6 +56,7 @@ class ResidentController extends Controller
             User::create([
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
+                'vehicle_type' => $request->vehicle_type,
                 'plate_no' => $request->plate_no,
                 'address' => $request->address,
                 'photo' => $imagePath,
@@ -81,6 +83,7 @@ class ResidentController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'contact_no' => ['required', 'string', 'max:255'],
+            'vehicle_type' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             /* 'photo' => ['required', 'string'], */
@@ -90,6 +93,7 @@ class ResidentController extends Controller
 
         $user->name = $request->name;
         $user->contact_no = $request->contact_no;
+        $user->vehicle_type = $request->vehicle_type;
         $user->plate_no = $request->plate_no;
         $user->address = $request->address;
 

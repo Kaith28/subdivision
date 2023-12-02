@@ -25,6 +25,7 @@ class User extends Authenticatable
         'role',
         'contact_no',
         'address',
+        'vehicle_type',
         'plate_no',
         'photo'
     ];
