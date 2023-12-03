@@ -33,7 +33,13 @@
                         :value="$user->contact_no" required autofocus autocomplete="contact_no" />
                     <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
                 </div>
-
+                <!--- subdivision -->
+                <div class="mt-4">
+                    <x-input-label for="subdivision" :value="__('Subdivision')" />
+                    <x-text-input id="subdivision" class="block mt-1 w-full" type="text" name="subdivision"
+                        :value="$user->subdivision" required autofocus autocomplete="subdivision" />
+                    <x-input-error :messages="$errors->get('subdivision')" class="mt-2" />
+                </div>
                 <!-- Add -->
                 <div class="mt-4">
                     <button type="submit" class="bg-orange-200 px-4 py-2 rounded-md">Update</button>

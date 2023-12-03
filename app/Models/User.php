@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'company_name',
         'role',
+        'subdivision',
         'contact_no',
         'address',
         'vehicle_type',

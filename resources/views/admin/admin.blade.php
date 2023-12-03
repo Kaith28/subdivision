@@ -40,7 +40,8 @@
                 <table class="w-full  rounded-lg shadow-lg">
                     <thead>
                         <tr class="bg-gray-300 rounded-lg">
-                            <td class="px-2 text-center font-semibold rounded-tl-lg">Name</td>
+                            <td class="px-2 text-center font-semibold rounded-tl-lg">Subdivision</td>
+                            <td class="px-2 text-center font-semibold ">Name</td>
                             <td class="px-2 text-center font-semibold">Email</td>
                             <td class="px-2 text-center font-semibold">Contact no.</td>
                             <td class="px-2 text-center font-semibold rounded-tr-lg">Actions</td>
@@ -49,6 +50,7 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
+                                <td class="px-2 text-center">{{ $user->subdivision }}</td>
                                 <td class="px-2 text-center">{{ $user->name }}</td>
                                 <td class="px-2 text-center">{{ $user->email }}</td>
                                 <td class="px-2 text-center">{{ $user->contact_no }}</td>

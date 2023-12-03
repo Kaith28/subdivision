@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('company_name')->nullable();
+            $table->string('subdivision')->nullable();
             $table->string('contact_no')->nullable();
             $table->string('vehicle_type')->nullable();
             $table->string('plate_no')->nullable();

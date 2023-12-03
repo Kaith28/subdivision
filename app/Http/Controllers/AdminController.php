@@ -41,6 +41,7 @@ class AdminController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'contact_no' => ['required', 'string', 'max:255'],
+            'subdivision' => ['required', 'string', 'max:255'],
             /* 'photo' => ['required', 'string'], */
         ]);
 
@@ -56,6 +57,7 @@ class AdminController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'contact_no' => $request->contact_no,
+                'subdivision' => $request->subdivision,
                 'photo' => $imagePath,
                 'role' => 'admin',
             ]);
@@ -84,6 +86,7 @@ class AdminController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'max:255'],
             'contact_no' => ['required', 'string', 'max:255'],
+            'subdivision' => ['required', 'string', 'max:255'],
 
         ]);
 
@@ -92,6 +95,7 @@ class AdminController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->contact_no = $request->contact_no;
+        $user->subdivision = $request->subdivision;
         $user->photo = $request->photo;
 
         $user->save();
