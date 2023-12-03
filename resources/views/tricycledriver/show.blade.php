@@ -43,8 +43,6 @@
                 <p>{{ $user->contact_no }}</p>
                 <p class="font-bold">Plate no:</p>
                 <p>{{ $user->plate_no }}</p>
-                <p class="font-bold">Role:</p>
-                <p>{{ $user->role }}</p>
                 {{-- </div>
 
                 <button class="bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded">

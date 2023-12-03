@@ -41,8 +41,15 @@
                         :value="$user->address" required autofocus autocomplete="address" />
                     <x-input-error :messages="$errors->get('address')" class="mt-2" />
                 </div>
+                <!-- Relatives -->
+                <div class="mt-4">
+                    <x-input-label for="relatives" :value="__('Relatives')" />
+                    <x-text-input id="relatives" class="block mt-1 w-96 " type="text" name="relatives"
+                        :value="$user->relatives" required autofocus autocomplete="relatives" />
+                    <x-input-error :messages="$errors->get('relatives')" class="mt-2" />
+                </div>
 
-                
+
                 @if (Auth::user()->role == 'admin')
                     <div class="mt-4">
                         <a href="{{ route('relatives.create', $user->id) }}"></a>
@@ -51,9 +58,9 @@
                             :value="$user->relatives" required autofocus autocomplete="relatives" />
                         <x-input-error :messages="$errors->get('relatives')" class="mt-2" />
                     </div>
-                @endif 
+                @endif
 
-               
+
                 <div class="mt-4">
                     <button type="submit" class="bg-orange-200 px-4 py-2 rounded-md">Update</button>
                 </div>

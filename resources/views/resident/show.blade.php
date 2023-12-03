@@ -47,8 +47,6 @@
                 <p>{{ $user->plate_no }}</p>
                 <p class="font-bold">Address:</p>
                 <p>{{ $user->address }}</p>
-                <p class="font-bold">Role:</p>
-                <p>{{ $user->role }}</p>
                 <p class="font-bold">Relatives:</p>
                 <p>{{ $user->relatives }}</p>
 

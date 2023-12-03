@@ -43,6 +43,7 @@ class ResidentController extends Controller
             'vehicle_type' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
+            'relatives' => ['required', 'string', 'max:255'],
 
         ]);
 
@@ -59,6 +60,7 @@ class ResidentController extends Controller
                 'vehicle_type' => $request->vehicle_type,
                 'plate_no' => $request->plate_no,
                 'address' => $request->address,
+                'relatives' => $request->relatives,
                 'photo' => $imagePath,
                 'role' => 'resident',
             ]);
@@ -86,6 +88,7 @@ class ResidentController extends Controller
             'vehicle_type' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
+            'relatives' => ['required', 'string', 'max:255'],
             /* 'photo' => ['required', 'string'], */
         ]);
 
@@ -96,6 +99,7 @@ class ResidentController extends Controller
         $user->vehicle_type = $request->vehicle_type;
         $user->plate_no = $request->plate_no;
         $user->address = $request->address;
+        $user->relatives = $request->relatives;
 
         $user->save();
 

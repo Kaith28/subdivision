@@ -26,6 +26,7 @@ class User extends Authenticatable
         'subdivision',
         'contact_no',
         'address',
+        'relatives',
         'vehicle_type',
         'plate_no',
         'photo'

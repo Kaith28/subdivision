@@ -26,16 +26,7 @@
                     <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
                 </div>
 
-                {{--   <!-- vehicle type -->
-                <div class="mt-4">
-                    <x-input-label for="vehicle_type" :value="__('Vehicle Type')" />
-                    <x-text-input id="vehicle_type" class="block mt-1 w-full" type="text" name="vehicle_type"
-                        placeholder="Brand | Model | Color":value="old('vehicle_type')" required autofocus
-                        autocomplete="vehicle_type" />
-                    <x-input-error :messages="$errors->get('vehicle_type')" class="mt-2" />
-                </div> --}}
-
-                <!-- Plate no. -->
+                <!-- vehicle type -->
                 <div class="mt-4">
                     <x-input-label for="vehicle_type" :value="__('Vehicle Type')" />
                     <x-text-input id="vehicle_type" class="block mt-1 w-full" type="text" name="vehicle_type"
@@ -58,6 +49,14 @@
                     <x-text-input id="address" class="block mt-1 w-full" type="text" name="address"
                         :value="old('address')" required autofocus autocomplete="address" />
                     <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                </div>
+
+                <!-- Relatives -->
+                <div class="mt-4">
+                    <x-input-label for="relatives" :value="__('Relatives')" />
+                    <x-text-input id="relatives" class="block mt-1 w-full" type="text" name="relatives"
+                        :value="old('relatives')" required autofocus autocomplete="relatives" />
+                    <x-input-error :messages="$errors->get('relatives')" class="mt-2" />
                 </div>
 
                 <!-- Upload photo -->
