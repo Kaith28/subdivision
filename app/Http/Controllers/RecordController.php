@@ -10,12 +10,14 @@ class RecordController extends Controller
 {
     public function index(Request $request)
     {
+        $user = $request->user();
         $name = $request->input('name');
 
         $records = Record::query();
 
-        $records = $records->whereHas('user', function ($query) use ($name) {
+        $records = $records->whereHas('user', function ($query) use ($name, $user) {
             $query->where('name', 'like', '%' . $name . '%');
+            $query->where('company_id', $user->company->id);
         })->with('user')->get();
 
         $list = [];

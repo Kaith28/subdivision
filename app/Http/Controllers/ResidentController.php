@@ -13,6 +13,7 @@ class ResidentController extends Controller
 {
     public function index(Request $request)
     {
+        $user = $request->user();
         $name = $request->input('name');
 
         $users = User::query();
@@ -23,6 +24,7 @@ class ResidentController extends Controller
 
         $users->where('role', 'resident');
         $users->where('is_deleted', false);
+        $users->where('company_id', $user->company->id);
 
         $users = $users->get();
 

@@ -11,6 +11,8 @@ class AdminController extends Controller
 {
     public function index(Request $request)
     {
+        $user = $request->user();
+
         $name = $request->input('name');
 
         $users = User::query();
@@ -20,6 +22,7 @@ class AdminController extends Controller
         }
 
         $users->where('role', 'admin');
+        $users->where('company_id', $user->company->id);
 
         $users = $users->get();
 

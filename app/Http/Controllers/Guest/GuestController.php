@@ -11,6 +11,8 @@ class GuestController extends Controller
 {
     public function index(Request $request)
     {
+        $user = $request->user();
+
         $name = $request->input('name');
 
         $guests = Guest::query();
@@ -18,6 +20,8 @@ class GuestController extends Controller
         if ($name !== null) {
             $guests->where('name', 'LIKE', '%' . $name . '%');
         }
+
+        $guests->where('company_id', $user->company->id);
 
         $guests = $guests->with('user')->get();
 

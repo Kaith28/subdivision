@@ -18,10 +18,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'company_id',
         'name',
         'email',
         'password',
-        'company_name',
         'role',
         'subdivision',
         'contact_no',
@@ -61,5 +61,10 @@ class User extends Authenticatable
     public function records()
     {
         return $this->hasMany(Record::class);
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
     }
 }

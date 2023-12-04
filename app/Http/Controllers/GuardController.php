@@ -11,6 +11,7 @@ class GuardController extends Controller
 {
     public function index(Request $request)
     {
+        $user = $request->user();
         $name = $request->input('name');
 
         $users = User::query();
@@ -20,7 +21,7 @@ class GuardController extends Controller
         }
 
         $users->where('role', 'guard');
-
+        $users->where('company_id', $user->company->id);
 
         $users = $users->get();
 
