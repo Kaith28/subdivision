@@ -75,15 +75,29 @@ class AdminController extends Controller
 
     public function show(Request $request)
     {
-        $user = user::findOrFail($request->id);
-        return view('admin.show')->with('user', $user);
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        return view('admin.show')->with('user', $existingUser);
     }
 
     public function edit(Request $request)
     {
-        $user = User::findOrFail($request->id);
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
         return view('admin.edit')
-            ->with('user', $user);
+            ->with('user', $existingUser);
     }
 
     public function update(Request $request)
@@ -96,22 +110,37 @@ class AdminController extends Controller
 
         ]);
 
-        $user = User::findOrFail($request->id);
+        $user = $request->user();
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->contact_no = $request->contact_no;
-        $user->subdivision = $request->subdivision;
-        $user->photo = $request->photo;
+        $existingUser = User::findOrFail($request->id);
 
-        $user->save();
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->name = $request->name;
+        $existingUser->email = $request->email;
+        $existingUser->contact_no = $request->contact_no;
+        $existingUser->subdivision = $request->subdivision;
+        $existingUser->photo = $request->photo;
+        $existingUser->save();
 
         return redirect()->route('admin')->with('success', 'Updated user successfully');
     }
+
     public function destroy(Request $request)
     {
-        $user = User::findOrFail($request->id);
-        $user->delete();
+
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->delete();
+
         return redirect()->route('admin', $user->id)->with('success', 'User deleted successfully');
     }
 

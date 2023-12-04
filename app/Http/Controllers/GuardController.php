@@ -68,15 +68,29 @@ class GuardController extends Controller
 
     public function show(Request $request)
     {
-        $user = user::findOrFail($request->id);
-        return view('guard.show')->with('user', $user);
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        return view('guard.show')->with('user', $existingUser);
     }
 
     public function edit(Request $request)
     {
-        $user = User::findOrFail($request->id);
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
         return view('guard.edit')
-            ->with('user', $user);
+            ->with('user', $existingUser);
     }
 
     public function update(Request $request)
@@ -88,22 +102,36 @@ class GuardController extends Controller
             /* 'photo' => ['required', 'string'], */
         ]);
 
-        $user = User::findOrFail($request->id);
+        $user = $request->user();
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->contact_no = $request->contact_no;
+        $existingUser = User::findOrFail($request->id);
 
-        $user->save();
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->name = $request->name;
+        $existingUser->email = $request->email;
+        $existingUser->contact_no = $request->contact_no;
+        $existingUser->save();
 
         return redirect()->route('guard')->with('success', 'Updated user successfully');
     }
     public function destroy(Request $request)
     {
-        $user = User::findOrFail($request->id);
-        $user->delete();
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->delete();
+
         return redirect()->route('guard', $user->id)->with('success', 'User deleted successfully');
     }
+
     public function showAddGuestForm()
     {
         return view('guard.add_guest_form');

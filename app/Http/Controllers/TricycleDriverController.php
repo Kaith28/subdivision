@@ -30,6 +30,7 @@ class TricycleDriverController extends Controller
             'name'  => $name
         ]);
     }
+
     public function create()
     {
         return view('tricycledriver.create');
@@ -64,17 +65,32 @@ class TricycleDriverController extends Controller
 
         return redirect()->route('tricycledriver');
     }
+
     public function show(Request $request)
     {
-        $user = user::findOrFail($request->id);
-        return view('tricycledriver.show')->with('user', $user);
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        return view('tricycledriver.show')->with('user', $existingUser);
     }
 
     public function edit(Request $request)
     {
-        $user = User::findOrFail($request->id);
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
         return view('tricycledriver.edit')
-            ->with('user', $user);
+            ->with('user', $existingUser);
     }
 
     public function update(Request $request)
@@ -86,64 +102,99 @@ class TricycleDriverController extends Controller
             'photo' => ['required', 'string'],
         ]);
 
-        $user = User::findOrFail($request->id);
+        $user = $request->user();
 
-        $user->name = $request->name;
-        $user->contact_no = $request->contact_no;
-        $user->plate_no = $request->plate_no;
+        $existingUser = User::findOrFail($request->id);
 
-        $user->save();
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->name = $request->name;
+        $existingUser->contact_no = $request->contact_no;
+        $existingUser->plate_no = $request->plate_no;
+        $existingUser->save();
 
         return redirect()->route('tricycledriver')->with('success', 'Updated user successfully');
     }
+
     public function destroy(Request $request)
     {
-        $user = User::findOrFail($request->id);
-        $user->delete();
-        return redirect()->route('tricycledriver', $user->id)->with('success', 'User deleted successfully');
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->delete();
+        return redirect()->route('tricycledriver', $existingUser->id)->with('success', 'User deleted successfully');
     }
 
     public function enter(Request $request)
     {
-        $user = User::findOrFail($request->id);
-        $user->status = 'in';
-        $user->save();
+        $user = $request->user();
 
-        $record = $user->records->where('in', null)->last();
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->status = 'in';
+        $existingUser->save();
+
+        $record = $existingUser->records->where('in', null)->last();
 
         if ($record == null) {
             Record::create([
-                'user_id' => $user->id,
+                'user_id' => $existingUser->id,
                 'in' => date("Y-m-d H:i:s")
             ]);
         } else {
             $record->in = date("Y-m-d H:i:s");
             $record->save();
         }
-        return redirect()->route('tricycledriver', $user->id)->with('success', 'User enter successfully');
+        return redirect()->route('tricycledriver', $existingUser->id)->with('success', 'User enter successfully');
     }
 
     public function exit(Request $request)
     {
-        $user = User::findOrFail($request->id);
-        $user->status = 'out';
-        $user->save();
+        $user = $request->user();
 
-        $record = $user->records->where('out', null)->last();
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->status = 'out';
+        $existingUser->save();
+
+        $record = $existingUser->records->where('out', null)->last();
 
         if ($record == null) {
             Record::create([
-                'user_id' => $user->id,
+                'user_id' => $existingUser->id,
                 'out' => date("Y-m-d H:i:s")
             ]);
         } else {
             $record->out = date("Y-m-d H:i:s");
             $record->save();
         }
-        return redirect()->route('tricycledriver', $user->id)->with('success', 'User exit successfully');
+        return redirect()->route('tricycledriver', $existingUser->id)->with('success', 'User exit successfully');
     }
+
     public function changePhoto(Request $request)
     {
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
@@ -152,9 +203,8 @@ class TricycleDriverController extends Controller
 
             $imagePath = '/images/' . $imageName;
 
-            $user = User::findOrFail($request->id);
-            $user->photo = $imagePath;
-            $user->save();
+            $existingUser->photo = $imagePath;
+            $existingUser->save();
 
             return redirect()->back()->with('success', 'Updated photo successfully');
         }

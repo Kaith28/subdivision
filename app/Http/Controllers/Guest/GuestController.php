@@ -44,18 +44,31 @@ class GuestController extends Controller
     }
     public function show(Request $request)
     {
-        $user = Guest::with('user')->findOrFail($request->id);
+        $user = $request->user();
 
-        $user->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at)->tz('Asia/Manila');
+        $existingUser = Guest::with('user')->findOrFail($request->id);
 
-        return view('guest.show')->with('user', $user);
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $existingUser->created_at)->tz('Asia/Manila');
+
+        return view('guest.show')->with('user', $existingUser);
     }
 
     public function out(Request $request)
     {
-        $user = Guest::findOrFail($request->id);
-        $user->out = date("Y-m-d H:i:s");
-        $user->save();
-        return redirect()->route('guest', $user->id)->with('success', 'Guest out successfully');
+        $user = $request->user();
+
+        $existingUser = Guest::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->out = date("Y-m-d H:i:s");
+        $existingUser->save();
+        return redirect()->route('guest', $existingUser->id)->with('success', 'Guest out successfully');
     }
 }

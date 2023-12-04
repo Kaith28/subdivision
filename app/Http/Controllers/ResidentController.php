@@ -76,15 +76,29 @@ class ResidentController extends Controller
     }
     public function show(Request $request)
     {
-        $user = user::findOrFail($request->id);
-        return view('resident.show')->with('user', $user);
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        return view('resident.show')->with('user', $existingUser);
     }
 
     public function edit(Request $request)
     {
-        $user = User::findOrFail($request->id);
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
         return view('resident.edit')
-            ->with('user', $user);
+            ->with('user', $existingUser);
     }
 
     public function update(Request $request)
@@ -100,28 +114,41 @@ class ResidentController extends Controller
             // 'photo' => ['required', 'string'],
         ]);
 
-        $user = User::findOrFail($request->id);
+        $user = $request->user();
 
-        $user->position = $request->position;
-        $user->name = $request->name;
-        $user->contact_no = $request->contact_no;
-        $user->vehicle_type = $request->vehicle_type;
-        $user->plate_no = $request->plate_no;
-        $user->address = $request->address;
-        $user->relatives = $request->relatives;
+        $existingUser = User::findOrFail($request->id);
 
-        $user->save();
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->position = $request->position;
+        $existingUser->name = $request->name;
+        $existingUser->contact_no = $request->contact_no;
+        $existingUser->vehicle_type = $request->vehicle_type;
+        $existingUser->plate_no = $request->plate_no;
+        $existingUser->address = $request->address;
+        $existingUser->relatives = $request->relatives;
+        $existingUser->save();
 
         return redirect()->route('resident')->with('success', 'Updated user successfully');
     }
     public function destroy(Request $request)
     {
-        $user = User::findOrFail($request->id);
-        $user->is_deleted = true;
+        $user = $request->user();
 
-        $user->save();
-        return redirect()->route('resident', $user->id)->with('success', 'User deleted successfully');
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->is_deleted = true;
+        $existingUser->save();
+
+        return redirect()->route('resident', $existingUser->id)->with('success', 'User deleted successfully');
     }
+
     public function createGuest()
     {
         return view('guest.create');
@@ -130,7 +157,12 @@ class ResidentController extends Controller
     public function storeGuest(Request $request)
     {
         $user = $request->user();
-        $user = User::findOrFail($request->id);
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
@@ -141,8 +173,8 @@ class ResidentController extends Controller
 
 
             Guest::create([
-                'company_id' => $user->company->id,
-                'user_id' => $user->id,
+                'company_id' => $existingUser->company->id,
+                'user_id' => $existingUser->id,
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
                 'photo' => $imagePath,
@@ -154,15 +186,22 @@ class ResidentController extends Controller
 
     public function enter(Request $request)
     {
-        $user = User::findOrFail($request->id);
-        $user->status = 'in';
-        $user->save();
+        $user = $request->user();
 
-        $record = $user->records->where('in', null)->last();
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->status = 'in';
+        $existingUser->save();
+
+        $record = $existingUser->records->where('in', null)->last();
 
         if ($record == null) {
             Record::create([
-                'user_id' => $user->id,
+                'user_id' => $existingUser->id,
                 'in' => date("Y-m-d H:i:s")
             ]);
         } else {
@@ -170,20 +209,27 @@ class ResidentController extends Controller
             $record->save();
         }
 
-        return redirect()->route('resident', $user->id)->with('success', 'User enter successfully');
+        return redirect()->route('resident', $existingUser->id)->with('success', 'User enter successfully');
     }
 
     public function exit(Request $request)
     {
-        $user = User::findOrFail($request->id);
-        $user->status = 'out';
-        $user->save();
+        $user = $request->user();
 
-        $record = $user->records->where('out', null)->last();
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
+
+        $existingUser->status = 'out';
+        $existingUser->save();
+
+        $record = $existingUser->records->where('out', null)->last();
 
         if ($record == null) {
             Record::create([
-                'user_id' => $user->id,
+                'user_id' => $existingUser->id,
                 'out' => date("Y-m-d H:i:s")
             ]);
         } else {
@@ -191,11 +237,19 @@ class ResidentController extends Controller
             $record->save();
         }
 
-        return redirect()->route('resident', $user->id)->with('success', 'User exit successfully');
+        return redirect()->route('resident', $existingUser->id)->with('success', 'User exit successfully');
     }
 
     public function changePhoto(Request $request)
     {
+
+        $user = $request->user();
+
+        $existingUser = User::findOrFail($request->id);
+
+        if ($user->company->id !== $existingUser->company->id) {
+            abort(404);
+        }
 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
@@ -204,9 +258,8 @@ class ResidentController extends Controller
 
             $imagePath = '/images/' . $imageName;
 
-            $user = User::findOrFail($request->id);
-            $user->photo = $imagePath;
-            $user->save();
+            $existingUser->photo = $imagePath;
+            $existingUser->save();
 
             return redirect()->back()->with('success', 'Updated photo successfully');
         }
