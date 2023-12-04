@@ -31,6 +31,7 @@
                     <thead>
                         <tr class="bg-gray-300 rounded-lg">
                             <td class="px-2 text-center font-semibold rounded-tl-lg">IN</td>
+                            <td class="px-2 text-center font-semibold">CURRENT</td>
                             <td class="px-2 text-center font-semibold ">OUT</td>
                             <td class="px-2 text-center font-semibold">Resident in Charge</td>
                             <td class="px-2 text-center font-semibold">Guest</td>
@@ -44,10 +45,12 @@
                                 <td class="px-2 text-center text-sm">
                                     {{ $guest['created_at'] }}
                                 </td>
+                                <td id="current-{{ $guest['id'] }}" class="px-2 text-center text-sm">
+                                    Loading...
+                                </td>
                                 <td class="px-2 text-center text-sm">
                                     {{ $guest['out'] }}
                                 </td>
-
                                 <td class="px-2 text-center">{{ $guest['user']->name }}</td>
                                 <td class="px-2 text-center">{{ $guest['name'] }}</td>
                                 <td class="px-2 text-center">{{ $guest['contact_no'] }}</td>
@@ -86,4 +89,46 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const guests = @json($guests);
+
+        function updateTimers() {
+            guests.forEach(guest => {
+                const timerElement = document.getElementById(`current-${guest["id"]}`);
+                const createdAt = new Date(guest["created_at"]);
+
+                if (guest["out"].length === 0) {
+                    // run timer
+                    setInterval(() => {
+                        const currentTime = new Date()
+                        const timeDifference = Math.floor((currentTime - createdAt) / 1000);
+
+                        // Format the time difference as hours, minutes, and seconds
+                        const hours = Math.floor(timeDifference / 3600);
+                        const minutes = Math.floor((timeDifference % 3600) / 60);
+                        const seconds = timeDifference % 60;
+
+                        timerElement.innerText = `${hours}h ${minutes}m ${seconds}s`;
+                    }, 1000);
+                } else {
+                    const out = new Date(guest["out"]);
+                    const timeDifference = Math.floor((out - createdAt) / 1000);
+
+                    // Format the time difference as hours, minutes, and seconds
+                    const hours = Math.floor(timeDifference / 3600);
+                    const minutes = Math.floor((timeDifference % 3600) / 60);
+                    const seconds = timeDifference % 60;
+
+                    timerElement.innerText = `${hours}h ${minutes}m ${seconds}s`;
+                }
+
+            });
+        }
+
+        // Run the updateTimers function when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTimers();
+        });
+    </script>
 </x-app-layout>
