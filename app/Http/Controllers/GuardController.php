@@ -21,6 +21,7 @@ class GuardController extends Controller
 
         $users->where('role', 'guard');
 
+
         $users = $users->get();
 
         return view('guard.guard', [

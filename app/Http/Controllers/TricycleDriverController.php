@@ -19,6 +19,7 @@ class TricycleDriverController extends Controller
         }
 
         $users->where('role', 'driver');
+        $users->where('is_deleted', false);
 
         $users = $users->get();
 

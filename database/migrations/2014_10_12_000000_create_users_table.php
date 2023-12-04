@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('photo')->nullable();
             $table->enum('role', ['owner', 'admin', 'guard', 'resident', 'driver']);
             $table->enum('status', ['in', 'out'])->default('in');
+            $table->boolean('is_deleted')->default(false);
             /* $table->enum('status', ['in', 'out'])->default(function () {
             return $user->resident ? 'in' : 'out'}; */
             $table->rememberToken();

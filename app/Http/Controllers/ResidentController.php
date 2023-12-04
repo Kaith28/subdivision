@@ -22,6 +22,7 @@ class ResidentController extends Controller
         }
 
         $users->where('role', 'resident');
+        $users->where('is_deleted', false);
 
         $users = $users->get();
 
@@ -112,7 +113,9 @@ class ResidentController extends Controller
     public function destroy(Request $request)
     {
         $user = User::findOrFail($request->id);
-        $user->delete();
+        $user->is_deleted = true;
+
+        $user->save();
         return redirect()->route('resident', $user->id)->with('success', 'User deleted successfully');
     }
     public function createGuest()
