@@ -21,6 +21,7 @@ class GuardController extends Controller
         }
 
         $users->where('role', 'guard');
+        $users->where('is_deleted', false);
         $users->where('company_id', $user->company->id);
 
         $users = $users->get();
@@ -127,9 +128,11 @@ class GuardController extends Controller
             abort(404);
         }
 
-        $existingUser->delete();
+        $existingUser->is_deleted = true;
 
-        return redirect()->route('guard', $user->id)->with('success', 'User deleted successfully');
+        $existingUser->save();
+
+        return redirect()->route('guard', $user->id)->with('success', 'Guard disable successfully');
     }
 
     public function showAddGuestForm()

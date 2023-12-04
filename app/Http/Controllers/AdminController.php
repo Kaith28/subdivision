@@ -22,6 +22,7 @@ class AdminController extends Controller
         }
 
         $users->where('role', 'admin');
+        $users->where('is_deleted', false);
         $users->where('company_id', $user->company->id);
 
         $users = $users->get();
@@ -139,9 +140,11 @@ class AdminController extends Controller
             abort(404);
         }
 
-        $existingUser->delete();
+        $existingUser->is_deleted = true;
 
-        return redirect()->route('admin', $user->id)->with('success', 'User deleted successfully');
+        $existingUser->save();
+
+        return redirect()->route('admin', $user->id)->with('success', 'Admin disable successfully');
     }
 
     public function changePhoto(Request $request)
