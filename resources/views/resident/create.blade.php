@@ -10,11 +10,18 @@
             <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
 
+                <!-- Position -->
+                <div>
+                    <x-input-label for="position" :value="__('Position')" />
+                    <x-text-input id="position" class="block mt-1 w-full" type="text" name="position"
+                        :value="old('position')" required autofocus autocomplete="position" />
+                    <x-input-error :messages="$errors->get('position')" class="mt-2" />
+                </div>
                 <!-- Name -->
                 <div>
                     <x-input-label for="name" :value="__('Name')" />
-                    <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
-                        required autofocus autocomplete="name" />
+                    <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
+                        :value="old('name')" required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
 

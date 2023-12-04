@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('plate_no')->nullable();
             $table->string('address')->nullable();
             $table->string('relatives')->nullable();
+            $table->string('position')->nullable();
             $table->string('photo')->nullable();
             $table->enum('role', ['owner', 'admin', 'guard', 'resident', 'driver']);
             $table->enum('status', ['in', 'out'])->default('in');

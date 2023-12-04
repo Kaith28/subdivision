@@ -38,12 +38,13 @@ class ResidentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'position' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'contact_no' => ['required', 'string', 'max:255'],
             'vehicle_type' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'relatives' => ['required', 'string', 'max:255'],
+            'relatives' => ['required', 'string', 'max:255']
 
         ]);
 
@@ -55,6 +56,7 @@ class ResidentController extends Controller
             $imagePath = '/images/' . $imageName;
 
             User::create([
+                'position' => $request->position,
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
                 'vehicle_type' => $request->vehicle_type,
@@ -62,7 +64,7 @@ class ResidentController extends Controller
                 'address' => $request->address,
                 'relatives' => $request->relatives,
                 'photo' => $imagePath,
-                'role' => 'resident',
+                'role' => 'resident'
             ]);
         }
         return redirect()->route('resident');
@@ -83,17 +85,19 @@ class ResidentController extends Controller
     public function update(Request $request)
     {
         $request->validate([
+            'position' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'contact_no' => ['required', 'string', 'max:255'],
             'vehicle_type' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'relatives' => ['required', 'string', 'max:255'],
+            'relatives' => ['required', 'string', 'max:255']
             /* 'photo' => ['required', 'string'], */
         ]);
 
         $user = User::findOrFail($request->id);
 
+        $user->position = $request->position;
         $user->name = $request->name;
         $user->contact_no = $request->contact_no;
         $user->vehicle_type = $request->vehicle_type;

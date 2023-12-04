@@ -129,17 +129,9 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::post('/tricycledriver/{id}/change-photo', [TricycleDriverController::class, 'changePhoto'])->name('tricycledriver.change.photo');
     /*  Route::get('/download/{qr code}', 'DownloadController@download')->name('download');; */
 });
-
 /**
- * Relatives routes
+ * Record routes
  */
-Route::middleware(['auth', 'verified', 'relatives'])->group(function () {
-    Route::get('/relatives', [RelativesController::class, 'index'])->middleware(['auth', 'verified'])->name('relatives');
-    Route::get('/relatives/create', [RelativesController::class, 'create'])->middleware(['admin'])->name('relatives.create');
-    Route::post('/relatives/create', [RelativesController::class, 'store'])->middleware(['admin'])->name('relatives.store');
-    Route::get('/relatives/{id}', [RelativesController::class, 'show'])->middleware(['admin'])->name('relatives.show');
-});
-
 Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/records', [RecordController::class, 'index'])->name('record');
 });

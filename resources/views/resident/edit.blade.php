@@ -10,6 +10,13 @@
             <form method="POST" action={{ route('resident.update', $user->id) }}>
                 @csrf
 
+                <!-- position -->
+                <div class="mt-4">
+                    <x-input-label for="position" :value="__('Position')" />
+                    <x-text-input id="position" class="block mt-1 w-96" type="text" name="position" :value="$user->position"
+                        required autofocus autocomplete="position" />
+                    <x-input-error :messages="$errors->get('position')" class="mt-2" />
+                </div>
                 <!-- Name -->
                 <div class="mt-4">
                     <x-input-label for="name" :value="__('Name')" />
@@ -48,17 +55,6 @@
                         :value="$user->relatives" required autofocus autocomplete="relatives" />
                     <x-input-error :messages="$errors->get('relatives')" class="mt-2" />
                 </div>
-
-
-                @if (Auth::user()->role == 'admin')
-                    <div class="mt-4">
-                        <a href="{{ route('relatives.create', $user->id) }}"></a>
-                        <x-input-label for="relatives" :value="__('Add Relatives')" />
-                        <x-text-input id="relatives" class="block mt-1 w-96" type="text" name="relatives"
-                            :value="$user->relatives" required autofocus autocomplete="relatives" />
-                        <x-input-error :messages="$errors->get('relatives')" class="mt-2" />
-                    </div>
-                @endif
 
 
                 <div class="mt-4">
