@@ -37,6 +37,8 @@ class TricycleDriverController extends Controller
 
     public function store(Request $request)
     {
+        $user = $request->user();
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'contact_no' => ['required', 'string', 'max:255'],
@@ -51,6 +53,7 @@ class TricycleDriverController extends Controller
             $imagePath = '/images/' . $imageName;
 
             User::create([
+                'company_id' => $user->company->id,
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
                 'plate_no' => $request->plate_no,

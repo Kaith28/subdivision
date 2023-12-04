@@ -37,6 +37,8 @@ class GuardController extends Controller
 
     public function store(Request $request)
     {
+        $user = $request->user();
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
@@ -51,6 +53,7 @@ class GuardController extends Controller
 
             $imagePath = '/images/' . $imageName;
             User::create([
+                'company_id' => $user->company->id,
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),

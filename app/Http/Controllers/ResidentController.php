@@ -40,6 +40,8 @@ class ResidentController extends Controller
 
     public function store(Request $request)
     {
+        $user = $request->user();
+
         $request->validate([
             'position' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
@@ -48,7 +50,6 @@ class ResidentController extends Controller
             'plate_no' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             'relatives' => ['required', 'string', 'max:255']
-
         ]);
 
         if ($request->hasFile('photo')) {
@@ -59,6 +60,7 @@ class ResidentController extends Controller
             $imagePath = '/images/' . $imageName;
 
             User::create([
+                'company_id' => $user->company->id,
                 'position' => $request->position,
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
@@ -127,6 +129,7 @@ class ResidentController extends Controller
 
     public function storeGuest(Request $request)
     {
+        $user = $request->user();
         $user = User::findOrFail($request->id);
 
         if ($request->hasFile('photo')) {
@@ -138,6 +141,7 @@ class ResidentController extends Controller
 
 
             Guest::create([
+                'company_id' => $user->company->id,
                 'user_id' => $user->id,
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
