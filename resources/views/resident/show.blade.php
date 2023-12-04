@@ -37,7 +37,7 @@
         <div class=" w-full flex justify-center">
 
             <div class="w-96 grid grid-cols-2">
-                <p class="font-bold">Position:</p>
+                <p class="font-bold">Resident Type:</p>
                 <p>{{ $user->position }}</p>
                 <p class="font-bold">Name:</p>
                 <p>{{ $user->name }}</p>

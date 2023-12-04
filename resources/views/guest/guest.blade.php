@@ -31,7 +31,7 @@
                     <thead>
                         <tr class="bg-gray-300 rounded-lg">
                             <td class="px-2 text-center font-semibold rounded-tl-lg">IN</td>
-                            <td class="px-2 text-center font-semibold">CURRENT</td>
+                            <td class="px-2 text-center font-semibold">Current</td>
                             <td class="px-2 text-center font-semibold ">OUT</td>
                             <td class="px-2 text-center font-semibold">Resident in Charge</td>
                             <td class="px-2 text-center font-semibold">Guest</td>

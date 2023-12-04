@@ -22,7 +22,7 @@
 
                 <!-- position -->
                 <div class="mt-4">
-                    <x-input-label for="position" :value="__('Position')" />
+                    <x-input-label for="position" :value="__('Resident Type')" />
                     <select name="position" id="position">
                         <option {{ $user->position == 'owner' ? 'selected' : '' }} value="owner">Owner</option>
                         <option {{ $user->position == 'family_member' ? 'selected' : '' }} value="family_member">Family

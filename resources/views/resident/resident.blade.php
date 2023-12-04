@@ -42,7 +42,7 @@
                 <table class="w-full  rounded-lg shadow-lg">
                     <thead>
                         <tr class="bg-gray-300 rounded-lg">
-                            <td class="px-2 text-center font-semibold rounded-tl-lg">Position</td>
+                            <td class="px-2 text-center font-semibold rounded-tl-lg">Resident Type</td>
                             <td class="px-2 text-center font-semibold ">Name</td>
                             <td class="px-2 text-center font-semibold">Contact no.</td>
                             <td class="px-2 text-center font-semibold">Plate no.</td>

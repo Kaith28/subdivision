@@ -17,6 +17,9 @@
                     <p class="text-xl ">
                         TOTAL IN
                     </p>
+                    <p class="text-sm">
+                        Resident and Tricycle Driver
+                    </p>
                 </div>
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4 bg-green-50">
                     <div class="h-20 flex items-center">
@@ -24,6 +27,9 @@
                     </div>
                     <p class="text-xl">
                         TOTAL OUT
+                    </p>
+                    <p class="text-sm">
+                        Resident and Tricycle Driver
                     </p>
                 </div>
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4 bg-orange-50">
