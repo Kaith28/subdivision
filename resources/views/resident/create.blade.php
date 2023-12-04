@@ -12,9 +12,13 @@
 
                 <!-- Position -->
                 <div>
-                    <x-input-label for="position" :value="__('Position')" />
-                    <x-text-input id="position" class="block mt-1 w-full" type="text" name="position"
-                        :value="old('position')" required autofocus autocomplete="position" />
+                    <x-input-label for="position" :value="__('Resident Type')" />
+                    <select name="position" id="position">
+                        <option value="owner">Owner</option>
+                        <option value="family_member">Family
+                            Member
+                        </option>
+                    </select>
                     <x-input-error :messages="$errors->get('position')" class="mt-2" />
                 </div>
                 <!-- Name -->
