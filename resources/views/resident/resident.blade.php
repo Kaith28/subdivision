@@ -53,7 +53,11 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
-                                <td class="px-2 text-center">{{ $user->position }}</td>
+                                <td class="px-2 text-center">
+                                    @if ($user->position !== null)
+                                        {{ $user->position === 'owner' ? 'Owner' : 'Family Member' }}
+                                    @endif
+                                </td>
                                 <td class="px-2 text-center">{{ $user->name }}</td>
                                 <td class="px-2 text-center">{{ $user->contact_no }}</td>
                                 <td class="px-2 text-center">{{ $user->plate_no }}</td>

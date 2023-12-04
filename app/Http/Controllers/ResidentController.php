@@ -92,8 +92,8 @@ class ResidentController extends Controller
             'vehicle_type' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'relatives' => ['required', 'string', 'max:255']
-            /* 'photo' => ['required', 'string'], */
+            'relatives' => ['required', 'string', 'max:255'],
+            // 'photo' => ['required', 'string'],
         ]);
 
         $user = User::findOrFail($request->id);

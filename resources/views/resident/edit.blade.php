@@ -5,18 +5,33 @@
         </h2>
     </x-slot>
 
+    {{--  @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif --}}
+
     <div class="py-4">
         <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-            <form method="POST" action={{ route('resident.update', $user->id) }}>
+            <form method="POST" action={{ route('resident.update', ['id' => $user->id]) }}>
                 @csrf
 
                 <!-- position -->
                 <div class="mt-4">
                     <x-input-label for="position" :value="__('Position')" />
-                    <x-text-input id="position" class="block mt-1 w-96" type="text" name="position" :value="$user->position"
-                        required autofocus autocomplete="position" />
+                    <select name="position" id="position">
+                        <option {{ $user->position == 'owner' ? 'selected' : '' }} value="owner">Owner</option>
+                        <option {{ $user->position == 'family_member' ? 'selected' : '' }} value="family_member">Family
+                            Member
+                        </option>
+                    </select>
                     <x-input-error :messages="$errors->get('position')" class="mt-2" />
                 </div>
+
                 <!-- Name -->
                 <div class="mt-4">
                     <x-input-label for="name" :value="__('Name')" />
@@ -31,6 +46,14 @@
                     <x-text-input id="contact_no" class="block mt-1 w-96" type="text" name="contact_no"
                         :value="$user->contact_no" required autofocus autocomplete="contact_no" />
                     <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
+                </div>
+
+                <!--- vehicle type -->
+                <div class="mt-4">
+                    <x-input-label for="vehicle_type" :value="__('Vehicle Type')" />
+                    <x-text-input id="vehicle_type" class="block mt-1 w-96" type="text" name="vehicle_type"
+                        :value="$user->vehicle_type" required autofocus autocomplete="vehicle_type" />
+                    <x-input-error :messages="$errors->get('vehicle_type')" class="mt-2" />
                 </div>
 
                 <!--- plate -->
@@ -48,6 +71,7 @@
                         :value="$user->address" required autofocus autocomplete="address" />
                     <x-input-error :messages="$errors->get('address')" class="mt-2" />
                 </div>
+
                 <!-- Relatives -->
                 <div class="mt-4">
                     <x-input-label for="relatives" :value="__('Relatives')" />
