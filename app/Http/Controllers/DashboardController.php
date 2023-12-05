@@ -14,6 +14,7 @@ class DashboardController extends Controller
         $user = $request->user();
 
         $totalResidents = User::where('role', 'resident')->where('company_id', $user->company->id)->count();
+        $totalTricycleDrivers = User::where('role', 'driver')->where('company_id', $user->company->id)->count();
         $totalInResidents = User::where('role', 'resident')->where('company_id', $user->company->id)->where('status', 'in')->count();
         $totalInTricycleDrivers = User::where('role', 'driver')->where('company_id', $user->company->id)->where('status', 'in')->count();
         $totalInGuests = Guest::where('out', null)->count(); // TODO
@@ -24,6 +25,7 @@ class DashboardController extends Controller
 
         return view('dashboard', [
             'totalResidents' => $totalResidents,
+            'totalTricycleDrivers' => $totalTricycleDrivers,
             'totalIn' => $totalInResidents + $totalInTricycleDrivers,
             'totalOut' => $totalOutResidents + $totalOutTricycleDrivers,
             'totalInGuests' => $totalInGuests,
