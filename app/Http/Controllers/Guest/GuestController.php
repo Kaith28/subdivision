@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Guest;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -27,8 +28,12 @@ class GuestController extends Controller
 
         $list = [];
         foreach ($guests as $guest) {
+
+            $guard = User::findOrFail($guest->guard_id);
+
             $list[] = [
                 'id' => $guest->id,
+                'guard' => $guard->name,
                 'name' => $guest->name,
                 'contact_no' => $guest->contact_no,
                 'user' => $guest->user,

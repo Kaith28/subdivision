@@ -174,6 +174,7 @@ class ResidentController extends Controller
 
             Guest::create([
                 'company_id' => $existingUser->company->id,
+                'guard_id' => $user->id,
                 'user_id' => $existingUser->id,
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
