@@ -52,7 +52,8 @@
                 <div class="mt-4">
                     <x-input-label for="vehicle_type" :value="__('Vehicle Type')" />
                     <x-text-input id="vehicle_type" class="block mt-1 w-96" type="text" name="vehicle_type"
-                        :value="$user->vehicle_type" required autofocus autocomplete="vehicle_type" />
+                        placeholder="Brand | Model | Color" :value="$user->vehicle_type" required autofocus
+                        autocomplete="vehicle_type" />
                     <x-input-error :messages="$errors->get('vehicle_type')" class="mt-2" />
                 </div>
 

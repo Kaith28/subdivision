@@ -23,8 +23,8 @@
                 <p>{{ $user->name }}</p>
                 <p class="font-bold">Contact:</p>
                 <p>{{ $user->contact_no }}</p>
-                <p class="font-bold">IN:</p>
-                <p>{{ date('F jS, Y,  g:i a', strtotime($user->created_at)) }}</p>
+                {{--                 <p class="font-bold">IN:</p>
+                <p>{{ date('F jS, Y,  g:i a', strtotime($user->created_at)) }}</p> --}}
                 {{-- @if ($user->in == null)
                     <p class="font-bold">OUT:</p>
                     <p>{{ date('F jS, Y,  g:i a', strtotime($user->out)) }}</p>

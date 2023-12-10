@@ -30,7 +30,7 @@
                 <table class="w-full  rounded-lg shadow-lg">
                     <thead>
                         <tr class="bg-gray-300 rounded-lg">
-                            <td class="px-2 text-center font-semibold rounded-tl-lg">Guard in Charge</td>
+                            <td class="px-2 text-center font-semibold rounded-tl-lg">In Charge</td>
                             <td class="px-2 text-center font-semibold ">IN</td>
                             <td class="px-2 text-center font-semibold">Current</td>
                             <td class="px-2 text-center font-semibold ">OUT</td>
