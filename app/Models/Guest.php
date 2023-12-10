@@ -12,7 +12,7 @@ class Guest extends Model
     protected $fillable = [
         'company_id',
         'user_id',
-        'guard_id',
+        'in_charge_id',
         'photo',
         'name',
         'contact_no'

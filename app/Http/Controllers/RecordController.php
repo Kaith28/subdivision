@@ -24,7 +24,7 @@ class RecordController extends Controller
         $list = [];
         foreach ($records as $record) {
 
-            $guard = User::findOrFail($record->guard_id);
+            $guard = User::findOrFail($record->in_charge_id);
 
             $list[] = [
                 'id' => $record->id,

@@ -25,7 +25,7 @@ class AdminController extends Controller
         $users->where('is_deleted', false);
         $users->where('company_id', $user->company->id);
 
-        $users = $users->get();
+        $users = $users->with('company')->get();
 
         return view('admin.admin', [
             'users' => $users,

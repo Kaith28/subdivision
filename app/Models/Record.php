@@ -10,7 +10,7 @@ class Record extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'guard_id',
+        'in_charge_id',
         'in',
         'out',
     ];

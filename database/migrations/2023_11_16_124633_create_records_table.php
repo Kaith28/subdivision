@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('records', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->unsignedBigInteger('guard_id')->nullable();
+            $table->unsignedBigInteger('in_charge_id')->nullable();
             $table->timestamp('in')->nullable();
             $table->timestamp('out')->nullable();
             $table->timestamps();

@@ -61,7 +61,7 @@ class ResidentController extends Controller
 
             User::create([
                 'company_id' => $user->company->id,
-                'guard_id' => $user->id,
+                'in_charge_id' => $user->id,
                 'position' => $request->position,
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
@@ -175,7 +175,7 @@ class ResidentController extends Controller
 
             Guest::create([
                 'company_id' => $existingUser->company->id,
-                'guard_id' => $user->id,
+                'in_charge_id' => $user->id,
                 'user_id' => $existingUser->id,
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
@@ -204,7 +204,7 @@ class ResidentController extends Controller
         if ($record == null) {
             Record::create([
                 'user_id' => $existingUser->id,
-                'guard_id' => $user->id,
+                'in_charge_id' => $user->id,
                 'in' => date("Y-m-d H:i:s")
             ]);
         } else {
@@ -233,6 +233,7 @@ class ResidentController extends Controller
         if ($record == null) {
             Record::create([
                 'user_id' => $existingUser->id,
+                'in_charge_id' => $user->id,
                 'out' => date("Y-m-d H:i:s")
             ]);
         } else {

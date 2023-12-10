@@ -50,7 +50,7 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
-                                <td class="px-2 text-center">{{ $user->subdivision }}</td>
+                                <td class="px-2 text-center">{{ $user->company->name }}</td>
                                 <td class="px-2 text-center">{{ $user->name }}</td>
                                 <td class="px-2 text-center">{{ $user->email }}</td>
                                 <td class="px-2 text-center">{{ $user->contact_no }}</td>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBigInteger('company_id')->nullable();
-            $table->unsignedBigInteger('guard_id')->nullable();
+            $table->unsignedBigInteger('in_charge_id')->nullable();
             $table->foreignId('user_id')->constrained();
 
             $table->string('photo');

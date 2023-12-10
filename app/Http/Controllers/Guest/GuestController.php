@@ -29,7 +29,7 @@ class GuestController extends Controller
         $list = [];
         foreach ($guests as $guest) {
 
-            $guard = User::findOrFail($guest->guard_id);
+            $guard = User::findOrFail($guest->in_charge_id);
 
             $list[] = [
                 'id' => $guest->id,
