@@ -30,8 +30,9 @@
                 <table class="w-full  rounded-lg shadow-lg">
                     <thead>
                         <tr class="bg-gray-300 rounded-lg">
-                            <td class="px-2 text-center font-semibold rounded-tl-lg">IN</td>
-                            <td class="px-2 text-center font-semibold ">OUT</td>
+                            <td class="px-2 text-center font-semibold rounded-tl-lg">Guard in Charge</td>
+                            <td class="px-2 text-center font-semibold">IN</td>
+                            <td class="px-2 text-center font-semibold">OUT</td>
                             <td class="px-2 text-center font-semibold">Resident Name</td>
                             <td class="px-2 text-center font-semibold rounded-tr-lg">Actions</td>
                         </tr>
@@ -39,6 +40,7 @@
                     <tbody>
                         @foreach ($records as $record)
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
+                                <td class="px-2 text-center">{{ $record['guard'] }}</td>
                                 <td class="px-2 text-center text-sm">
                                     {{ $record['in'] }}
                                 </td>

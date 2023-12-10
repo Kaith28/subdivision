@@ -55,6 +55,7 @@ class TricycleDriverController extends Controller
 
             User::create([
                 'company_id' => $user->company->id,
+                'guard_id' => $user->id,
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
                 'plate_no' => $request->plate_no,
@@ -150,6 +151,7 @@ class TricycleDriverController extends Controller
         if ($record == null) {
             Record::create([
                 'user_id' => $existingUser->id,
+                'guard_id' => $user->id,
                 'in' => date("Y-m-d H:i:s")
             ]);
         } else {
@@ -177,6 +179,7 @@ class TricycleDriverController extends Controller
         if ($record == null) {
             Record::create([
                 'user_id' => $existingUser->id,
+                'guard_id' => $user->id,
                 'out' => date("Y-m-d H:i:s")
             ]);
         } else {

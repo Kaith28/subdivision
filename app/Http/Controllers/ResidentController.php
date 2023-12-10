@@ -61,6 +61,7 @@ class ResidentController extends Controller
 
             User::create([
                 'company_id' => $user->company->id,
+                'guard_id' => $user->id,
                 'position' => $request->position,
                 'name' => $request->name,
                 'contact_no' => $request->contact_no,
@@ -203,6 +204,7 @@ class ResidentController extends Controller
         if ($record == null) {
             Record::create([
                 'user_id' => $existingUser->id,
+                'guard_id' => $user->id,
                 'in' => date("Y-m-d H:i:s")
             ]);
         } else {
