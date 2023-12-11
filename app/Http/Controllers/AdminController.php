@@ -47,7 +47,7 @@ class AdminController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'contact_no' => ['required', 'string', 'max:255'],
-            'subdivision' => ['required', 'string', 'max:255'],
+
             /* 'photo' => ['required', 'string'], */
         ]);
 
