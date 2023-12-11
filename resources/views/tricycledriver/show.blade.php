@@ -15,7 +15,7 @@
     <div class="flex justify-center gap-4 pt-5">
         <div class="w-fit shadow-md rounded-md">
             <img src="{{ $user->photo }}" alt="Photo" class="w-60 h-60">
-            @if ((Auth::user()->role == 'admin') | (Auth::user()->role == 'owner'))
+            @if (Auth::user()->role == 'admin')
                 <form action="{{ route('tricycledriver.change.photo', $user->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
@@ -50,7 +50,7 @@
                 </button>s
             </div>  --}}
             </div>
-            @if ((Auth::user()->role == 'guard') | (Auth::user()->role == 'admin') | (Auth::user()->role == 'owner'))
+            @if (Auth::user()->role == 'guard')
                 @if ($user->status == 'in')
                     <form action="{{ route('tricycledriver.out', $user->id) }}" method="POST">
                         @csrf

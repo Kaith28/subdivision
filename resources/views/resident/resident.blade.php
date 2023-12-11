@@ -26,7 +26,7 @@
 
                     </div>
                 </form>
-                @if ((Auth::user()->role == 'admin') | (Auth::user()->role == 'owner'))
+                @if (Auth::user()->role == 'admin')
                     <a href="{{ route('resident.create') }}"
                         class=" px-4 py-2 flex items-center gap-2 bg-orange-200 hover:bg-orange-300 rounded-md "><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -73,7 +73,7 @@
                                                 <path
                                                     d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                                             </svg></a>
-                                        @if ((Auth::user()->role == 'guard') | (Auth::user()->role == 'admin') | (Auth::user()->role == 'owner'))
+                                        @if (Auth::user()->role == 'guard')
                                             <a href={{ route('resident.guest.create', $user->id) }}
                                                 class=" px-4 py-2 hover:bg-gray-200 rounded-md"><svg
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -85,7 +85,7 @@
                                                         d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z" />
                                                 </svg></a>
                                         @endif
-                                        @if ((Auth::user()->role == 'admin') | (Auth::user()->role == 'owner'))
+                                        @if (Auth::user()->role == 'admin')
                                             <a href={{ route('resident.edit', $user->id) }}
                                                 class=" px-4 py-2 hover:bg-gray-200 rounded-md"><svg
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"

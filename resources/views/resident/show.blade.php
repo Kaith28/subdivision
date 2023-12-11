@@ -15,7 +15,7 @@
     <div class="flex justify-center gap-4 pt-5">
         <div class="w-fit shadow-md rounded-lg">
             <img src="{{ $user->photo }}" alt="Photo" class="w-60 h-60 rounded-tl-lg rounded-tr-lg">
-            @if ((Auth::user()->role == 'admin') | (Auth::user()->role == 'owner'))
+            @if (Auth::user()->role == 'admin')
                 <form action="{{ route('resident.change.photo', $user->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
@@ -60,7 +60,7 @@
             </div>  --}}
             </div>
             <div>
-                @if ((Auth::user()->role == 'guard') | (Auth::user()->role == 'admin') | (Auth::user()->role == 'owner'))
+                @if (Auth::user()->role == 'guard')
                     @if ($user->status == 'in')
                         <form action="{{ route('resident.out', $user->id) }}" method="POST">
                             @csrf

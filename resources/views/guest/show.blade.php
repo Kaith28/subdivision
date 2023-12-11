@@ -36,7 +36,7 @@
                     Download
                 </button>s
             </div>  --}}
-                @if ((Auth::user()->role == 'guard') | (Auth::user()->role == 'admin') | (Auth::user()->role == 'owner'))
+                @if (Auth::user()->role == 'guard')
                     @if ($user->out == null)
                         <form action="{{ route('guest.out', $user->id) }}" method="POST">
                             @csrf
