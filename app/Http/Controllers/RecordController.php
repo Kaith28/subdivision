@@ -13,8 +13,15 @@ class RecordController extends Controller
     {
         $user = $request->user();
         $name = $request->input('name');
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
 
         $records = Record::query();
+
+        if ($startDate !== null && $endDate !== null) {
+            $records->orWhereBetween('in', [Carbon::parse($startDate), Carbon::parse($endDate)])
+                ->orWhereBetween('out', [Carbon::parse($startDate), Carbon::parse($endDate)]);
+        }
 
         $records = $records->whereHas('user', function ($query) use ($name, $user) {
             $query->where('name', 'like', '%' . $name . '%');
@@ -37,7 +44,9 @@ class RecordController extends Controller
 
         return view('record.record', [
             'records' => $list,
-            'name'  => $name
+            'name' => $name,
+            'startDate' => $startDate,
+            'endDate' => $endDate,
         ]);
     }
 }
