@@ -33,8 +33,15 @@ class AdminController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        $user = $request->user();
+
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('admin')->with('error', 'Subscription already expired');
+        }
+
         return view('admin.create');
     }
 

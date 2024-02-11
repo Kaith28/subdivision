@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Company;
+use App\Models\Subscription;
 use App\Models\User;
+use Carbon\Carbon;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -80,6 +82,14 @@ class UserSeeder extends Seeder
             'plate_no' => 'TODA 143',
 
             'role' => 'driver',
+        ]);
+
+        $currentDate = Carbon::now();
+        $expiration = $currentDate->addDays(30);
+
+        Subscription::create([
+            'company_id' => $company->id,
+            'expiration' => $expiration
         ]);
     }
 }
