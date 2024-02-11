@@ -85,7 +85,7 @@ class UserSeeder extends Seeder
         ]);
 
         $currentDate = Carbon::now();
-        $expiration = $currentDate->addDays(30);
+        $expiration = $currentDate->addDays(1);
 
         Subscription::create([
             'company_id' => $company->id,
