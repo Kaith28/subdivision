@@ -77,6 +77,10 @@ class GuardController extends Controller
     {
         $user = $request->user();
 
+        if (!$user->company->isActive()) {
+            return redirect()->route('guard')->with('error', 'Subscription already expired');
+        }
+
         $existingUser = User::findOrFail($request->id);
 
         if ($user->company->id !== $existingUser->company->id) {
@@ -89,6 +93,11 @@ class GuardController extends Controller
     public function edit(Request $request)
     {
         $user = $request->user();
+
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('guard')->with('error', 'Subscription already expired');
+        }
 
         $existingUser = User::findOrFail($request->id);
 
@@ -127,6 +136,11 @@ class GuardController extends Controller
     public function destroy(Request $request)
     {
         $user = $request->user();
+
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('guard')->with('error', 'Subscription already expired');
+        }
 
         $existingUser = User::findOrFail($request->id);
 

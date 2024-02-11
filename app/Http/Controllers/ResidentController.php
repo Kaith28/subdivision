@@ -33,8 +33,14 @@ class ResidentController extends Controller
             'name'  => $name
         ]);
     }
-    public function create()
+    public function create(Request $request)
     {
+        $user = $request->user();
+
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('resident')->with('error', 'Subscription already expired');
+        }
         return view('resident.create');
     }
 
@@ -92,6 +98,11 @@ class ResidentController extends Controller
     {
         $user = $request->user();
 
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('resident')->with('error', 'Subscription already expired');
+        }
+
         $existingUser = User::findOrFail($request->id);
 
         if ($user->company->id !== $existingUser->company->id) {
@@ -138,6 +149,11 @@ class ResidentController extends Controller
     {
         $user = $request->user();
 
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('resident')->with('error', 'Subscription already expired');
+        }
+
         $existingUser = User::findOrFail($request->id);
 
         if ($user->company->id !== $existingUser->company->id) {
@@ -150,8 +166,15 @@ class ResidentController extends Controller
         return redirect()->route('resident', $existingUser->id)->with('success', 'User deleted successfully');
     }
 
-    public function createGuest()
+    public function createGuest(Request $request)
     {
+        $user = $request->user();
+
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('resident')->with('error', 'Subscription already expired');
+        }
+
         return view('guest.create');
     }
 
@@ -190,6 +213,10 @@ class ResidentController extends Controller
     {
         $user = $request->user();
 
+        if (!$user->company->isActive()) {
+            return redirect()->route('resident')->with('error', 'Subscription already expired');
+        }
+
         $existingUser = User::findOrFail($request->id);
 
         if ($user->company->id !== $existingUser->company->id) {
@@ -218,6 +245,10 @@ class ResidentController extends Controller
     public function exit(Request $request)
     {
         $user = $request->user();
+
+        if (!$user->company->isActive()) {
+            return redirect()->route('resident')->with('error', 'Subscription already expired');
+        }
 
         $existingUser = User::findOrFail($request->id);
 
@@ -248,6 +279,10 @@ class ResidentController extends Controller
     {
 
         $user = $request->user();
+
+        if (!$user->company->isActive()) {
+            return redirect()->route('resident')->with('error', 'Subscription already expired');
+        }
 
         $existingUser = User::findOrFail($request->id);
 

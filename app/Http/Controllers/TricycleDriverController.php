@@ -31,8 +31,14 @@ class TricycleDriverController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        $user = $request->user();
+
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('resident')->with('error', 'Subscription already expired');
+        }
         return view('tricycledriver.create');
     }
 
@@ -71,6 +77,11 @@ class TricycleDriverController extends Controller
     {
         $user = $request->user();
 
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('tricycledriver')->with('error', 'Subscription already expired');
+        }
+
         $existingUser = User::findOrFail($request->id);
 
         if ($user->company->id !== $existingUser->company->id) {
@@ -83,6 +94,11 @@ class TricycleDriverController extends Controller
     public function edit(Request $request)
     {
         $user = $request->user();
+
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('tricycledriver')->with('error', 'Subscription already expired');
+        }
 
         $existingUser = User::findOrFail($request->id);
 
@@ -123,6 +139,11 @@ class TricycleDriverController extends Controller
     {
         $user = $request->user();
 
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('tricycledriver')->with('error', 'Subscription already expired');
+        }
+
         $existingUser = User::findOrFail($request->id);
 
         if ($user->company->id !== $existingUser->company->id) {
@@ -136,6 +157,11 @@ class TricycleDriverController extends Controller
     public function enter(Request $request)
     {
         $user = $request->user();
+
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('tricycledriver')->with('error', 'Subscription already expired');
+        }
 
         $existingUser = User::findOrFail($request->id);
 
@@ -165,6 +191,11 @@ class TricycleDriverController extends Controller
     {
         $user = $request->user();
 
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('tricycledriver')->with('error', 'Subscription already expired');
+        }
+
         $existingUser = User::findOrFail($request->id);
 
         if ($user->company->id !== $existingUser->company->id) {
@@ -192,6 +223,11 @@ class TricycleDriverController extends Controller
     public function changePhoto(Request $request)
     {
         $user = $request->user();
+
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('tricycledriver')->with('error', 'Subscription already expired');
+        }
 
         $existingUser = User::findOrFail($request->id);
 
