@@ -22,4 +22,9 @@ class Company extends Model
     {
         return $this->hasMany(Guest::class);
     }
+
+    public function subscription()
+    {
+        return $this->hasOne(Subscription::class);
+    }
 }
