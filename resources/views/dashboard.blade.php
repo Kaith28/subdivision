@@ -2,7 +2,7 @@
     <section>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-5 ">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-20 pt-10 ">
-                <div class="flex flex-col items-center shadow-lg rounded-md p-4 bg-green-50">
+                <div class="flex flex-col items-center shadow-lg rounded-md p-4 bg-orange-50">
                     <div class="h-20 flex items-center">
                         <h2 class="text-4xl">{{ $totalResidents }}</h2>
                     </div>
