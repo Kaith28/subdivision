@@ -40,10 +40,13 @@
         <div>
             <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('resident.show', $user->id) }}"
                 alt="QR Code" class="w-60 h-60">
-            <button onclick="printImage('{{ route('resident.show', $user->id) }}', '{{ $user->name }}')"
-                class="w-full bottom-0 text-center cursor-pointer rounded-bl-lg rounded-br-lg bg-orange-300 text-white py-2 hover:bg-orange-200">
-                Download QR
-            </button>
+            @if (Auth::user()->role == 'admin')
+                <button onclick="printImage('{{ route('resident.show', $user->id) }}', '{{ $user->name }}')"
+                    class="w-full bottom-0 text-center cursor-pointer rounded-bl-lg rounded-br-lg bg-orange-300 text-white py-2 hover:bg-orange-200">
+                    Download QR
+                </button>
+            @endif
+
         </div>
     </div>
     <div class="py-12">
