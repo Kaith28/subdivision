@@ -4,7 +4,7 @@
             {{ __('Edit Guard') }}
         </h2>
     </x-slot>
-    <div class="pt-4 px-4"> <a href="/admin"
+    <div class="pt-4 px-4"> <a href="/guard"
             class=" w-fit px-4 py-2 flex items-center gap-2 bg-orange-200 hover:bg-orange-300 rounded-md "><svg
                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
                 viewBox="0 0 16 16">
