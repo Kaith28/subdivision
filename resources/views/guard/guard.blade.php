@@ -8,6 +8,14 @@
         </div>
     @endif
 
+    @if (session('error'))
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-4">
+            <div class="bg-red-200 border border-red-500 p-2 rounded-md" role="alert">
+                {{ session('error') }}
+            </div>
+        </div>
+    @endif
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">

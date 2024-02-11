@@ -31,8 +31,14 @@ class GuardController extends Controller
             'name'  => $name
         ]);
     }
-    public function create()
+    public function create(Request $request)
     {
+        $user = $request->user();
+
+        // Validation - check if subscription is active
+        if (!$user->company->isActive()) {
+            return redirect()->route('guard')->with('error', 'Subscription already expired');
+        }
         return view('guard.create');
     }
 
