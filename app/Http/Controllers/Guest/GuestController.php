@@ -15,8 +15,15 @@ class GuestController extends Controller
         $user = $request->user();
 
         $name = $request->input('name');
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
 
         $guests = Guest::query();
+
+        if ($startDate !== null && $endDate !== null) {
+            $guests->orWhereBetween('created_at', [Carbon::parse($startDate), Carbon::parse($endDate)])
+                ->orWhereBetween('out', [Carbon::parse($startDate), Carbon::parse($endDate)]);
+        }
 
         if ($name !== null) {
             $guests->where('name', 'LIKE', '%' . $name . '%');
@@ -44,7 +51,9 @@ class GuestController extends Controller
 
         return view('guest.guest', [
             'guests' => $list,
-            'name'  => $name
+            'name' => $name,
+            'startDate' => $startDate,
+            'endDate' => $endDate,
         ]);
     }
     public function show(Request $request)
