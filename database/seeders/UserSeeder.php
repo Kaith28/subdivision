@@ -95,7 +95,7 @@ class UserSeeder extends Seeder
 
         // Create dummny records
         $startDate = Carbon::now()->startOfYear();
-        $endDate = Carbon::now()->endOfYear();
+        $endDate = Carbon::now();
 
         while ($startDate->lessThanOrEqualTo($endDate)) {
 

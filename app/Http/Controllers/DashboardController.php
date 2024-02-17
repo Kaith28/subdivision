@@ -48,30 +48,49 @@ class DashboardController extends Controller
         $dataIn = Record::whereBetween('in', [$startDate, $endDate])
             ->get()
             ->groupBy(function ($record) use ($format) {
-                return Carbon::createFromFormat('Y-m-d H:i:s', $record->in)->tz('Asia/Manila')->format($format);
+                if ($record->in !== null) {
+                    return Carbon::createFromFormat('Y-m-d H:i:s', $record->in)->tz('Asia/Manila')->format($format);
+                } else {
+                    return null;
+                }
             });
 
         $dataOut = Record::whereBetween('out', [$startDate, $endDate])
             ->get()
             ->groupBy(function ($record) use ($format) {
-                return Carbon::createFromFormat('Y-m-d H:i:s', $record->in)->tz('Asia/Manila')->format($format);
+                if ($record->out !== null) {
+                    return Carbon::createFromFormat('Y-m-d H:i:s', $record->out)->tz('Asia/Manila')->format($format);
+                } else {
+                    return null;
+                }
             });
+
 
         $dataOne = [];
         $dataTwo = [];
 
         foreach ($dataIn as $index => $items) {
-            $dataOne[] = [
-                'label' => $index,
-                'y' => $items->count()
-            ];
+            if (
+                strlen($index) != 0
+
+            ) {
+                $dataOne[] = [
+                    'label' => $index,
+                    'y' => $items->count()
+                ];
+            }
         }
 
         foreach ($dataOut as $index => $items) {
-            $dataTwo[] = [
-                'label' => $index,
-                'y' => $items->count()
-            ];
+            if (
+                strlen($index) != 0
+
+            ) {
+                $dataTwo[] = [
+                    'label' => $index,
+                    'y' => $items->count()
+                ];
+            }
         }
 
         return view('dashboard', [
