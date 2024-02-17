@@ -63,23 +63,27 @@
 
     <!-- Menus -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-5 flex justify-end">
-        <div><label for="time-period" class="block text-sm font-medium text-gray-700">Select Time
+        <form id="redirectForm" method="GET" action="{{ route('dashboard') }}">
+            <label for="time-period" class="block text-sm font-medium text-gray-700">Select Time
                 Period</label>
             <select id="time-period" name="time-period"
                 class="block w-28 p-2 border border-orange-200 bg-white-300 rounded-md shadow-sm focus:outline-none focus:border-gray-300 focus:ring focus:ring-orange-100">
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-                <option value="yearly">Yearly</option>
+                <option {{ $timePeriod == 'weekly' ? 'selected' : '' }} value="weekly">Weekly</option>
+                <option {{ $timePeriod == 'monthly' ? 'selected' : '' }} value="monthly">Monthly</option>
+                <option {{ $timePeriod == 'yearly' ? 'selected' : '' }} value="yearly">Yearly</option>
             </select>
-        </div>
+            <div class="pt-4">
+                <button class="px-4 py-2 flex items-center gap-2 bg-orange-200 hover:bg-orange-300 rounded-md"
+                    type="submit">Search</button>
+            </div>
+        </form>
     </div>
 
     {{-- Bar Chart Here! --}}
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-5 ">
         <?php
-        $dataPoints1 = [['label' => '2010', 'y' => 36.12], ['label' => '2011', 'y' => 34.87], ['label' => '2012', 'y' => 40.3], ['label' => '2013', 'y' => 35.3], ['label' => '2014', 'y' => 39.5], ['label' => '2015', 'y' => 50.82], ['label' => '2016', 'y' => 74.7]];
-        $dataPoints2 = [['label' => '2010', 'y' => 64.61], ['label' => '2011', 'y' => 70.55], ['label' => '2012', 'y' => 72.5], ['label' => '2013', 'y' => 81.3], ['label' => '2014', 'y' => 63.6], ['label' => '2015', 'y' => 69.38], ['label' => '2016', 'y' => 98.7]];
+        $dataPoints1 = $dataOne;
+        $dataPoints2 = $dataTwo;
         ?>
         <!DOCTYPE HTML>
         <html>
@@ -104,17 +108,19 @@
                             itemclick: toggleDataSeries
                         },
                         data: [{
+                            color: '#fdba74',
                             type: "column",
                             name: "IN",
                             indexLabel: "{y}",
-                            yValueFormatString: "$#0.##",
+                            yValueFormatString: "#0.##",
                             showInLegend: true,
                             dataPoints: <?php echo json_encode($dataPoints1, JSON_NUMERIC_CHECK); ?>
                         }, {
+                            color: '#86efac',
                             type: "column",
                             name: "OUT",
                             indexLabel: "{y}",
-                            yValueFormatString: "$#0.##",
+                            yValueFormatString: "#0.##",
                             showInLegend: true,
                             dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); ?>
                         }]

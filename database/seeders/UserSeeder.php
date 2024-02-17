@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Company;
+use App\Models\Record;
 use App\Models\Subscription;
 use App\Models\User;
 use Carbon\Carbon;
@@ -40,7 +41,7 @@ class UserSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        User::create([
+        $guard = User::create([
             'company_id' => $company->id,
             'name' => 'GUARD',
             'email' => 'guard@gmail.com',
@@ -49,7 +50,7 @@ class UserSeeder extends Seeder
             'role' => 'guard',
         ]);
 
-        User::create([
+        $resident = User::create([
             'company_id' => $company->id,
             'name' => 'Resident1',
             'contact_no' => '0987654321',
@@ -91,5 +92,27 @@ class UserSeeder extends Seeder
             'company_id' => $company->id,
             'expiration' => $expiration
         ]);
+
+        // Create dummny records
+        $startDate = Carbon::now()->startOfYear();
+        $endDate = Carbon::now()->endOfYear();
+
+        while ($startDate->lessThanOrEqualTo($endDate)) {
+
+            $randomValue = rand(1, 2);
+
+            for ($i = 0; $i <= $randomValue; $i++) {
+                Record::create([
+                    'user_id' => $resident->id,
+                    'in_charge_id' => $guard->id,
+                    'in' => $startDate->toDateTimeString(),
+                    'out' => $startDate->toDateTimeString(),
+                ]);
+            }
+
+
+            // Move to the next day
+            $startDate->addDay();
+        }
     }
 }
