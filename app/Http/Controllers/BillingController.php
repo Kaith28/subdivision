@@ -88,7 +88,7 @@ class BillingController extends Controller
 
         // Check if complete
         if ($latestTransaction->complete) {
-            return "Already completed";
+            return redirect()->route('billing')->with('error', 'Invalid!');
         }
 
         // Set your Stripe API key
@@ -112,7 +112,7 @@ class BillingController extends Controller
                 $subscription->save();
 
                 // Payment was successful
-                return 'Payment was successful.';
+                return redirect()->route('billing')->with('success', 'Payment successfully!');
             } else {
                 // Payment was not successful
                 return 'Payment was not successful.';
