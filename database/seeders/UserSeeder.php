@@ -103,6 +103,7 @@ class UserSeeder extends Seeder
 
             for ($i = 0; $i <= $randomValue; $i++) {
                 Record::create([
+                    'company_id' => $guard->company->id,
                     'user_id' => $resident->id,
                     'in_charge_id' => $guard->id,
                     'in' => $startDate->toDateTimeString(),

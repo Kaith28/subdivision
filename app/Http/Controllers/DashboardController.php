@@ -45,7 +45,7 @@ class DashboardController extends Controller
             $format = "Y"; // 2024,
         }
 
-        $dataIn = Record::whereBetween('in', [$startDate, $endDate])
+        $dataIn = Record::where('company_id', $user->company->id)->whereBetween('in', [$startDate, $endDate])
             ->get()
             ->groupBy(function ($record) use ($format) {
                 if ($record->in !== null) {
@@ -55,7 +55,7 @@ class DashboardController extends Controller
                 }
             });
 
-        $dataOut = Record::whereBetween('out', [$startDate, $endDate])
+        $dataOut = Record::where('company_id', $user->company->id)->whereBetween('out', [$startDate, $endDate])
             ->get()
             ->groupBy(function ($record) use ($format) {
                 if ($record->out !== null) {

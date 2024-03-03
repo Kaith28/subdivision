@@ -9,6 +9,7 @@ class Record extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'company_id',
         'user_id',
         'in_charge_id',
         'in',
