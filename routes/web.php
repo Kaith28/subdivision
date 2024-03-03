@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BillingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuardController;
 use App\Http\Controllers\Guest\GuestController;
@@ -35,6 +36,16 @@ Route::middleware('auth')->group(function () {
  */
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
+/**
+ * Billing
+ */
+Route::get('/billing', [BillingController::class, 'index'])->name('billing');
+Route::get('/billing/extend', [BillingController::class, 'extend'])->name('billing.extend');
+Route::get('/billing/success', [BillingController::class, 'success'])->name('billing.success');
+Route::get('/billing/cancel', [BillingController::class, 'cancel'])->name('billing.cancel');
+
 
 /**
  * Users - TODO: Remove

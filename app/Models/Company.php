@@ -29,6 +29,11 @@ class Company extends Model
         return $this->hasOne(Subscription::class);
     }
 
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
     public function isActive()
     {
         $expirationDate = Carbon::parse($this->subscription->expiration);
