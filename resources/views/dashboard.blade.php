@@ -1,4 +1,18 @@
 <x-app-layout>
+    @if (session('success'))
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-green-200 border border-green-500 p-2 rounded-md" role="alert">
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-4">
+            <div class="bg-red-200 border border-red-500 p-2 rounded-md" role="alert">
+                {{ session('error') }}
+            </div>
+        </div>
+    @endif
     <section>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-5 ">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-20 pt-10 ">

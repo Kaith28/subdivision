@@ -78,9 +78,9 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-                    <img class="w-52 h-52" src="/Personalized.svg" alt="">
+                    <img class="w-52 h-52" src="/board.png" alt="">
                     <p class="text-3xl ">
-                        Personalized
+                        Bulletin Board
                     </p>
                 </div>
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4">
