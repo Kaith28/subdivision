@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BulletinBoardController;
 use App\Http\Controllers\DashboardController;
@@ -30,6 +31,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+/* Announcement */
+Route::middleware(['auth', 'verified', 'owner'])->group(function () {
+    Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcement');
+    Route::get('/announcement/create', [AnnouncementController::class, 'create'])->name('announcement.create');
+    Route::post('/announcement/create', [AnnouncementController::class, 'store'])->name('announcement.store');
+    Route::get('/announcement/{id}', [AnnouncementController::class, 'show'])->name('announcement.show');
+    Route::get('/announcement/{id}/edit', [AnnouncementController::class, 'edit'])->name('announcement.edit');
+    Route::post('/announcement/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
+    Route::post('/announcement/{id}/destroy', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
 });
 
 /**
