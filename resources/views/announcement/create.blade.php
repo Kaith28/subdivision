@@ -13,9 +13,10 @@
                     d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
             </svg></a>
     </div>
+
     <div class="py-12">
         <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-            <form method="POST" action=""enctype="multipart/form-data">
+            <form class="w-96" method="POST" action=""enctype="multipart/form-data">
                 @csrf
                 <!-- Title -->
                 <div>
@@ -28,8 +29,8 @@
                 <!-- Body -->
                 <div class="mt-4">
                     <x-input-label for="body" :value="__('Body')" />
-                    <x-text-input id="body" class="block mt-1 w-full" type="text" name="body"
-                        :value="old('body')" required autofocus autocomplete="body" />
+                    <textarea id="body" class="block mt-1 w-full rounded-md" type="text" name="body" :value="old('body')"
+                        rows="6" required autofocus autocomplete="body"></textarea>
                     <x-input-error :messages="$errors->get('body')" class="mt-2" />
                 </div>
 

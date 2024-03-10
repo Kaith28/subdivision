@@ -55,7 +55,9 @@ class AnnouncementController extends Controller
 
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'body' => ['required', 'string',],
+            'body' => ['required', 'string'],
+
+            // validate photo
         ]);
 
         if ($request->hasFile('photo')) {
@@ -91,7 +93,16 @@ class AnnouncementController extends Controller
     {
         $user = $request->user();
 
-        return view('announcement.edit');
+        $announcement = Announcement::where([
+            'company_id' => $user->company->id,
+            'id' => $request->id
+        ])->first();
+
+        if ($announcement === null) {
+            abort(404);
+        }
+
+        return view('announcement.edit')->with('announcement', $announcement);
     }
 
 
@@ -99,7 +110,27 @@ class AnnouncementController extends Controller
     {
         $user = $request->user();
 
-        return view('announcement.update');
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'body' => ['required', 'string'],
+
+            // validate photo
+        ]);
+
+        $announcement = Announcement::where([
+            'company_id' => $user->company->id,
+            'id' => $request->id
+        ])->first();
+
+        if ($announcement === null) {
+            abort(404);
+        }
+
+        $announcement->title = $request->title;
+        $announcement->body = $request->body;
+        $announcement->save();
+
+        return redirect()->route('announcement')->with('success', 'Updated announcement successfully');
     }
 
     public function destroy(Request $request)
