@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -20,6 +21,7 @@ class UserSeeder extends Seeder
     {
         // Create company
         $company = Company::create([
+            'slug' => Str::slug("Sample Company"),
             "name" => "Sample Company"
         ]);
 

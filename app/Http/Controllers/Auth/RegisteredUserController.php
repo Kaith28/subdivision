@@ -13,6 +13,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -40,7 +41,20 @@ class RegisteredUserController extends Controller
             'company_name' => ['required', 'string', 'max:255'],
         ]);
 
+        $slug = Str::slug($request->company_name);
+
+        // Check if the slug already exists
+        if (Company::where('slug', $slug)->exists()) {
+            // If the slug already exists, append a number to make it unique
+            $count = 1;
+            while (Company::where('slug', $slug . '-' . $count)->exists()) {
+                $count++;
+            }
+            $slug .= '-' . $count;
+        }
+
         $company = Company::create([
+            'slug' => $slug,
             'name' => $request->company_name
         ]);
 
