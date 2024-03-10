@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
+use App\Models\Announcement;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -12,10 +12,21 @@ class AnnouncementController extends Controller
     {
         $user = $request->user();
 
+        $title = $request->input('title');
+
         $company = $user->company;
 
+        $announcements = Announcement::query();
+
+        if ($title !== null) {
+            $announcements->where('title', 'LIKE', '%' . $title . '%');
+        }
+
+        $announcements->where('company_id', $user->company->id);
+        $announcements = $announcements->get();
+
         $list = [];
-        foreach ($company->announcements as $announcement) {
+        foreach ($announcements as $announcement) {
             $list[] = [
                 'id' => $announcement->id,
                 'slug' => $company->slug,
@@ -27,7 +38,8 @@ class AnnouncementController extends Controller
         }
 
         return view('announcement.announcement', [
-            'announcements' => $list
+            'announcements' => $list,
+            "title" => $title
         ]);
     }
 
