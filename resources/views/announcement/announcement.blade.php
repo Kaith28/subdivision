@@ -49,7 +49,7 @@
                                 <td class="px-2 text-center">
 
                                     <div class="flex justify-center gap-2">
-                                        @if (Auth::user()->role == 'owner')
+                                        @if (Auth::user()->role == 'owner' || Auth::user()->role == 'admin')
                                             <a href={{ route('announcement.edit', $announcement['id']) }}
                                                 class=" px-4 py-2 hover:bg-gray-200 rounded-md"><svg
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
