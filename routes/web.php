@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BillingController;
+use App\Http\Controllers\BulletinBoardController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuardController;
 use App\Http\Controllers\Guest\GuestController;
@@ -140,6 +141,7 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::post('/tricycledriver/{id}/change-photo', [TricycleDriverController::class, 'changePhoto'])->name('tricycledriver.change.photo');
     /*  Route::get('/download/{qr code}', 'DownloadController@download')->name('download');; */
 });
+
 /**
  * Record routes
  */
@@ -148,3 +150,8 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+/**
+ * Bulletin Board
+ */
+Route::get('/{slug}', [BulletinBoardController::class, 'index'])->name('bulleting.board.index');
