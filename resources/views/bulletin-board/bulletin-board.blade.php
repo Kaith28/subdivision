@@ -19,42 +19,22 @@
     {{-- Hero Section --}}
     <section>
         <div class="flex flex-col gap-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-
+            {{-- Company name --}}
             <h1 class="text-4xl font-bold">Company Name</h1>
-
+            {{-- Announcements --}}
             <div class="flex flex-col gap-6">
-                {{-- Card --}}
-                <div class="rounded-md shadow-lg cursor-pointer">
-                    <img class="w-full h-44 sm:h-96 rounded-t-lg object-cover"
-                        src="https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        alt="">
-                    <div class="flex flex-col gap-2 p-4">
-                        <h3 class="text-lg font-bold">Announcement title</h3>
-                        <p class="text-sm">Date here</p>
-                    </div>
-                </div>
-                {{-- Card --}}
-                <div class="rounded-md shadow-lg cursor-pointer">
-                    <img class="w-full h-44 sm:h-96 rounded-t-lg object-cover"
-                        src="https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        alt="">
-                    <div class="flex flex-col gap-2 p-4">
-                        <h3 class="text-lg font-bold">Announcement title</h3>
-                        <p class="text-sm">Date here</p>
-                    </div>
-                </div>
-                {{-- Card --}}
-                <div class="rounded-md shadow-lg cursor-pointer">
-                    <img class="w-full h-44 sm:h-96 rounded-t-lg object-cover"
-                        src="https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        alt="">
-                    <div class="flex flex-col gap-2 p-4">
-                        <h3 class="text-lg font-bold">Announcement title</h3>
-                        <p class="text-sm">Date here</p>
-                    </div>
-                </div>
+                @foreach ($announcements as $announcement)
+                    <a href="{{ route('bulletin-board.show', ['slug' => $announcement['slug'], 'id' => $announcement['id']]) }}"
+                        class="rounded-md shadow-lg cursor-pointer">
+                        <img class="w-full h-44 sm:h-96 rounded-t-lg object-cover"
+                            src="{{ $announcement['cover_photo'] }}" alt="">
+                        <div class="flex flex-col gap-2 p-4">
+                            <h3 class="text-lg font-bold">{{ $announcement['title'] }}</h3>
+                            <p class="text-sm">{{ $announcement['created_at'] }}</p>
+                        </div>
+                    </a>
+                @endforeach
             </div>
-
         </div>
     </section>
 

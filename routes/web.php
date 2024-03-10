@@ -154,4 +154,5 @@ require __DIR__ . '/auth.php';
 /**
  * Bulletin Board
  */
-Route::get('/{slug}', [BulletinBoardController::class, 'index'])->name('bulleting.board.index');
+Route::get('/{slug}', [BulletinBoardController::class, 'index'])->name('bulletin-board.index');
+Route::get('/{slug}/{id}', [BulletinBoardController::class, 'show'])->name('bulletin-board.show');
