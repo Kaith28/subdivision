@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
 });
 
 /* Announcement */
-Route::middleware(['auth', 'verified', 'owner'])->group(function () {
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcement');
     Route::get('/announcement/create', [AnnouncementController::class, 'create'])->name('announcement.create');
     Route::post('/announcement/create', [AnnouncementController::class, 'store'])->name('announcement.store');
@@ -58,20 +58,6 @@ Route::get('/billing', [BillingController::class, 'index'])->name('billing');
 Route::get('/billing/extend', [BillingController::class, 'extend'])->name('billing.extend');
 Route::get('/billing/success', [BillingController::class, 'success'])->name('billing.success');
 Route::get('/billing/cancel', [BillingController::class, 'cancel'])->name('billing.cancel');
-
-
-/**
- * Users - TODO: Remove
- */
-
-/* Route::get('/users', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('users');
-Route::get('/users/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('users.create');
-Route::post('/users/create', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('users.store');
-Route::get('/users/{id}', [UserController::class, 'show'])->middleware(['auth', 'verified'])->name('users.show');
-Route::get('/users/{id}/edit', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('users.edit');
-Route::post('/users/{id}', [UserController::class, 'update'])->middleware(['auth', 'verified'])->name('users.update');
-Route::post('/users/{id}/destroy', [UserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('users.destroy');
-Route::get('/download/{qr code}', 'DownloadController@download')->name('download'); */
 
 /**
  * Admin routes
