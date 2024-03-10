@@ -46,18 +46,34 @@ class AnnouncementController extends Controller
     public function create(Request $request)
     {
         $user = $request->user();
-
         return view('announcement.create');
     }
-
-
-
 
     public function store(Request $request)
     {
         $user = $request->user();
 
-        return view('announcement.store');
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'body' => ['required', 'string',],
+        ]);
+
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+
+            $imagePath = '/images/' . $imageName;
+
+            Announcement::create([
+                'company_id' => $user->company->id,
+                'cover_photo' => $imagePath,
+                'title' => $request->title,
+                'body' => $request->body,
+            ]);
+        }
+
+        return redirect()->route('announcement');
     }
 
 
@@ -86,11 +102,21 @@ class AnnouncementController extends Controller
         return view('announcement.update');
     }
 
-
     public function destroy(Request $request)
     {
         $user = $request->user();
 
-        return view('announcement.destroy');
+        $announcement = Announcement::where([
+            'company_id' => $user->company->id,
+            'id' => $request->id
+        ])->first();
+
+        if ($announcement === null) {
+            abort(404);
+        }
+
+        $announcement->delete();
+
+        return redirect()->route('announcement')->with('success', 'Announcement deleted successfully');
     }
 }
