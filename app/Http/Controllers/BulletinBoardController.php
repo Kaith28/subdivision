@@ -32,7 +32,9 @@ class BulletinBoardController extends Controller
         }
 
         return view('bulletin-board.bulletin-board', [
-            'announcements' => $list
+            'announcements' => $list,
+            'company' => $company,
+
         ]);
     }
 
@@ -62,7 +64,8 @@ class BulletinBoardController extends Controller
                 "title" => $announcement->title,
                 "body" => $announcement->body,
                 "created_at" => Carbon::createFromFormat('Y-m-d H:i:s', $announcement->created_at)->tz('Asia/Manila')->format('F j, Y g:i a'),
-            ]
+            ],
+            'company' => $company,
         ]);
     }
 }

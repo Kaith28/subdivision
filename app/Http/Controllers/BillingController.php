@@ -25,7 +25,7 @@ class BillingController extends Controller
 
         return view('billing.billing', [
             'expiration' => Carbon::createFromFormat('Y-m-d H:i:s', $company->subscription->expiration)->tz('Asia/Manila')->format('F j, Y g:i a'),
-            'transactions' => $company->transactions
+            'transactions' => $company->transactions()->where('complete', true)->get()
         ]);
     }
 

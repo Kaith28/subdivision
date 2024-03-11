@@ -20,7 +20,7 @@
     <section>
         <div class="flex flex-col gap-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             {{-- Company name --}}
-            <h1 class="text-4xl font-bold">Company Name</h1>
+            <h1 class="text-4xl font-bold">{{ $company->name }}</h1>
             {{-- Announcement --}}
             <div class="rounded-md shadow-lg">
                 <img class="w-full h-44 sm:h-96 rounded-t-lg object-cover" src="{{ $announcement['cover_photo'] }}"
