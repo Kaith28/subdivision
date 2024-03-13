@@ -74,7 +74,7 @@
     <section>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="text-center pb-10">
-                <h2 class="text-4xl font-bold">Our Features</h2>
+                <h2 class="text-4xl font-bold">Features</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="flex flex-col items-center shadow-lg rounded-md p-4">
