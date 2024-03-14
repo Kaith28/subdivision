@@ -5,6 +5,7 @@ use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BulletinBoardController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\GuardController;
 use App\Http\Controllers\Guest\GuestController;
 use App\Http\Controllers\ProfileController;
@@ -119,6 +120,19 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::post('/guest/create', [GuestController::class, 'store'])->middleware(['admin'])->name('guest.store'); */
     Route::get('/guest/{id}', [GuestController::class, 'show'])->name('guest.show');
     Route::post('/guest/{id}/out', [GuestController::class, 'out'])->name('guest.out');
+});
+
+/**
+ * Events routes
+ */
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/events', [EventsController::class, 'index'])->name('events');
+    Route::get('/events/create', [EventsController::class, 'create'])->name('events.create');
+    Route::post('/events/create', [EventsController::class, 'store'])->name('events.store');
+    Route::get('/events/{id}', [EventsController::class, 'show'])->name('events.show');
+    Route::get('/events/{id}/edit', [EventsController::class, 'edit'])->name('events.edit');
+    Route::post('/events/{id}', [EventsController::class, 'update'])->name('events.update');
+    Route::post('/announcement/{id}/destroy', [EventsController::class, 'destroy'])->name('events.destroy');
 });
 
 /**

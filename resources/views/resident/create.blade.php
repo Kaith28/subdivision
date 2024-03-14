@@ -72,7 +72,10 @@
 
                 <!-- Relatives -->
                 <div class="mt-4">
-                    <x-input-label for="relatives" :value="__('Relatives')" />
+                    <label class="text-sm">Relatives</label>
+                    <div class="font-bold text-xs justify text-red-400 italic">Specify only those who are allowed to use
+                        your vehicle.
+                    </div>
                     <x-text-input id="relatives" class="block mt-1 w-full" type="text" name="relatives"
                         :value="old('relatives')" required autofocus autocomplete="relatives" />
                     <x-input-error :messages="$errors->get('relatives')" class="mt-2" />
@@ -81,7 +84,10 @@
                 <!-- Upload photo -->
 
                 <div class="mt-4">
-                    <x-input-label for="address" :value="__('Add Photo')" />
+                    <label class="text-sm">Add Picture</label>
+                    <div class="font-bold text-xs justify text-red-400 italic">We will use this to identify if you are
+                        really the one using your car.
+                    </div>
                     <input type="file" id="photo" name="photo"
                         class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-orange-300">
                 </div>

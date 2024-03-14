@@ -35,15 +35,18 @@
                     <x-nav-link :href="route('resident')" :active="request()->routeIs('resident')">
                         {{ __('Resident') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('guest')" :active="request()->routeIs('guest')">
-                        {{ __('Guest') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('tricycledriver')" :active="request()->routeIs('tricycledriver')">
                         {{ __('Tricycle Driver') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('record')" :active="request()->routeIs('record')">
                         {{ __('All Records') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('guest')" :active="request()->routeIs('guest')">
+                        {{ __('Guest') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('events')" :active="request()->routeIs('events')">
+                        {{ __('Events') }}
                     </x-nav-link>
 
 
