@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
@@ -58,24 +59,23 @@ class AdminController extends Controller
             /* 'photo' => ['required', 'string'], */
         ]);
 
-        if ($request->hasFile('photo')) {
-            $image = $request->file('photo');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+        $imageData = $request->input('photo');
+        $decodedImage = base64_decode(preg_replace('/^data:image\/(png|jpeg|jpg);base64,/', '', $imageData));
+        $imageName = $request->name . Str::random(20) . '.png';
+        file_put_contents(public_path('images/' . $imageName), $decodedImage);
+        $imagePath = '/images/' . $imageName;
 
-            $imagePath = '/images/' . $imageName;
+        User::create([
+            'company_id' => $user->company->id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'contact_no' => $request->contact_no,
+            'subdivision' => $request->subdivision,
+            'photo' => $imagePath,
+            'role' => 'admin',
+        ]);
 
-            User::create([
-                'company_id' => $user->company->id,
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'contact_no' => $request->contact_no,
-                'subdivision' => $request->subdivision,
-                'photo' => $imagePath,
-                'role' => 'admin',
-            ]);
-        }
 
 
         return redirect()->route('admin');
