@@ -188,24 +188,23 @@ class ResidentController extends Controller
             abort(404);
         }
 
-        if ($request->hasFile('photo')) {
-            $image = $request->file('photo');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+        $imageData = $request->input('photo');
+        $decodedImage = base64_decode(preg_replace('/^data:image\/(png|jpeg|jpg);base64,/', '', $imageData));
+        $imageName = $request->name . Str::random(20) . '.png';
+        file_put_contents(public_path('images/' . $imageName), $decodedImage);
+        $imagePath = '/images/' . $imageName;
 
-            $imagePath = '/images/' . $imageName;
 
+        Guest::create([
+            'company_id' => $existingUser->company->id,
+            'in_charge_id' => $user->id,
+            'user_id' => $existingUser->id,
+            'name' => $request->name,
+            'contact_no' => $request->contact_no,
+            'photo' => $imagePath,
 
-            Guest::create([
-                'company_id' => $existingUser->company->id,
-                'in_charge_id' => $user->id,
-                'user_id' => $existingUser->id,
-                'name' => $request->name,
-                'contact_no' => $request->contact_no,
-                'photo' => $imagePath,
+        ]);
 
-            ]);
-        }
         return redirect()->route('guest');
     }
 

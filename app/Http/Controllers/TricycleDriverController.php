@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Record;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TricycleDriverController extends Controller
 {
@@ -52,23 +53,22 @@ class TricycleDriverController extends Controller
             'plate_no' => ['required', 'string', 'max:255'],
             /* 'photo' => ['required', 'string'], */
         ]);
-        if ($request->hasFile('photo')) {
-            $image = $request->file('photo');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+        $imageData = $request->input('photo');
+        $decodedImage = base64_decode(preg_replace('/^data:image\/(png|jpeg|jpg);base64,/', '', $imageData));
+        $imageName = $request->name . Str::random(20) . '.png';
+        file_put_contents(public_path('images/' . $imageName), $decodedImage);
+        $imagePath = '/images/' . $imageName;
 
-            $imagePath = '/images/' . $imageName;
+        User::create([
+            'company_id' => $user->company->id,
+            'in_charge_id' => $user->id,
+            'name' => $request->name,
+            'contact_no' => $request->contact_no,
+            'plate_no' => $request->plate_no,
+            'photo' => $imagePath,
+            'role' => 'driver',
+        ]);
 
-            User::create([
-                'company_id' => $user->company->id,
-                'in_charge_id' => $user->id,
-                'name' => $request->name,
-                'contact_no' => $request->contact_no,
-                'plate_no' => $request->plate_no,
-                'photo' => $imagePath,
-                'role' => 'driver',
-            ]);
-        }
 
         return redirect()->route('tricycledriver');
     }

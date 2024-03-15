@@ -17,7 +17,23 @@
         <div class="flex flex-col items-center shadow-lg rounded-md p-4">
             <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
-
+                <!-- Upload photo -->
+                <div class="mt-4">
+                    <label class="text-sm">Add Picture</label>
+                    <div class="font-bold text-xs justify text-gray-400 italic">* We will use this to identify if you
+                        are
+                        really the one using your car.
+                    </div>
+                    {{-- <input type="file" id="photo" name="photo"
+                        class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-orange-300"> --}}
+                    <input id="photo" type="hidden" name="photo">
+                    <img id="preview" width="400" height="300" class="hidden" />
+                    <video id="video" width="400" height="300" autoplay></video>
+                    <div class="flex justify-center  bg-orange-300 rounded-md py-2 my-2 ">
+                        <button id="capture">Capture</button>
+                        <button id="re-capture" class="hidden">Re-Capture</button>
+                    </div>
+                </div>
                 <!-- Name -->
                 <div>
                     <x-input-label for="name" :value="__('Name')" />
@@ -42,15 +58,6 @@
                     <x-input-error :messages="$errors->get('plate_no')" class="mt-2" />
                 </div>
 
-
-                <!-- Upload photo -->
-                <div class="mb-4">
-                    <label for="photo" class="block text-sm font-semibold text-gray-600">Add Photo</label>
-                    <input type="file" id="photo" name="photo"
-                        class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
-
-                </div>
-
                 <!-- Add -->
                 <div class=" mt-4">
                     <x-primary-button>
@@ -62,3 +69,44 @@
         </div>
     </div>
 </x-app-layout>
+<script>
+    const video = document.getElementById('video');
+    const captureButton = document.getElementById('capture');
+    const recaptureButton = document.getElementById('re-capture')
+    const capturedImageInput = document.getElementById('photo');
+    const preview = document.getElementById('preview')
+    // Access the camera and stream the video
+    navigator.mediaDevices.getUserMedia({
+            video: true
+        })
+        .then(stream => {
+            video.srcObject = stream;
+        })
+        .catch(err => {
+            console.error('Error accessing the camera:', err);
+        });
+    // Capture an image from the video stream
+    captureButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        const imageUrl = canvas.toDataURL('image/png');
+        // Set the captured image data to the hidden input field
+        capturedImageInput.value = imageUrl;
+        preview.src = imageUrl;
+        // Optionally, hide the video element
+        video.style.display = 'none';
+        preview.style.display = 'block';
+        captureButton.style.display = 'none';
+        recaptureButton.style.display = 'block';
+    });
+    recaptureButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        video.style.display = 'block';
+        preview.style.display = 'none';
+        captureButton.style.display = 'block';
+        recaptureButton.style.display = 'none';
+    })
+</script>
