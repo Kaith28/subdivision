@@ -12,7 +12,7 @@
         <!-- Company name -->
         <div class="mt-4">
             <label class="text-sm">Company Name</label>
-            <div class="font-bold text-xs justify text-red-400 italic">Please remember the company name you typed,
+            <div class="font-bold text-xs justify text-gray-400 italic"> * Please remember the company name you typed,
                 as it will
                 be
                 used in the

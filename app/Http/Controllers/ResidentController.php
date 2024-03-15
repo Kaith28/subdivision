@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Str;
 
 class ResidentController extends Controller
 {
@@ -58,27 +59,26 @@ class ResidentController extends Controller
             'relatives' => ['required', 'string', 'max:255']
         ]);
 
-        if ($request->hasFile('photo')) {
-            $image = $request->file('photo');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+        $imageData = $request->input('photo');
+        $decodedImage = base64_decode(preg_replace('/^data:image\/(png|jpeg|jpg);base64,/', '', $imageData));
+        $imageName = $request->name . Str::random(20) . '.png';
+        file_put_contents(public_path('images/' . $imageName), $decodedImage);
+        $imagePath = '/images/' . $imageName;
 
-            $imagePath = '/images/' . $imageName;
+        User::create([
+            'company_id' => $user->company->id,
+            'in_charge_id' => $user->id,
+            'position' => $request->position,
+            'name' => $request->name,
+            'contact_no' => $request->contact_no,
+            'vehicle_type' => $request->vehicle_type,
+            'plate_no' => $request->plate_no,
+            'address' => $request->address,
+            'relatives' => $request->relatives,
+            'photo' => $imagePath,
+            'role' => 'resident'
+        ]);
 
-            User::create([
-                'company_id' => $user->company->id,
-                'in_charge_id' => $user->id,
-                'position' => $request->position,
-                'name' => $request->name,
-                'contact_no' => $request->contact_no,
-                'vehicle_type' => $request->vehicle_type,
-                'plate_no' => $request->plate_no,
-                'address' => $request->address,
-                'relatives' => $request->relatives,
-                'photo' => $imagePath,
-                'role' => 'resident'
-            ]);
-        }
         return redirect()->route('resident');
     }
     public function show(Request $request)
