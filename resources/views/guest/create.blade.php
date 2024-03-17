@@ -29,6 +29,7 @@
                     <input id="photo" type="hidden" name="photo">
                     <img id="preview" width="400" height="300" class="hidden" />
                     <video id="video" width="400" height="300" autoplay></video>
+                    <button id="flipButton">Flip Camera</button>
                     <div class="flex justify-center  bg-orange-300 rounded-md py-2 my-2 ">
                         <button id="capture">Capture</button>
                         <button id="re-capture" class="hidden">Re-Capture</button>
@@ -64,6 +65,7 @@
 
 <script>
     const video = document.getElementById('video');
+    const flipButton = document.getElementById('flipButton');
     const captureButton = document.getElementById('capture');
     const recaptureButton = document.getElementById('re-capture')
     const capturedImageInput = document.getElementById('photo');
@@ -102,4 +104,22 @@
         captureButton.style.display = 'block';
         recaptureButton.style.display = 'none';
     })
+
+    flipButton.addEventListener('click', async () => {
+        const currentStream = video.srcObject;
+        const tracks = currentStream.getTracks();
+
+        for (const track of tracks) {
+            track.stop();
+        }
+
+        const newStream = await navigator.mediaDevices.getUserMedia({
+            video: {
+                facingMode: (currentStream.getVideoTracks()[0].getSettings().facingMode ===
+                    'user') ? 'environment' : 'user'
+            }
+        });
+
+        video.srcObject = newStream;
+    });
 </script>
