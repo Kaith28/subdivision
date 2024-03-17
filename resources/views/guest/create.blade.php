@@ -70,6 +70,9 @@
     const recaptureButton = document.getElementById('re-capture')
     const capturedImageInput = document.getElementById('photo');
     const preview = document.getElementById('preview')
+
+    let facingMode = 'user'
+
     // Access the camera and stream the video
     navigator.mediaDevices.getUserMedia({
             video: true
@@ -115,9 +118,11 @@
             track.stop();
         }
 
+        currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
+
         const newStream = await navigator.mediaDevices.getUserMedia({
             video: {
-                facingMode: 'environment'
+                facingMode
             }
         });
 
