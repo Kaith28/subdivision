@@ -106,6 +106,8 @@
     })
 
     flipButton.addEventListener('click', async () => {
+        event.preventDefault();
+
         const currentStream = video.srcObject;
         const tracks = currentStream.getTracks();
 
@@ -115,8 +117,7 @@
 
         const newStream = await navigator.mediaDevices.getUserMedia({
             video: {
-                facingMode: (currentStream.getVideoTracks()[0].getSettings().facingMode ===
-                    'user') ? 'environment' : 'user'
+                facingMode: 'environment'
             }
         });
 
