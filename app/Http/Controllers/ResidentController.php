@@ -56,7 +56,8 @@ class ResidentController extends Controller
             'vehicle_type' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'relatives' => ['required', 'string', 'max:255']
+            'relatives' => ['required', 'string', 'max:255'],
+            'photo' => ['required', 'string']
         ]);
 
         $imageData = $request->input('photo');
@@ -181,6 +182,12 @@ class ResidentController extends Controller
     public function storeGuest(Request $request)
     {
         $user = $request->user();
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'contact_no' => ['required', 'string', 'max:255'],
+            'photo' => ['required', 'string']
+        ]);
 
         $existingUser = User::findOrFail($request->id);
 

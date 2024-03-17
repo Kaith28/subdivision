@@ -52,7 +52,7 @@ class GuardController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'contact_no' => ['required', 'string', 'max:255'],
-            /* 'photo' => ['required', 'string'], */
+            'photo' => ['required', 'string']
         ]);
         $imageData = $request->input('photo');
         $decodedImage = base64_decode(preg_replace('/^data:image\/(png|jpeg|jpg);base64,/', '', $imageData));

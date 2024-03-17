@@ -27,7 +27,8 @@
                     </div>
                     {{-- <input type="file" id="photo" name="photo"
                         class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-orange-300"> --}}
-                    <input id="photo" type="hidden" name="photo">
+                    <input id="photo" type="hidden" name="photo" required>
+                    <x-input-error :messages="$errors->get('photo')" class="mt-2" />
                     <img id="preview" width="400" height="300" class="hidden" />
                     <video id="video" width="400" height="300" autoplay></video>
                     <div class=" flex justify-center">

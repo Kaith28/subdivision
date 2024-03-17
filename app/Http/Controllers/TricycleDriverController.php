@@ -51,7 +51,7 @@ class TricycleDriverController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'contact_no' => ['required', 'string', 'max:255'],
             'plate_no' => ['required', 'string', 'max:255'],
-            /* 'photo' => ['required', 'string'], */
+            'photo' => ['required', 'string'],
         ]);
         $imageData = $request->input('photo');
         $decodedImage = base64_decode(preg_replace('/^data:image\/(png|jpeg|jpg);base64,/', '', $imageData));
