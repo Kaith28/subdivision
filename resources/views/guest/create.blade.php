@@ -71,7 +71,7 @@
     const capturedImageInput = document.getElementById('photo');
     const preview = document.getElementById('preview')
 
-    let facingMode = 'user'
+    let currentFacingMode = 'user'
 
     // Access the camera and stream the video
     navigator.mediaDevices.getUserMedia({
@@ -122,7 +122,7 @@
 
         const newStream = await navigator.mediaDevices.getUserMedia({
             video: {
-                facingMode
+                facingMode: currentFacingMode
             }
         });
 
