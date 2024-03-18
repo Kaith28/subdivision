@@ -31,7 +31,8 @@ class GuestController extends Controller
 
         $guests->where('company_id', $user->company->id);
 
-        $guests = $guests->with('user')->get();
+        $guests = $guests->with('user')->with('user')->orderBy('created_at', 'desc') // Replace 'column_name' with the actual column name you want to sort by
+            ->paginate(15);
 
         $list = [];
         foreach ($guests as $guest) {
@@ -50,7 +51,8 @@ class GuestController extends Controller
         }
 
         return view('guest.guest', [
-            'guests' => $list,
+            'guests' => $guests,
+            'list' => $list,
             'name' => $name,
             'startDate' => $startDate,
             'endDate' => $endDate,

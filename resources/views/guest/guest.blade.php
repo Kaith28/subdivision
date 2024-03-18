@@ -63,7 +63,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($guests as $guest)
+                        @foreach ($list as $guest)
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
                                 <td class="px-2 text-center">{{ $guest['guard'] }}</td>
                                 <td class="px-2 text-center text-sm">
@@ -109,6 +109,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="pt-4">
+                    {{ $guests->links() }}
+                </div>
             </div>
         </div>
     </div>
