@@ -59,7 +59,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($records as $record)
+                        @foreach ($list as $record)
                             <tr class="hover:bg-gray-200 rounded-md" rounded-md>
                                 <td class="px-2 text-center">{{ $record['guard'] }}</td>
                                 <td class="px-2 text-center text-sm">
@@ -87,6 +87,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="pt-4">
+                    {{ $records->links() }}
+                </div>
             </div>
         </div>
     </div>

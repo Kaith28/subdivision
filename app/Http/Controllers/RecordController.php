@@ -26,7 +26,8 @@ class RecordController extends Controller
         $records = $records->whereHas('user', function ($query) use ($name, $user) {
             $query->where('name', 'like', '%' . $name . '%');
             $query->where('company_id', $user->company->id);
-        })->with('user')->get();
+        })->with('user')->orderBy('in', 'desc') // Replace 'column_name' with the actual column name you want to sort by
+            ->paginate(15);
 
         $list = [];
         foreach ($records as $record) {
@@ -43,7 +44,8 @@ class RecordController extends Controller
         }
 
         return view('record.record', [
-            'records' => $list,
+            'records' => $records,
+            'list' => $list,
             'name' => $name,
             'startDate' => $startDate,
             'endDate' => $endDate,
