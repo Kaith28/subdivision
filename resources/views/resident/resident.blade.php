@@ -122,6 +122,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="pt-4">
+                    {{ $users->links() }}
+                </div>
             </div>
         </div>
     </div>

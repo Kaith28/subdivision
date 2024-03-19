@@ -27,7 +27,8 @@ class ResidentController extends Controller
         $users->where('is_deleted', false);
         $users->where('company_id', $user->company->id);
 
-        $users = $users->get();
+        $users = $users->orderBy('created_at', 'desc') // Replace 'column_name' with the actual column name you want to sort by
+            ->paginate(15);
 
         return view('resident.resident', [
             'users' => $users,
