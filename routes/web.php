@@ -132,7 +132,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/events/{id}', [EventsController::class, 'show'])->name('events.show');
     Route::get('/events/{id}/edit', [EventsController::class, 'edit'])->name('events.edit');
     Route::post('/events/{id}', [EventsController::class, 'update'])->name('events.update');
-    Route::post('/announcement/{id}/destroy', [EventsController::class, 'destroy'])->name('events.destroy');
+    Route::post('/events/{id}/destroy', [EventsController::class, 'destroy'])->name('events.destroy');
 });
 
 /**
