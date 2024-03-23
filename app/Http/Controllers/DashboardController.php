@@ -14,6 +14,20 @@ class DashboardController extends Controller
     {
         $user = $request->user();
 
+        // Check if not owner
+        if ($user->role !== "owner") {
+            abort(404);
+        }
+
+        // Check subscription expiry
+        $company = $user->company;
+        $expiryDate = Carbon::createFromFormat('Y-m-d H:i:s', $company->subscription->expiration)->tz('Asia/Manila');
+        $expiryWarningMessage = null;
+
+        if ($expiryDate->diffInDays(Carbon::now()) == 7) {
+            $expiryWarningMessage = "Your subscription will expire in 7 days. Please renew to continue enjoying our services.";
+        }
+
         $timePeriod = $request->input('time-period');
 
         $totalResidents = User::where('role', 'resident')->where('company_id', $user->company->id)->count();
@@ -102,7 +116,8 @@ class DashboardController extends Controller
             'totalOutGuests' => $totalOutGuests,
             'dataOne' => $dataOne,
             'dataTwo' => $dataTwo,
-            'timePeriod' => $timePeriod
+            'timePeriod' => $timePeriod,
+            'expiryWarningMessage' => $expiryWarningMessage, // Pass expiry warning message to the view
         ]);
     }
 }

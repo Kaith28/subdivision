@@ -23,11 +23,21 @@ class BillingController extends Controller
 
         $company = $user->company;
 
+        // Check if subscription is expiring in 7 days
+        $expiryDate = Carbon::createFromFormat('Y-m-d H:i:s', $company->subscription->expiration)->tz('Asia/Manila');
+        $expiryWarningMessage = null;
+
+        if ($expiryDate->diffInDays(Carbon::now()) == 7) {
+            $expiryWarningMessage = "Your subscription will expire in 7 days. Please renew to continue enjoying our services.";
+        }
+
         return view('billing.billing', [
-            'expiration' => Carbon::createFromFormat('Y-m-d H:i:s', $company->subscription->expiration)->tz('Asia/Manila')->format('F j, Y g:i a'),
-            'transactions' => $company->transactions()->where('complete', true)->get()
+            'expiration' => $expiryDate->format('F j, Y g:i a'),
+            'transactions' => $company->transactions()->where('complete', true)->get(),
+            'expiryWarningMessage' => $expiryWarningMessage,
         ]);
     }
+
 
     public function extend(Request $request)
     {
