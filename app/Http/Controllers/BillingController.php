@@ -51,7 +51,7 @@ class BillingController extends Controller
                         'product_data' => [
                             'name' => 'Your Product Name',
                         ],
-                        'unit_amount' => 1000, // in cents
+                        'unit_amount' => 7000, // in cents
                     ],
                     'quantity' => 1,
                 ],
@@ -63,7 +63,7 @@ class BillingController extends Controller
 
         Transaction::create([
             "company_id" => $company->id,
-            "amount" => 1000, // in cents
+            "amount" => 7000, // in cents
             "checkout_session_id" => $session->id,
         ]);
 

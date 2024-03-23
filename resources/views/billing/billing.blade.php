@@ -42,7 +42,7 @@
 
                     @foreach ($transactions as $transaction)
                         <div class="p-2 rounded-md shadow-md font-semibold flex justify-between gap-4 bg-gray-200">
-                            <p> ${{ $transaction->amount }}</p>
+                            <p> ${{ number_format($transaction->amount / 100, 2) }}</p>
                             <p> {{ $transaction->created_at }}</p>
                         </div>
                     @endforeach
