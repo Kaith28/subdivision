@@ -21,6 +21,15 @@
             </div>
         </div>
     @endif
+    <!-- Add this section to display the Bulletin Board URL -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="mt-4">
+            <label class="text-sm font-semibold">Bulletin Board URL:</label>
+            <a href="{{ $bulletinBoardUrl }}" target="_blank">smartsubdivision.xyz/{{ $bulletinBoardUrl }}</a>
+
+        </div>
+    </div>
+
     <section>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-5 ">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-20 pt-10 ">

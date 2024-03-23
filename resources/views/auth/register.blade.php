@@ -12,17 +12,17 @@
         <!-- Company name -->
         <div class="mt-4">
             <label class="text-sm">Company Name</label>
-            <div class="font-bold text-xs justify text-gray-400 italic"> * Please remember the company name you typed,
-                as it will
+            <div class="font-bold text-xs justify text-gray-400 italic"> * It will
                 be
                 used in the
                 URL of our
-                Bulletin board smartsubdivision.xyz(spaces in the company name should be replaced with dashes)
+                Bulletin board
             </div>
             <x-text-input id="company_name" class="block mt-1 w-full" type="text" name="company_name"
                 :value="old('company_name')" required autofocus autocomplete="company_name" />
             <x-input-error :messages="$errors->get('company_name')" class="mt-2" />
         </div>
+
 
         <!-- Email Address -->
         <div class="mt-4">

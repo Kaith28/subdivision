@@ -7,6 +7,8 @@ use App\Models\Record;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class DashboardController extends Controller
 {
@@ -118,6 +120,7 @@ class DashboardController extends Controller
             'dataTwo' => $dataTwo,
             'timePeriod' => $timePeriod,
             'expiryWarningMessage' => $expiryWarningMessage, // Pass expiry warning message to the view
+            'bulletinBoardUrl' => $user->company->slug, // Pass the bulletin board URL to the view
         ]);
     }
 }
