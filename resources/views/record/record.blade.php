@@ -106,9 +106,14 @@
                             </div>
                             <div>
                                 <button type="submit"
-                                    class="bg-orange-300 hover:bg-orange-200 text-white font-bold py-2 px-4 rounded">
+                                    class="bg-orange-200 hover:bg-orange-300 text-white font-bold py-2 px-4 rounded">
                                     Download Records
                                 </button>
+                            </div>
+                            <div class="bg-orange-200 hover:bg-orange-300 text-white font-bold py-2 px-4 rounded">
+                                <a href="/Report_form.docx">
+                                    Report form
+                                </a>
                             </div>
                         </div>
                     </form>
