@@ -17,11 +17,12 @@
     <div class="py-12">
         <div class="flex flex-col items-center shadow-lg rounded-md p-4">
 
-            <form class="w-96" method="POST" action={{ route('announcement.update', $announcement->id) }}>
+            <form id="form" class="w-96" method="POST"
+                action={{ route('announcement.update', $announcement->id) }}>
                 @csrf
 
                 <!-- Title -->
-                <div class="mt-4">
+                <div class="mb-4">
                     <x-input-label for="title" :value="__('Title')" />
                     <x-text-input id="title" class="block mt-1 w-full" type="text" name="title"
                         :value="$announcement->title" required autofocus autocomplete="title" />
@@ -29,14 +30,11 @@
                 </div>
 
                 <!-- Body -->
-                <div class="mt-4">
-                    <x-input-label for="body" :value="__('Body')" />
-                    <textarea id="body" class="w-full mt-1 w-full rounded-md" type="text" name="body" rows="6" required
-                        autofocus autocomplete="body">
-                        {{ $announcement->body }}
-                        </textarea>
-                    <x-input-error :messages="$errors->get('body')" class="mt-2" />
-                </div>
+                <!-- Body -->
+                <div id="editor" class="mb-4"></div>
+
+                <!-- Hidden input field to store editor content -->
+                <textarea name="body" id="body" style="display: none;"></textarea>
 
                 <!-- Update -->
                 <div class="mt-4">
@@ -47,3 +45,44 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    // Example Quill content
+    var quillContent = "{!! $announcement->body !!}";
+
+    // Initialize Quill in read-only mode
+    var quill = new Quill('#editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{
+                    'header': [1, 2, false]
+                }],
+                ['bold', 'italic', 'underline'],
+                ['link', 'image'],
+                [{
+                    'list': 'ordered'
+                }, {
+                    'list': 'bullet'
+                }],
+                ['clean']
+            ]
+        }
+    });
+
+    // Set the HTML content
+    quill.root.innerHTML = quillContent;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('form'); // Get the form element
+
+        // Add event listener for form submission
+        form.addEventListener('submit', function(event) {
+            // Retrieve the HTML content of the Quill editor
+            var editorContent = document.querySelector('#editor .ql-editor').innerHTML;
+
+            // Set the content of the hidden textarea field
+            document.querySelector('#body').value = editorContent;
+        });
+    });
+</script>

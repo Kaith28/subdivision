@@ -16,10 +16,10 @@
 
     <div class="py-12">
         <div class="flex flex-col items-center shadow-lg rounded-md p-4">
-            <form class="w-96" method="POST" action=""enctype="multipart/form-data">
+            <form id="form" method="POST" action="" enctype="multipart/form-data">
                 @csrf
                 <!-- Title -->
-                <div>
+                <div class="mb-4">
                     <x-input-label for="title" :value="__('Title')" />
                     <x-text-input id="title" class="block mt-1 w-full" type="text" name="title"
                         :value="old('title')" required autofocus autocomplete="title" />
@@ -27,25 +27,20 @@
                 </div>
 
                 <!-- Body -->
-                <div class="mt-4">
-                    <x-input-label for="body" :value="__('Body')" />
-                    <textarea id="body" class="block mt-1 w-full rounded-md" type="text" name="body" :value="old('body')"
-                        rows="6" required autofocus autocomplete="body"></textarea>
-                    <x-input-error :messages="$errors->get('body')" class="mt-2" />
-                </div>
+                <div id="editor" class="mb-4"></div>
+
+                <!-- Hidden input field to store editor content -->
+                <textarea name="body" id="body" style="display: none;"></textarea>
 
                 <!-- Upload photo Cover -->
-
                 <div class="mb-4">
                     <label for="photo" class="block text-sm font-semibold text-gray-600">Add Photo</label>
                     <input type="file" id="photo" name="photo"
                         class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
                 </div>
 
-
-
                 <!-- Add -->
-                <div class=" mt-4">
+                <div>
                     <x-primary-button>
                         {{ __('Add') }}
                     </x-primary-button>
@@ -55,3 +50,37 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    var quill = new Quill('#editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{
+                    'header': [1, 2, false]
+                }],
+                ['bold', 'italic', 'underline'],
+                ['link', 'image'],
+                [{
+                    'list': 'ordered'
+                }, {
+                    'list': 'bullet'
+                }],
+                ['clean']
+            ]
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('form'); // Get the form element
+
+        // Add event listener for form submission
+        form.addEventListener('submit', function(event) {
+            // Retrieve the HTML content of the Quill editor
+            var editorContent = document.querySelector('#editor .ql-editor').innerHTML;
+
+            // Set the content of the hidden textarea field
+            document.querySelector('#body').value = editorContent;
+        });
+    });
+</script>

@@ -17,10 +17,10 @@ class DashboardController extends Controller
         $user = $request->user();
 
         // Check if not owner
-        if ($user->role !== "owner") {
+        /* if ($user->role !== "owner") {
             abort(404);
         }
-
+ */
         // Check subscription expiry
         $company = $user->company;
         $expiryDate = Carbon::createFromFormat('Y-m-d H:i:s', $company->subscription->expiration)->tz('Asia/Manila');
