@@ -159,6 +159,11 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
     Route::get('/records', [RecordController::class, 'index'])->name('record');
 });
 
+/**
+ * All Record route for download
+ */
+Route::get('/download-records', [RecordController::class, 'downloadRecords'])->name('download.records');
+
 require __DIR__ . '/auth.php';
 
 /**

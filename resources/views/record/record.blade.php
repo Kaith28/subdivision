@@ -47,6 +47,7 @@
                     </div>
                 </form>
             </div>
+
             <div class="pt-8 ">
                 <table class="w-full  rounded-lg shadow-lg">
                     <thead>
@@ -89,6 +90,28 @@
                 </table>
                 <div class="pt-4">
                     {{ $records->links() }}
+                </div>
+
+                <!-- Form to specify dates for downloading records -->
+                <div class="pt-8">
+                    <form action="{{ route('download.records') }}" method="GET" class="mt-4">
+                        <div class="flex gap-4">
+                            <div>
+                                <label for="start_date">Start Date:</label>
+                                <input type="date" id="start_date" name="start_date" class="rounded-md">
+                            </div>
+                            <div>
+                                <label for="end_date">End Date:</label>
+                                <input type="date" id="end_date" name="end_date" class="rounded-md">
+                            </div>
+                            <div>
+                                <button type="submit"
+                                    class="bg-orange-300 hover:bg-orange-200 text-white font-bold py-2 px-4 rounded">
+                                    Download Records
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

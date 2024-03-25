@@ -51,4 +51,37 @@ class RecordController extends Controller
             'endDate' => $endDate,
         ]);
     }
+
+    public function downloadRecords(Request $request)
+    {
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+
+        $records = Record::query();
+
+        if ($startDate !== null && $endDate !== null) {
+            $records->orWhereBetween('in', [Carbon::parse($startDate), Carbon::parse($endDate)])
+                ->orWhereBetween('out', [Carbon::parse($startDate), Carbon::parse($endDate)]);
+        }
+
+        $records = $records->get();
+
+        $list = [];
+        foreach ($records as $record) {
+
+            $guard = User::findOrFail($record->in_charge_id);
+
+            $list[] = [
+                'id' => $record->id,
+                'guard' => $guard->name,
+                'user' => $record->user,
+                'in' => $record->in === null ? "" :  Carbon::createFromFormat('Y-m-d H:i:s', $record->in)->tz('Asia/Manila')->format('F j, Y g:i a'),
+                'out' => $record->out === null ? "" :  Carbon::createFromFormat('Y-m-d H:i:s', $record->out)->tz('Asia/Manila')->format('F j, Y g:i a')
+            ];
+        }
+
+        return view('record.print', [
+            'list' => $list
+        ]);
+    }
 }
