@@ -117,7 +117,7 @@
     </div>
 
     <script>
-        const guests = @json($guests);
+        const guests = @json($list);
 
         function updateTimers() {
             guests.forEach(guest => {

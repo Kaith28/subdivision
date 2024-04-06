@@ -45,7 +45,7 @@ class GuestController extends Controller
                 'name' => $guest->name,
                 'contact_no' => $guest->contact_no,
                 'user' => $guest->user,
-                'created_at' =>  Carbon::createFromFormat('Y-m-d H:i:s', $guest->created_at)->tz('Asia/Manila')->format('F j, Y g:i a'),
+                'created_at' => Carbon::createFromFormat('Y-m-d H:i:s', $guest->created_at)->tz('Asia/Manila')->format('F j, Y g:i a'),
                 'out' => $guest->out === null ? "" :  Carbon::createFromFormat('Y-m-d H:i:s', $guest->out)->tz('Asia/Manila')->format('F j, Y g:i a')
             ];
         }
