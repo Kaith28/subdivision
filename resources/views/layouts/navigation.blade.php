@@ -23,7 +23,7 @@
 
                     @if (Auth::user()->role == 'owner')
                         <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
-                            {{ __('Admin') }}
+                            {{ __('Information Officer') }}
                         </x-nav-link>
                     @endif
                     @if (Auth::user()->role == 'admin' || Auth::user()->role == 'owner')
