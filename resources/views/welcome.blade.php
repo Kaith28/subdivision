@@ -59,7 +59,7 @@
                         Where Security Meets Innovation: Your Community's Shield.
                     </p>
                     <a href="/register" class="bg-orange-200 shadow-md rounded-md px-4 py-2 hover:bg-orange-300 w-fit">
-                        Get Started
+                        30 Days free trial!
                     </a>
                 </div>
 
@@ -69,6 +69,10 @@
             </div>
         </div>
     </section>
+
+    <div class="flex justify-center">
+        <img class="w-fit h-44 sm:h-96" src="/card.png" alt="">
+    </div>
 
     {{-- Features Section --}}
     <section>

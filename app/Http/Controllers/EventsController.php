@@ -17,7 +17,7 @@ class EventsController extends Controller
         foreach ($events as $event) {
             $list[] = [
                 'title' => $event->event_purpose . " (" . $event->organizer . ")",
-                'start' => $event->start_time,
+                'start' => $event->end_time,
                 'end' => $event->end_time,
             ];
         }
@@ -27,23 +27,28 @@ class EventsController extends Controller
         ]);
     }
 
-
-
-
-
-    public function create(Request $request)
-    {
-        $user = $request->user();
-        return view('events.create');
-    }
-
-
-
-
     public function store(Request $request)
     {
-        $user = $request->user();
-        return view('events.create');
+        $request->validate([
+            'organizer' => 'required',
+            'address' => 'required',
+            'contact_no' => 'required',
+            'event_location' => 'required',
+            'event_purpose' => 'required',
+            'estimated_attendees' => 'required',
+        ]);
+
+        Event::create([
+            'organizer' => $request->organizer,
+            'address' => $request->address,
+            'contact_no' => $request->contact_no,
+            'event_location' => $request->event_location,
+            'event_purpose' => $request->event_purpose,
+            'estimated_attendees' => $request->estimated_attendees,
+            'start_time' => $request->date,
+            'end_time' => $request->date,
+        ]);
+        return redirect()->route('events')->with('success', 'New event added');
     }
 
 

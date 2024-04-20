@@ -127,13 +127,15 @@ Route::middleware(['auth', 'verified', 'guard'])->group(function () {
  */
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/events', [EventsController::class, 'index'])->name('events');
-    Route::get('/events/create', [EventsController::class, 'create'])->name('events.create');
     Route::post('/events/create', [EventsController::class, 'store'])->name('events.store');
     Route::get('/events/{id}', [EventsController::class, 'show'])->name('events.show');
     Route::get('/events/{id}/edit', [EventsController::class, 'edit'])->name('events.edit');
     Route::post('/events/{id}', [EventsController::class, 'update'])->name('events.update');
     Route::post('/events/{id}/destroy', [EventsController::class, 'destroy'])->name('events.destroy');
 });
+
+Route::post('/store-date', 'DateController@store')->name('store_date');
+
 
 /**
  * Tricycle Driver routes
