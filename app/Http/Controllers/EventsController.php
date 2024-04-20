@@ -19,6 +19,7 @@ class EventsController extends Controller
                 'title' => $event->event_purpose . " (" . $event->organizer . ")",
                 'start' => $event->end_time,
                 'end' => $event->end_time,
+                'url' => route('events.show', ['id' => $event->id])
             ];
         }
 
@@ -51,16 +52,11 @@ class EventsController extends Controller
         return redirect()->route('events')->with('success', 'New event added');
     }
 
-
-
-
     public function show(Request $request)
     {
-        $user = $request->user();
+        $event = Event::findOrFail($request->id);
+        return view('events.show')->with('event', $event);
     }
-
-
-
 
     public function edit(Request $request)
     {
@@ -68,17 +64,11 @@ class EventsController extends Controller
         return view('events.edit');
     }
 
-
-
-
     public function update(Request $request)
     {
         $user = $request->user();
         return view('events.update');
     }
-
-
-
 
     public function destroy(Request $request)
     {
