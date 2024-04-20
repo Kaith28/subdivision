@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\EventGuest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class EventsController extends Controller
 {
@@ -74,5 +76,39 @@ class EventsController extends Controller
     {
         $user = $request->user();
         return view('events.destroy');
+    }
+
+    public function createGuest(Request $request)
+    {
+        return view('events.guest.create');
+    }
+
+    public function storeGuest(Request $request)
+    {
+        $id = $request->id;
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'contact_no' => ['required', 'string', 'max:255'],
+            'photo' => ['required', 'string']
+        ]);
+
+
+        $imageData = $request->input('photo');
+        $decodedImage = base64_decode(preg_replace('/^data:image\/(png|jpeg|jpg);base64,/', '', $imageData));
+        $imageName = $request->name . Str::random(20) . '.png';
+        file_put_contents(public_path('images/' . $imageName), $decodedImage);
+        $imagePath = '/images/' . $imageName;
+
+
+        EventGuest::create([
+            'event_id' => $request->id,
+            'name' => $request->name,
+            'contact_no' => $request->contact_no,
+            'photo' => $imagePath,
+
+        ]);
+
+        return redirect()->route('events.show', ['id' => $id]);
     }
 }

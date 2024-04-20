@@ -19,4 +19,9 @@ class Event extends Model
         'start_time',
         'end_time',
     ];
+
+    public function eventGuests()
+    {
+        return $this->hasMany(EventGuest::class);
+    }
 }
