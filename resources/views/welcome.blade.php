@@ -74,6 +74,31 @@
         <img class="w-fit h-44 sm:h-96" src="/card.png" alt="">
     </div>
 
+    <section>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center pb-10">
+                <h2 class="text-4xl font-bold">Plans</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 ">
+                <div class="flex flex-col items-center  p-4">
+                    <img class=" w-fit h-44 sm:h-96 " src="/free.png" alt="">
+                    <p class="text-3xl ">
+
+                    </p>
+                </div>
+                <div class="flex flex-col items-center  p-4">
+                    <img class=" w-fit h-44 sm:h-96 " src="/50.png" alt="">
+                    <p class="text-3xl ">
+
+                    </p>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
     {{-- Features Section --}}
     <section>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

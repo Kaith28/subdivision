@@ -61,7 +61,7 @@ class BillingController extends Controller
                         'product_data' => [
                             'name' => 'Your Product Name',
                         ],
-                        'unit_amount' => 7000, // in cents
+                        'unit_amount' => 5000, // in cents
                     ],
                     'quantity' => 1,
                 ],
