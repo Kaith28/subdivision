@@ -20,10 +20,10 @@
                 <!-- Upload photo -->
                 <div class="mt-4">
                     <label class="text-sm">Add Picture</label>
-                    <div class="font-bold text-xs justify text-gray-400 italic">* We will use this to identify if you
+                    {{--  <div class="font-bold text-xs justify text-gray-400 italic">* We will use this to identify if you
                         are
                         really the one using your car.
-                    </div>
+                    </div> --}}
                     {{-- <input type="file" id="photo" name="photo"
                         class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-orange-300"> --}}
                     <input id="photo" type="hidden" name="photo" required>

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBigInteger('event_id')->nullable();
+            $table->unsignedBigInteger('in_charge_id')->nullable();
 
             $table->string('photo');
             $table->string('name');

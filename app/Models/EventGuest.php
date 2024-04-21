@@ -11,6 +11,7 @@ class EventGuest extends Model
 
     protected $fillable = [
         'event_id',
+        'in_charge_id',
         'photo',
         'name',
         'contact_no',

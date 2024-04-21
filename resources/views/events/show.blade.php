@@ -44,7 +44,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($guests->items() as $guest)
+                    @foreach ($list as $guest)
                         <tr class="hover:bg-gray-200 rounded-md" rounded-md>
                             <td class="px-2 text-center">{{ $guest['guard'] }}</td>
                             <td class="px-2 text-center text-sm">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\EventGuest;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -59,9 +61,25 @@ class EventsController extends Controller
         $event = Event::findOrFail($request->id);
         $guests = $event->eventGuests()->paginate(15);
 
+        $list = [];
+
+        foreach ($guests as $guest) {
+            $guard = User::findOrFail($guest->in_charge_id);
+
+            $list[] = [
+                'id' => $guest->id,
+                'guard' => $guard->name,
+                'name' => $guest->name,
+                'contact_no' => $guest->contact_no,
+                'created_at' => $guest->created_at === null ? "" :  Carbon::createFromFormat('Y-m-d H:i:s', $guest->created_at)->tz('Asia/Manila')->format('F j, Y g:i a'),
+                'out' => $guest->out === null ? "" :  Carbon::createFromFormat('Y-m-d H:i:s', $guest->out)->tz('Asia/Manila')->format('F j, Y g:i a')
+            ];
+        }
+
         return view('events.show', [
             'event' => $event,
-            'guests' => $guests
+            'guests' => $guests,
+            'list' => $list
         ]);
     }
 
@@ -90,6 +108,7 @@ class EventsController extends Controller
 
     public function storeGuest(Request $request)
     {
+        $user = $request->user();
         $id = $request->id;
 
         $request->validate([
@@ -108,6 +127,7 @@ class EventsController extends Controller
 
         EventGuest::create([
             'event_id' => $request->id,
+            'in_charge_id' => $user->id,
             'name' => $request->name,
             'contact_no' => $request->contact_no,
             'photo' => $imagePath,
