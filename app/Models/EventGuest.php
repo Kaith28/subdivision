@@ -13,7 +13,8 @@ class EventGuest extends Model
         'event_id',
         'photo',
         'name',
-        'contact_no'
+        'contact_no',
+        'out'
     ];
 
     public function event()

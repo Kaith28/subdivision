@@ -57,7 +57,12 @@ class EventsController extends Controller
     public function show(Request $request)
     {
         $event = Event::findOrFail($request->id);
-        return view('events.show')->with('event', $event);
+        $guests = $event->eventGuests()->paginate(15);
+
+        return view('events.show', [
+            'event' => $event,
+            'guests' => $guests
+        ]);
     }
 
     public function edit(Request $request)
@@ -110,5 +115,38 @@ class EventsController extends Controller
         ]);
 
         return redirect()->route('events.show', ['id' => $id]);
+    }
+
+    public function showGuest(Request $request)
+    {
+        $id = $request->id;
+        $guestId = $request->guest_id;
+
+        $event = Event::findOrFail($id);
+        $guest = $event->eventGuests()->findOrFail($guestId);
+
+        return view('events.guest.show', [
+            "event" => $event,
+            "guest" => $guest
+        ]);
+    }
+
+    public function destroyGuest(Request $request)
+    {
+        return view('events.guest.destroy');
+    }
+
+    public function guestOut(Request $request)
+    {
+        $id = $request->id;
+        $guestId = $request->guest_id;
+
+        $event = Event::findOrFail($id);
+        $guest = $event->eventGuests()->findOrFail($guestId);
+
+        $guest->out = date("Y-m-d H:i:s");
+        $guest->save();
+
+        return redirect()->route('events.show', $id)->with('success', 'Event Guest out successfully');
     }
 }

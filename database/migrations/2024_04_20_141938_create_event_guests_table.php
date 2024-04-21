@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('photo');
             $table->string('name');
             $table->string('contact_no');
+            $table->timestamp('out')->nullable();
             $table->timestamps();
         });
     }

@@ -131,9 +131,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/events/{id}', [EventsController::class, 'show'])->name('events.show');
     Route::get('/events/{id}/edit', [EventsController::class, 'edit'])->name('events.edit');
     Route::post('/events/{id}', [EventsController::class, 'update'])->name('events.update');
+    Route::post('/events/{id}/destroy', [EventsController::class, 'destroy'])->name('events.destroy');
+    // Events guest
     Route::get('/events/{id}/add-guest', [EventsController::class, 'createGuest'])->name('events.guest.create');
     Route::post('/events/{id}/add-guest', [EventsController::class, 'storeGuest'])->name('events.guest.store');
-    Route::post('/events/{id}/destroy', [EventsController::class, 'destroy'])->name('events.destroy');
+    Route::get('/events/{id}/guest/{guest_id}', [EventsController::class, 'showGuest'])->name('events.guest.show');
+    Route::post('/events/{id}/guest/{guest_id}/out', [EventsController::class, 'guestOut'])->name('events.guest.out');
 });
 
 Route::post('/store-date', 'DateController@store')->name('store_date');

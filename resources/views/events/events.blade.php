@@ -17,10 +17,14 @@
                     <input type="text" name="event_purpose" placeholder="Event purpose" class="w-full rounded-md">
                     <input type="number" name="estimated_attendees" placeholder="Est attendees"
                         class="w-full rounded-md">
+                    <input type="text" name="time" placeholder="Time" class="w-full rounded-md">
+
                     <input id="date" type="date" name="date" placeholder="Date" class="w-full rounded-md"
                         readonly>
-                    <button onclick="addEvent()">Add</button>
-                    <button onclick="cancel()">Cancel</button>
+                    <button class="px-4 py-2 flex items-center gap-2 bg-orange-200 hover:bg-orange-300 rounded-md"
+                        onclick="addEvent()">Add</button>
+                    <button class="px-4 py-2 flex items-center gap-2 bg-red-400 hover:bg-red-500 rounded-md"
+                        onclick="cancel()">Cancel</button>
                 </div>
             </div>
         </form>
