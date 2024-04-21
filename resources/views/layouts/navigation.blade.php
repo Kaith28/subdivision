@@ -12,13 +12,18 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+
                     @if (Auth::user()->role == 'owner' || Auth::user()->role == 'admin')
                         <x-nav-link :href="route('announcement')" :active="request()->routeIs('announcement')">
                             {{ __('Announcements') }}
                         </x-nav-link>
                     @endif
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+
+                    <x-nav-link :href="route('events')" :active="request()->routeIs('events')">
+                        {{ __('Events') }}
                     </x-nav-link>
 
                     @if (Auth::user()->role == 'owner')
@@ -35,6 +40,11 @@
                     <x-nav-link :href="route('resident')" :active="request()->routeIs('resident')">
                         {{ __('Resident') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('guest')" :active="request()->routeIs('guest')">
+                        {{ __('Guest') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('tricycledriver')" :active="request()->routeIs('tricycledriver')">
                         {{ __('Tricycle Driver') }}
                     </x-nav-link>
@@ -42,12 +52,8 @@
                     <x-nav-link :href="route('record')" :active="request()->routeIs('record')">
                         {{ __('All Records') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('guest')" :active="request()->routeIs('guest')">
-                        {{ __('Guest') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('events')" :active="request()->routeIs('events')">
-                        {{ __('Events') }}
-                    </x-nav-link>
+
+
 
 
                 </div>
