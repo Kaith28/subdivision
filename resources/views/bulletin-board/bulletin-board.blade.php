@@ -26,7 +26,7 @@
                 @foreach ($announcements as $announcement)
                     <a href="{{ route('bulletin-board.show', ['slug' => $announcement['slug'], 'id' => $announcement['id']]) }}"
                         class="rounded-md shadow-lg cursor-pointer">
-                        <img class=" w-full justify-stretch h-44 sm:h-96 rounded-t-lg object-cover"
+                        <img class=" w-full justify-stretch {{-- h-44 sm:h-96 --}} rounded-t-lg object-cover"
                             src="{{ $announcement['cover_photo'] }}" alt="">
                         <div class="flex flex-col gap-2 p-4">
                             <h3 class="text-lg font-bold">{{ $announcement['title'] }}</h3>

@@ -38,7 +38,7 @@
                 </form>
             @endif
         </div>
-        {{-- <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('guard.show', $user->id) }}"
+        {{-- <img src="https://quickchart.io/chart?chs=200x200&cht=qr&chl={{ route('guard.show', $user->id) }}"
             alt="QR Code" class="w-60 h-60"> --}}
     </div>
     <div class="py-12">

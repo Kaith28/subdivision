@@ -39,7 +39,7 @@
             @endif
         </div>
         <div>
-            <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('tricycledriver.show', $user->id) }}"
+            <img src="https://quickchart.io/chart?chs=200x200&cht=qr&chl={{ route('tricycledriver.show', $user->id) }}"
                 alt="QR Code" class="w-60 h-60">
             @if (Auth::user()->role == 'admin')
                 <button onclick="printImage('{{ route('tricycledriver.show', $user->id) }}', '{{ $user->name }}')"
@@ -93,7 +93,7 @@
 
 <script>
     function printImage(url, name) {
-        const qrCodeUrl = "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl" + encodeURIComponent(url);
+        const qrCodeUrl = "https://quickchart.io/chart?chs=200x200&cht=qr&chl" + encodeURIComponent(url);
         fetch(qrCodeUrl)
             .then(response => response.blob())
             .then(blob => {

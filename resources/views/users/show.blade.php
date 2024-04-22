@@ -11,14 +11,15 @@
             <p style="font-weight: bold;">{{ $user->address }} </p>
             <p style="font-style: italic;">{{ $user->role }}</p>
             <div>
-                
-                 <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('users.show', $user->id) }}" alt="QR Code" style="display: block; margin: 0 auto;" width="300">
-                
+
+                <img src="https://quickchart.io/chart?chs=200x200&cht=qr&chl={{ route('users.show', $user->id) }}"
+                    alt="QR Code" style="display: block; margin: 0 auto;" width="300">
+
             </div>
             <div class="container bg-secondary p-4">
                 <button class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Download
-                  </button>
+                </button>
             </div>
         </div>
     </div>

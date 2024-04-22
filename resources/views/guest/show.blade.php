@@ -18,7 +18,7 @@
             <img src="{{ $user->photo }}" alt="Photo" class="w-60 h-60">
         </div>
         <div>
-            <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ route('guest.show', $user->id) }}"
+            <img src="https://quickchart.io/chart?chs=200x200&cht=qr&chl={{ route('guest.show', $user->id) }}"
                 alt="QR Code" class="w-60 h-60">
             <button onclick="printImage('{{ route('guest.show', $user->id) }}', '{{ $user->name }}')"
                 class="w-full bottom-0 text-center cursor-pointer rounded-bl-lg rounded-br-lg bg-orange-300 text-white py-2 hover:bg-orange-200">
@@ -69,7 +69,7 @@
 
 <script>
     function printImage(url, name) {
-        const qrCodeUrl = "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl" + encodeURIComponent(url);
+        const qrCodeUrl = "https://quickchart.io/chart?chs=200x200&cht=qr&chl" + encodeURIComponent(url);
         fetch(qrCodeUrl)
             .then(response => response.blob())
             .then(blob => {
