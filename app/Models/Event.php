@@ -18,6 +18,7 @@ class Event extends Model
         'estimated_attendees',
         'start_time',
         'end_time',
+        'time',
     ];
 
     public function eventGuests()

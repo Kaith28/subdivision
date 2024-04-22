@@ -41,6 +41,7 @@ class EventsController extends Controller
             'event_location' => 'required',
             'event_purpose' => 'required',
             'estimated_attendees' => 'required',
+            'time' => 'required',
         ]);
 
         Event::create([
@@ -52,6 +53,8 @@ class EventsController extends Controller
             'estimated_attendees' => $request->estimated_attendees,
             'start_time' => $request->date,
             'end_time' => $request->date,
+            'time' => $request->time,
+
         ]);
         return redirect()->route('events')->with('success', 'New event added');
     }

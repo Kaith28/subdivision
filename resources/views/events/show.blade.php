@@ -18,6 +18,7 @@
             </p>
             <p class="font-bold text-xxl"> Estimated Attendees: <span
                     class="font-normal">{{ $event->estimated_attendees }}</span></p>
+            <p class="font-bold text-xxl"> Time: <span class="font-normal">{{ $event->time }}</span></p>
         </div>
 
         <div class=" flex items-end max-w-7xl mx-auto sm:px-10 lg:px-10 flex flex-col gap-4  ">
