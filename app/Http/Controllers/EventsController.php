@@ -20,7 +20,7 @@ class EventsController extends Controller
 
         foreach ($events as $event) {
             $list[] = [
-                'title' => $event->event_purpose . " (" . $event->organizer . ")",
+                'title' => $event->event_purpose . " (" . $event->time . ")",
                 'start' => $event->end_time,
                 'end' => $event->end_time,
                 'url' => route('events.show', ['id' => $event->id])
