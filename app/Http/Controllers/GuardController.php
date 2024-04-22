@@ -51,7 +51,7 @@ class GuardController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'contact_no' => ['required', 'string', 'max:255'],
-            'photo' => ['required', 'string']
+            /* 'photo' => ['required', 'string'] */
         ]);
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
