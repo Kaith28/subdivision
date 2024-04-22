@@ -1,6 +1,15 @@
 <x-app-layout>
 
-
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="mt-4">
+            <a class="bg-orange-200 hover:bg-orange-300 shadow-lg w-fit px-4 py-2 rounded-md"
+                href="{{ $bulletinBoardUrl }}" target="_blank">
+                <button>
+                    Go to Bulletin Board
+                </button>
+            </a>
+        </div>
+    </div>
     <div class="py-12">
         <div class=" max-w-7xl mx-auto sm:px-6 lg:px-8 ">
             <div class="flex justify-between items-center">

@@ -39,7 +39,8 @@ class AnnouncementController extends Controller
 
         return view('announcement.announcement', [
             'announcements' => $list,
-            "title" => $title
+            "title" => $title,
+            'bulletinBoardUrl' => $user->company->slug, // Pass the bulletin board URL to the view
         ]);
     }
 
