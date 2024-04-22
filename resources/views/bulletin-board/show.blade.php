@@ -39,7 +39,7 @@
 
     <script>
         // Example Quill content
-        var quillContent = "{!! $announcement['body'] !!}";
+        var quillContent = `{!! $announcement['body'] !!}`;
 
         // Initialize Quill in read-only mode
         var quill = new Quill('#body', {

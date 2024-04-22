@@ -58,10 +58,11 @@ class AnnouncementController extends Controller
 
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'body' => ['required', 'string'],
+            'body' => ['required'],
 
             // validate photo
         ]);
+
 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
