@@ -30,6 +30,7 @@
                     <input id="photo" type="hidden" name="photo" required>
                     <x-input-error :messages="$errors->get('photo')" class="mt-2" />
                     <img id="preview" width="400" height="300" class="hidden" />
+                    <video id="video" width="400" height="300" autoplay></video>
                     <div class=" flex justify-center">
                         <button class=" hover:bg-gray-200 rounded-md w-fit p-2" id="flipButton"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
