@@ -25,7 +25,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div class="mt-4">
             <label class="text-sm font-semibold">Bulletin Board URL:</label>
-            <a href="{{ $bulletinBoardUrl }}" target="_blank">smartsubdivision.xyz/{{ $bulletinBoardUrl }}</a>
+            <a class="bg-orange-200 hover:bg-orange-300 shadow-lg w-fit px-4 py-2 rounded-md "
+                href="{{ $bulletinBoardUrl }}" target="_blank">smartsubdivision.xyz/{{ $bulletinBoardUrl }}</a>
 
         </div>
     </div>

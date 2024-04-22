@@ -83,18 +83,13 @@
                 <div class="flex flex-col items-center  p-4">
                     <img class=" w-fit h-44 sm:h-96 " src="/free.png" alt="">
                     <p class="text-3xl ">
-
                     </p>
                 </div>
                 <div class="flex flex-col items-center  p-4">
                     <img class=" w-fit h-44 sm:h-96 " src="/50.png" alt="">
                     <p class="text-3xl ">
-
                     </p>
                 </div>
-
-
-
             </div>
         </div>
     </section>
