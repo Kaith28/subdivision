@@ -93,7 +93,7 @@
 
 <script>
     function printImage(url, name) {
-        const qrCodeUrl = "https://quickchart.io/chart?chs=200x200&cht=qr&chl" + encodeURIComponent(url);
+        const qrCodeUrl = "https://quickchart.io/chart?chs=200x200&cht=qr&chl=" + url;
         fetch(qrCodeUrl)
             .then(response => response.blob())
             .then(blob => {
