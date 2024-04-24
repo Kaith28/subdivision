@@ -116,7 +116,7 @@ class AnnouncementController extends Controller
 
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'body' => ['required', 'string'],
+            /*  'body' => ['required', 'string'], */
 
             // validate photo
         ]);
@@ -131,7 +131,7 @@ class AnnouncementController extends Controller
         }
 
         $announcement->title = $request->title;
-        $announcement->body = $request->body;
+        /*  $announcement->body = $request->body; */
         $announcement->save();
 
         return redirect()->route('announcement')->with('success', 'Updated announcement successfully');
