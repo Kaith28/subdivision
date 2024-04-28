@@ -34,12 +34,19 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'company_name' => ['required', 'string', 'max:255'],
-        ]);
+        $request->validate(
+            [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                'company_name' => ['required', 'string', 'max:255'],
+                'terms' => 'required|accepted',
+            ],
+            [
+                'terms.required' => 'You must agree to the terms and conditions.',
+                'terms.accepted' => 'You must agree to the terms and conditions.',
+            ]
+        );
 
         $slug = Str::slug($request->company_name);
 

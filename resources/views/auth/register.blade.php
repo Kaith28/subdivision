@@ -69,6 +69,21 @@
                 class="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-orange-300">
         </div>
 
+        {{-- Terms --}}
+        <div class="mt-4 flex flex-col gap-2">
+            <div class="flex items-center gap-2">
+                <input name="terms" type="checkbox" class="rounded-md">
+                <p class="text-sm">I agree to the <a href="/terms" class="underline">Terms of Service</a> and <a
+                        href="/policy" class="underline">Privacy
+                        Policy</a></p>
+            </div>
+            @if ($errors->has('terms'))
+                <div class="bg-red-200 rounded-md p-2">
+                    <p class="text-red-500 text-sm">{{ $errors->first('terms') }}</p>
+                </div>
+            @endif
+        </div>
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                 href="{{ route('login') }}">
