@@ -59,7 +59,7 @@
 
 
         const addEvent = () => {
-            console.log('add event')
+
         }
 
         const cancel = () => {

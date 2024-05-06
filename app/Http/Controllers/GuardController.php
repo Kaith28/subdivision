@@ -171,7 +171,7 @@ class GuardController extends Controller
 
         // Process and store guest information (you can save it to the database, etc.)
         // For now, let's just print the data
-        dd($validatedData);
+
     }
 
     public function changePhoto(Request $request)
